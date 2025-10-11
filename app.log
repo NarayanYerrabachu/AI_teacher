@@ -1,0 +1,132 @@
+2025-10-05 13:23:30,699 - main - INFO - Using FREE local HuggingFace embeddings - no API key needed!
+2025-10-05 13:23:30,699 - chunker - INFO - Initialized DocumentChunker with chunk_size=1000, chunk_overlap=200
+2025-10-05 13:23:30,700 - vector_store - INFO - Using HuggingFace embeddings: sentence-transformers/all-MiniLM-L6-v2
+2025-10-05 13:23:35,498 - vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-10-05 13:23:35,498 - main - INFO - Document Processing API initialized
+2025-10-05 13:23:35,503 - main - INFO - FastAPI application startup complete
+2025-10-05 13:23:44,416 - main - INFO - Testing embeddings...
+2025-10-05 13:23:45,283 - main - INFO - Generating test embedding with HuggingFace (sentence-transformers/all-MiniLM-L6-v2)...
+2025-10-05 13:23:45,342 - main - INFO - Embedding test successful. Type: HuggingFace (sentence-transformers/all-MiniLM-L6-v2), Dimension: 384
+2025-10-05 13:24:27,204 - main - INFO - Received request to upload 1 PDF files
+2025-10-05 13:24:27,217 - main - INFO - Saved uploaded file: RNN.pdf
+2025-10-05 13:24:27,217 - document_loader - INFO - Loading 1 PDF files
+2025-10-05 13:24:27,217 - document_loader - INFO - Loading PDF: uploads/RNN.pdf
+2025-10-05 13:24:27,265 - document_loader - INFO - Successfully loaded 18 pages from PDF: uploads/RNN.pdf
+2025-10-05 13:24:27,266 - document_loader - INFO - Successfully loaded 18 total pages from 1 PDFs
+2025-10-05 13:24:27,266 - main - INFO - Loaded 18 pages with total characters: 0
+2025-10-05 13:24:27,266 - chunker - INFO - Chunking 18 documents...
+2025-10-05 13:24:27,266 - chunker - INFO - Successfully created 0 chunks from 18 documents
+2025-10-05 13:27:59,231 - main - INFO - FastAPI application shutting down
+2025-10-05 13:28:01,778 - main - INFO - Using FREE local HuggingFace embeddings - no API key needed!
+2025-10-05 13:28:01,779 - chunker - INFO - Initialized DocumentChunker with chunk_size=1000, chunk_overlap=200
+2025-10-05 13:28:01,779 - vector_store - INFO - Using HuggingFace embeddings: sentence-transformers/all-MiniLM-L6-v2
+2025-10-05 13:28:06,561 - vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-10-05 13:28:06,561 - main - INFO - Document Processing API initialized
+2025-10-05 13:28:06,565 - main - INFO - FastAPI application startup complete
+2025-10-05 13:31:51,774 - main - INFO - Received request to upload 1 PDF files
+2025-10-05 13:31:51,775 - main - INFO - Saved uploaded file: 4-langchain-68e9cc06f637f2835b85b500fc05a452.pdf
+2025-10-05 13:31:51,775 - document_loader - INFO - Loading 1 PDF files
+2025-10-05 13:31:51,775 - document_loader - INFO - Loading PDF: uploads/4-langchain-68e9cc06f637f2835b85b500fc05a452.pdf
+2025-10-05 13:31:51,813 - document_loader - INFO - Successfully loaded 2 pages from PDF: uploads/4-langchain-68e9cc06f637f2835b85b500fc05a452.pdf
+2025-10-05 13:31:51,813 - document_loader - INFO - Successfully loaded 2 total pages from 1 PDFs
+2025-10-05 13:31:51,813 - main - INFO - Loaded 2 pages with total characters: 0
+2025-10-05 13:31:51,813 - chunker - INFO - Chunking 2 documents...
+2025-10-05 13:31:51,813 - chunker - INFO - Successfully created 0 chunks from 2 documents
+2025-10-05 13:32:24,021 - main - INFO - FastAPI application shutting down
+2025-10-05 13:32:32,057 - main - INFO - Using FREE local HuggingFace embeddings - no API key needed!
+2025-10-05 13:32:32,057 - chunker - INFO - Initialized DocumentChunker with chunk_size=1000, chunk_overlap=200
+2025-10-05 13:32:32,057 - vector_store - INFO - Using HuggingFace embeddings: sentence-transformers/all-MiniLM-L6-v2
+2025-10-05 13:32:37,335 - vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-10-05 13:32:37,335 - main - INFO - Document Processing API initialized
+2025-10-05 13:32:37,339 - main - INFO - FastAPI application startup complete
+2025-10-05 13:32:37,501 - main - INFO - Received request to upload 1 PDF files
+2025-10-05 13:32:37,511 - main - INFO - Saved uploaded file: 4-langchain-68e9cc06f637f2835b85b500fc05a452.pdf
+2025-10-05 13:32:37,511 - document_loader - INFO - Loading 1 PDF files
+2025-10-05 13:32:37,511 - document_loader - INFO - Loading PDF: uploads/4-langchain-68e9cc06f637f2835b85b500fc05a452.pdf
+2025-10-05 13:32:37,549 - document_loader - INFO - Successfully loaded 2 pages from PDF: uploads/4-langchain-68e9cc06f637f2835b85b500fc05a452.pdf
+2025-10-05 13:32:37,550 - document_loader - INFO - Successfully loaded 2 total pages from 1 PDFs
+2025-10-05 13:32:37,550 - main - INFO - Loaded 2 pages with total characters: 0
+2025-10-05 13:32:37,550 - chunker - INFO - Chunking 2 documents...
+2025-10-05 13:32:37,550 - chunker - INFO - Successfully created 0 chunks from 2 documents
+2025-10-05 13:34:46,003 - main - INFO - Received request to upload 1 PDF files
+2025-10-05 13:34:46,004 - main - INFO - Saved uploaded file: langchain-paper.pdf
+2025-10-05 13:34:46,004 - document_loader - INFO - Loading 1 PDF files
+2025-10-05 13:34:46,004 - document_loader - INFO - Loading PDF: uploads/langchain-paper.pdf
+2025-10-05 13:34:46,617 - document_loader - INFO - Successfully loaded 27 pages from PDF: uploads/langchain-paper.pdf
+2025-10-05 13:34:46,617 - document_loader - INFO - Successfully loaded 27 total pages from 1 PDFs
+2025-10-05 13:34:46,617 - main - INFO - Loaded 27 pages with total characters: 88101
+2025-10-05 13:34:46,617 - chunker - INFO - Chunking 27 documents...
+2025-10-05 13:34:46,619 - chunker - INFO - Successfully created 118 chunks from 27 documents
+2025-10-05 13:34:46,619 - main - INFO - Created 118 chunks
+2025-10-05 13:34:46,619 - vector_store - INFO - Loading existing vector store...
+2025-10-05 13:34:46,706 - vector_store - INFO - Vector store loaded successfully
+2025-10-05 13:34:46,706 - vector_store - INFO - Adding 118 chunks to existing vector store...
+2025-10-05 13:34:51,929 - vector_store - INFO - Documents added successfully to vector store
+2025-10-05 13:34:51,930 - main - INFO - Successfully processed 1 PDFs. Vector store updated.
+2025-10-05 13:35:55,584 - main - INFO - Received query request: 'What is LangChain?' with k=3
+2025-10-05 13:35:55,584 - vector_store - INFO - Loading existing vector store...
+2025-10-05 13:35:55,588 - vector_store - INFO - Vector store loaded successfully
+2025-10-05 13:35:55,588 - vector_store - INFO - Querying vector store with: 'What is LangChain?' (k=3)
+2025-10-05 13:35:55,631 - vector_store - INFO - Found 3 relevant chunks for query: 'What is LangChain?'
+2025-10-05 13:35:55,631 - main - INFO - Query completed successfully. Returning 3 results
+2025-10-05 13:37:34,354 - main - INFO - Received query request: 'What are the main components of LangChain?' with k=5
+2025-10-05 13:37:34,354 - vector_store - INFO - Loading existing vector store...
+2025-10-05 13:37:34,359 - vector_store - INFO - Vector store loaded successfully
+2025-10-05 13:37:34,359 - vector_store - INFO - Querying vector store with: 'What are the main components of LangChain?' (k=5)
+2025-10-05 13:37:34,384 - vector_store - INFO - Found 5 relevant chunks for query: 'What are the main components of LangChain?'
+2025-10-05 13:37:34,385 - main - INFO - Query completed successfully. Returning 5 results
+2025-10-05 13:37:34,442 - main - INFO - Received query request: 'How does LangChain handle document processing?' with k=3
+2025-10-05 13:37:34,442 - vector_store - INFO - Loading existing vector store...
+2025-10-05 13:37:34,449 - vector_store - INFO - Vector store loaded successfully
+2025-10-05 13:37:34,449 - vector_store - INFO - Querying vector store with: 'How does LangChain handle document processing?' (k=3)
+2025-10-05 13:37:34,472 - vector_store - INFO - Found 3 relevant chunks for query: 'How does LangChain handle document processing?'
+2025-10-05 13:37:34,473 - main - INFO - Query completed successfully. Returning 3 results
+2025-10-05 13:39:47,585 - main - INFO - Received request to upload 1 PDF files
+2025-10-05 13:39:47,586 - main - INFO - Saved uploaded file: langchain-paper.pdf
+2025-10-05 13:39:47,586 - document_loader - INFO - Loading 1 PDF files
+2025-10-05 13:39:47,586 - document_loader - INFO - Loading PDF: uploads/langchain-paper.pdf
+2025-10-05 13:39:48,152 - document_loader - INFO - Successfully loaded 27 pages from PDF: uploads/langchain-paper.pdf
+2025-10-05 13:39:48,152 - document_loader - INFO - Successfully loaded 27 total pages from 1 PDFs
+2025-10-05 13:39:48,152 - main - INFO - Loaded 27 pages with total characters: 88101
+2025-10-05 13:39:48,152 - chunker - INFO - Chunking 27 documents...
+2025-10-05 13:39:48,155 - chunker - INFO - Successfully created 118 chunks from 27 documents
+2025-10-05 13:39:48,155 - main - INFO - Created 118 chunks
+2025-10-05 13:39:48,155 - vector_store - INFO - Loading existing vector store...
+2025-10-05 13:39:48,159 - vector_store - INFO - Vector store loaded successfully
+2025-10-05 13:39:48,159 - vector_store - INFO - Adding 118 chunks to existing vector store...
+2025-10-05 13:39:53,486 - vector_store - INFO - Documents added successfully to vector store
+2025-10-05 13:39:53,487 - main - INFO - Successfully processed 1 PDFs. Vector store updated.
+2025-10-05 13:40:17,091 - main - INFO - Received query request: 'What are the main components of LangChain?' with k=5
+2025-10-05 13:40:17,091 - vector_store - INFO - Loading existing vector store...
+2025-10-05 13:40:17,095 - vector_store - INFO - Vector store loaded successfully
+2025-10-05 13:40:17,095 - vector_store - INFO - Querying vector store with: 'What are the main components of LangChain?' (k=5)
+2025-10-05 13:40:17,114 - vector_store - INFO - Found 5 relevant chunks for query: 'What are the main components of LangChain?'
+2025-10-05 13:40:17,114 - main - INFO - Query completed successfully. Returning 5 results
+2025-10-05 13:42:52,591 - main - INFO - Received query request: 'What training data was used?' with k=3
+2025-10-05 13:42:52,591 - vector_store - INFO - Loading existing vector store...
+2025-10-05 13:42:52,597 - vector_store - INFO - Vector store loaded successfully
+2025-10-05 13:42:52,597 - vector_store - INFO - Querying vector store with: 'What training data was used?' (k=3)
+2025-10-05 13:42:52,612 - vector_store - INFO - Found 3 relevant chunks for query: 'What training data was used?'
+2025-10-05 13:42:52,612 - main - INFO - Query completed successfully. Returning 3 results
+2025-10-05 13:43:08,710 - main - INFO - Received query request: 'What is the model architecture?' with k=3
+2025-10-05 13:43:08,710 - vector_store - INFO - Loading existing vector store...
+2025-10-05 13:43:08,715 - vector_store - INFO - Vector store loaded successfully
+2025-10-05 13:43:08,716 - vector_store - INFO - Querying vector store with: 'What is the model architecture?' (k=3)
+2025-10-05 13:43:08,737 - vector_store - INFO - Found 3 relevant chunks for query: 'What is the model architecture?'
+2025-10-05 13:43:08,737 - main - INFO - Query completed successfully. Returning 3 results
+2025-10-05 13:43:29,787 - main - INFO - Received request to process 1 web pages
+2025-10-05 13:43:29,787 - document_loader - INFO - Loading 1 web pages
+2025-10-05 13:43:30,155 - document_loader - INFO - Successfully loaded 1 web pages
+2025-10-05 13:43:30,156 - chunker - INFO - Chunking 1 documents...
+2025-10-05 13:43:30,157 - chunker - INFO - Successfully created 18 chunks from 1 documents
+2025-10-05 13:43:30,157 - vector_store - INFO - Loading existing vector store...
+2025-10-05 13:43:30,161 - vector_store - INFO - Vector store loaded successfully
+2025-10-05 13:43:30,161 - vector_store - INFO - Adding 18 chunks to existing vector store...
+2025-10-05 13:43:30,981 - vector_store - INFO - Documents added successfully to vector store
+2025-10-05 13:43:30,981 - main - INFO - Successfully processed 1 web pages. Vector store updated.
+2025-10-05 13:43:31,033 - main - INFO - Received query request: 'What are the main components of LangChain?' with k=5
+2025-10-05 13:43:31,033 - vector_store - INFO - Loading existing vector store...
+2025-10-05 13:43:31,037 - vector_store - INFO - Vector store loaded successfully
+2025-10-05 13:43:31,037 - vector_store - INFO - Querying vector store with: 'What are the main components of LangChain?' (k=5)
+2025-10-05 13:43:31,053 - vector_store - INFO - Found 5 relevant chunks for query: 'What are the main components of LangChain?'
+2025-10-05 13:43:31,053 - main - INFO - Query completed successfully. Returning 5 results
