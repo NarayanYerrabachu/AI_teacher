@@ -49,7 +49,7 @@ The system consists of several components:
 Start the FastAPI server:
 
 ```bash
-pipenv run uvicorn main:app --reload
+uvicorn main:app --reload
 ```
 
 The API will be available at http://localhost:8000
