@@ -105,8 +105,27 @@ class ChromaVectorRepository(VectorRepository):
 
     def add_documents(self, documents: List[Document]) -> None:
         """Add documents to Chroma vector store"""
+        from pathlib import Path
         logger.info(f"Adding {len(documents)} documents to Chroma")
-        self.manager.add_documents(documents)
+
+        # Check if vector store exists and has documents
+        try:
+            vectorstore = self.manager.load_vector_store()
+            collection_count = vectorstore._collection.count()
+            logger.info(f"Vector store exists with {collection_count} documents")
+
+            if collection_count > 0:
+                # Vector store has documents, add to it
+                logger.info("Adding to existing vector store")
+                self.manager.add_documents(vectorstore, documents)
+            else:
+                # Vector store is empty, create fresh
+                logger.info("Vector store is empty, creating new one")
+                self.manager.create_vector_store(documents)
+        except Exception as e:
+            # Vector store doesn't exist or error loading, create it
+            logger.info(f"Creating new vector store (reason: {e})")
+            self.manager.create_vector_store(documents)
 
     def search(self, query: str, k: int = 4) -> List[Document]:
         """Search Chroma vector store for similar documents"""
@@ -223,7 +242,11 @@ class VectorStoreManagerSingleton(metaclass=SingletonMeta):
 
     def __getattr__(self, name):
         """Delegate all other methods to the wrapped manager"""
-        return getattr(self._manager, name)
+        try:
+            manager = object.__getattribute__(self, '_manager')
+            return getattr(manager, name)
+        except AttributeError:
+            raise AttributeError(f"'{type(self).__name__}' object has no attribute '{name}'")
 
     @classmethod
     def reset(cls):

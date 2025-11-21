@@ -49,7 +49,7 @@ class OCRPDFDocumentLoader(DocumentLoader):
     def load(self, file_path: str) -> List[Document]:
         """Load PDF with OCR fallback for scanned images"""
         logger.info(f"Loading PDF with OCRDocumentLoader: {file_path}")
-        return self.loader.load_document(file_path)
+        return self.loader.load_pdf(file_path)
 
 
 class DocumentLoaderFactory:

@@ -160,7 +160,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onMessagesChan
     <div className="chat-window">
       <div className="chat-header">
         <div className="header-content">
-          <h1>🤖 AI Teacher</h1>
+          <h1>🤖 AI Education System</h1>
           <p className="subtitle">RAG-powered AI Assistant</p>
         </div>
         <div className="header-actions">

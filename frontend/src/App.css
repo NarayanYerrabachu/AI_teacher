@@ -57,8 +57,7 @@ body {
 }
 
 .collapse-toggle {
-  position: absolute;
-  left: -16px;
+  position: fixed;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1000;
@@ -74,7 +73,36 @@ body {
   font-size: 16px;
   color: #667eea;
   box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
+}
+
+/* When mind map is collapsed - button at right edge of screen */
+.collapse-toggle.collapsed-btn {
+  right: 0;
+}
+
+/* When mind map is expanded - button at left edge of mind map (60% from left = 40% mind map width) */
+.collapse-toggle.expanded-btn {
+  right: calc(40% - 32px);
+}
+
+/* Responsive positioning for different screen sizes */
+@media (max-width: 1024px) {
+  .mindmap-section {
+    min-width: 400px;
+  }
+  .collapse-toggle.expanded-btn {
+    right: calc(400px - 32px);
+  }
+}
+
+@media (min-width: 1500px) {
+  .mindmap-section {
+    max-width: 600px;
+  }
+  .collapse-toggle.expanded-btn {
+    right: calc(600px - 32px);
+  }
 }
 
 .collapse-toggle:hover {

@@ -4,7 +4,6 @@ import logging
 from typing import List
 from pathlib import Path
 from langchain_core.documents import Document
-from langchain_community.document_loaders import PyPDFLoader, WebBaseLoader
 from pypdf import PdfReader
 
 logger = logging.getLogger(__name__)
@@ -152,8 +151,8 @@ class OCRDocumentLoader:
         if is_text_based:
             # Use standard PDF loader
             logger.info(f"Using standard text extraction for {pdf_path}")
-            loader = PyPDFLoader(pdf_path)
-            documents = loader.load()
+            from simple_document_loader import SimplePDFLoader
+            documents = SimplePDFLoader.load_pdf(pdf_path)
             logger.info(f"Loaded {len(documents)} pages from {pdf_path}")
             return documents
         else:
@@ -197,6 +196,7 @@ class OCRDocumentLoader:
         Returns:
             List of Document objects
         """
+        from langchain_community.document_loaders import WebBaseLoader
         logger.info(f"Loading {len(urls)} web pages")
         loader = WebBaseLoader(urls)
         documents = loader.load()

@@ -35,31 +35,42 @@ class SimpleChatService:
 
         # System message with context if using RAG
         if context == "NO_DOCUMENTS_FOUND":
-            # No relevant documents found - instruct to refuse
-            system_content = """You are a helpful AI assistant that ONLY answers questions based on a knowledge base.
+            # No relevant documents found - but allow greetings and test messages
+            system_content = """You are an AI teacher assistant with access to educational materials (Mathematics and English Class 9 textbooks).
 
-The knowledge base does not contain any information relevant to the user's question.
+IMPORTANT: The knowledge base does NOT contain any information relevant to the user's question.
 
-You MUST respond with: "I don't have information about that in my knowledge base. I can only answer questions based on the documents provided to me."
+INSTRUCTIONS:
+1. If the user's message is a greeting (hello, hi, hey) or test message (test, testing, AI test, etc.):
+   - Respond warmly and introduce yourself
+   - Mention that you can help with Mathematics and English Beehive textbook questions for Class 9
+   - Encourage them to ask about specific topics, chapters, or lessons
 
-DO NOT use your general knowledge or provide any other answer."""
+2. If the user asks a substantive question about topics NOT in the textbooks (e.g., history, science, current events):
+   - Politely explain that you can only answer questions about the Mathematics and English textbooks
+   - Suggest they ask about specific topics from those subjects
+
+3. DO NOT use your general knowledge to answer questions outside the textbooks."""
             messages.append({"role": "system", "content": system_content})
         elif context:
-            system_content = f"""You are an AI teacher assistant with access to educational materials.
+            system_content = f"""You are an AI teacher assistant with access to Mathematics and English Beehive textbooks for Class 9.
 
-CONTEXT PROVIDED:
+CONTEXT FROM KNOWLEDGE BASE:
 {context}
 
 INSTRUCTIONS:
-1. The context above was retrieved from the knowledge base and is RELEVANT to the user's question
+1. The context above has been retrieved from the textbooks because it matches the user's question
 2. Use the information from the context to answer the question
-3. You can explain and elaborate using your knowledge, but stay grounded in what the context says
-4. Use simple text formatting: write fractions as 3/2, not \\frac{{3}}{{2}}
-5. If the user is quoting or asking about text that appears in the context, acknowledge it and provide helpful information
+3. If the user asks about a chapter, lesson, poem, or topic:
+   - Check if the context contains information about it
+   - If yes, provide a helpful answer based on the context
+   - You can explain, summarize, and provide insights based on what's in the context
+4. Use simple, clear language appropriate for Class 9 students
+5. Format mathematical expressions simply: use 3/2 instead of \\frac{{3}}{{2}}
 
-ONLY refuse to answer if the context is completely unrelated or empty.
+If the context seems completely unrelated to the question (e.g., mathematics content for a question about English literature), then politely indicate that the retrieved context doesn't match the question topic.
 
-Now answer the user's question based on the context above."""
+Now answer the user's question based on the context provided."""
             messages.append({"role": "system", "content": system_content})
         else:
             messages.append({"role": "system", "content": "You are a helpful AI assistant."})
@@ -90,21 +101,30 @@ Now answer the user's question based on the context above."""
             if use_rag:
                 try:
                     vectorstore = self.vector_manager.load_vector_store()
-                    docs = vectorstore.similarity_search(message, k=Config.DEFAULT_SEARCH_K)
+                    # Use similarity_search_with_relevance_scores to get scores
+                    results = vectorstore.similarity_search_with_relevance_scores(message, k=Config.DEFAULT_SEARCH_K)
 
-                    if docs:
+                    # Filter by relevance threshold (0.2 = 20% similarity minimum - allows chapter title queries)
+                    RELEVANCE_THRESHOLD = 0.2
+                    relevant_docs = [(doc, score) for doc, score in results if score >= RELEVANCE_THRESHOLD]
+
+                    if relevant_docs:
+                        # We have relevant documents
+                        docs = [doc for doc, score in relevant_docs]
                         context = "\n\n".join([doc.page_content for doc in docs])
                         sources = [
                             {
                                 "content": doc.page_content[:200] + "...",
-                                "metadata": doc.metadata
+                                "metadata": doc.metadata,
+                                "relevance_score": f"{score:.2f}"
                             }
-                            for doc in docs
+                            for doc, score in relevant_docs
                         ]
+                        logger.info(f"Found {len(relevant_docs)} relevant documents (scores: {[f'{s:.2f}' for _, s in relevant_docs]})")
                         logger.info(f"Context preview (first 500 chars): {context[:500]}")
                     else:
-                        # No documents found - RAG mode should not answer
-                        logger.info("No documents found in vector store for RAG query")
+                        # No relevant documents found - RAG mode should not answer
+                        logger.info(f"No relevant documents found (best score: {results[0][1]:.2f} < threshold {RELEVANCE_THRESHOLD})")
                         context = "NO_DOCUMENTS_FOUND"
                 except Exception as e:
                     logger.warning(f"RAG retrieval failed: {e}, treating as no documents available")
@@ -147,26 +167,30 @@ Now answer the user's question based on the context above."""
             if use_rag:
                 try:
                     vectorstore = self.vector_manager.load_vector_store()
-                    docs = vectorstore.similarity_search(message, k=Config.DEFAULT_SEARCH_K)
-                    logger.info(f"Similarity search found {len(docs)} documents for query: '{message[:50]}'")
-                    if docs:
-                        doc_sources = [doc.metadata.get('source', 'unknown') for doc in docs]
-                        logger.info(f"Document sources: {doc_sources}")
+                    # Use similarity_search_with_relevance_scores to get scores
+                    results = vectorstore.similarity_search_with_relevance_scores(message, k=Config.DEFAULT_SEARCH_K)
 
-                    if docs:
+                    # Filter by relevance threshold (0.2 = 20% similarity minimum - allows chapter title queries)
+                    RELEVANCE_THRESHOLD = 0.2
+                    relevant_docs = [(doc, score) for doc, score in results if score >= RELEVANCE_THRESHOLD]
+
+                    if relevant_docs:
+                        # We have relevant documents
+                        docs = [doc for doc, score in relevant_docs]
                         context = "\n\n".join([doc.page_content for doc in docs])
                         sources = [
                             {
                                 "content": doc.page_content[:200] + "...",
-                                "metadata": doc.metadata
+                                "metadata": doc.metadata,
+                                "relevance_score": f"{score:.2f}"
                             }
-                            for doc in docs
+                            for doc, score in relevant_docs
                         ]
-                        logger.info(f"Using {len(docs)} documents as context")
+                        logger.info(f"Found {len(relevant_docs)} relevant documents (scores: {[f'{s:.2f}' for _, s in relevant_docs]})")
                         logger.info(f"Context preview (first 500 chars): {context[:500]}")
                     else:
-                        # No documents found - RAG mode should not answer
-                        logger.info("No documents found in vector store for RAG query")
+                        # No relevant documents found - RAG mode should not answer
+                        logger.info(f"No relevant documents found (best score: {results[0][1]:.2f} < threshold {RELEVANCE_THRESHOLD})")
                         context = "NO_DOCUMENTS_FOUND"
                 except Exception as e:
                     logger.warning(f"RAG retrieval failed: {e}, treating as no documents available")

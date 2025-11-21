@@ -6,9 +6,41 @@ from typing import List, Optional
 from langchain_openai import OpenAIEmbeddings
 from langchain_chroma import Chroma
 from langchain_core.documents import Document
+from langchain_core.embeddings import Embeddings
 from config import Config
 
 logger = logging.getLogger(__name__)
+
+
+class DirectOpenAIEmbeddings(Embeddings):
+    """Direct OpenAI embeddings wrapper that bypasses LangChain's client"""
+
+    def __init__(self, api_key: str, model: str, dimensions: int = None):
+        from openai import OpenAI
+        self.client = OpenAI(api_key=api_key)
+        self.model = model
+        self.dimensions = dimensions
+
+    def embed_documents(self, texts: List[str]) -> List[List[float]]:
+        """Embed a list of documents"""
+        kwargs = {"input": texts, "model": self.model}
+        if self.dimensions:
+            kwargs["dimensions"] = self.dimensions
+
+        logger.info(f"Calling OpenAI with model={self.model}, dimensions={self.dimensions}, num_texts={len(texts)}")
+        logger.debug(f"API key starts with: {self.client.api_key[:10]}...")
+        try:
+            response = self.client.embeddings.create(**kwargs)
+            logger.info(f"OpenAI call successful, got {len(response.data)} embeddings")
+            return [data.embedding for data in response.data]
+        except Exception as e:
+            logger.error(f"OpenAI API Error: {e}")
+            logger.error(f"Model: {self.model}, Dimensions: {self.dimensions}")
+            raise
+
+    def embed_query(self, text: str) -> List[float]:
+        """Embed a single query"""
+        return self.embed_documents([text])[0]
 
 
 class VectorStoreManager:
@@ -31,13 +63,17 @@ class VectorStoreManager:
         if embedding_function:
             self.embeddings = embedding_function
         elif Config.USE_OPENAI_EMBEDDINGS:
-            logger.info(f"Using OpenAI embeddings: {Config.EMBEDDING_MODEL}")
-            # OpenAIEmbeddings will create its own client with proper API endpoint
-            # chunk_size limits how many texts are sent per API request (OpenAI limit ~2048 tokens per request for embeddings)
-            self.embeddings = OpenAIEmbeddings(
+            logger.info(f"Using Direct OpenAI embeddings: {Config.EMBEDDING_MODEL}")
+            # Use direct OpenAI client to avoid LangChain routing issues
+            dimensions = None
+            if Config.EMBEDDING_MODEL.startswith("text-embedding-3") and hasattr(Config, 'EMBEDDING_DIMENSIONS'):
+                dimensions = Config.EMBEDDING_DIMENSIONS
+                logger.info(f"Using OpenAI embeddings with dimensions: {dimensions}")
+
+            self.embeddings = DirectOpenAIEmbeddings(
+                api_key=Config.OPENAI_API_KEY,
                 model=Config.EMBEDDING_MODEL,
-                openai_api_key=Config.OPENAI_API_KEY,
-                chunk_size=16  # Process 16 documents at a time to avoid API limits
+                dimensions=dimensions
             )
         else:
             logger.info(f"Using HuggingFace embeddings: {Config.EMBEDDING_MODEL}")

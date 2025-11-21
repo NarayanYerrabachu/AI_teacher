@@ -3,7 +3,6 @@
 
 import logging
 from typing import List
-from langchain_community.document_loaders import PyPDFLoader, WebBaseLoader
 from langchain_core.documents import Document
 
 logger = logging.getLogger(__name__)
@@ -25,8 +24,8 @@ class DocumentLoader:
         """
         logger.info(f"Loading PDF: {pdf_path}")
         try:
-            loader = PyPDFLoader(pdf_path)
-            documents = loader.load()
+            from simple_document_loader import SimplePDFLoader
+            documents = SimplePDFLoader.load_pdf(pdf_path)
             logger.info(f"Successfully loaded {len(documents)} pages from PDF: {pdf_path}")
             return documents
         except Exception as e:
@@ -65,6 +64,7 @@ class DocumentLoader:
         """
         logger.info(f"Loading {len(urls)} web pages")
         try:
+            from langchain_community.document_loaders import WebBaseLoader
             loader = WebBaseLoader(urls)
             documents = loader.load()
             logger.info(f"Successfully loaded {len(documents)} web pages")

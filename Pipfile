@@ -16,12 +16,12 @@ python-dotenv = "*"
 fastapi = "*"
 uvicorn = {extras = ["standard"], version = "*"}
 python-multipart = "*"
-sentence-transformers = "*"
 torch = "*"
 pytesseract = "*"
 pdf2image = "*"
 pillow = "*"
 openai = "*"
+sentence-transformers = "*"
 
 [dev-packages]
 pytest = "*"

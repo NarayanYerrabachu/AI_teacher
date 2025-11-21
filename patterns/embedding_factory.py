@@ -36,6 +36,7 @@ class OpenAIEmbeddingProvider(EmbeddingProvider):
         model: str,
         api_key: str,
         chunk_size: int = 16,
+        dimensions: int = None,
         **kwargs
     ) -> Any:
         """Create OpenAI embeddings
@@ -44,17 +45,18 @@ class OpenAIEmbeddingProvider(EmbeddingProvider):
             model: OpenAI model name (e.g., 'text-embedding-3-small')
             api_key: OpenAI API key
             chunk_size: Number of texts to embed per API call
+            dimensions: Embedding dimensions (for text-embedding-3-* models)
 
         Returns:
-            OpenAIEmbeddings instance
+            DirectOpenAIEmbeddings instance (bypasses LangChain routing issues)
         """
-        from langchain_openai import OpenAIEmbeddings
-        logger.info(f"Creating OpenAI embeddings with model: {model}")
+        from vector_store import DirectOpenAIEmbeddings
+        logger.info(f"Creating Direct OpenAI embeddings with model: {model}, dimensions: {dimensions}")
 
-        return OpenAIEmbeddings(
+        return DirectOpenAIEmbeddings(
+            api_key=api_key,
             model=model,
-            openai_api_key=api_key,
-            chunk_size=chunk_size
+            dimensions=dimensions
         )
 
 
@@ -167,7 +169,8 @@ class EmbeddingFactory:
                 provider='openai',
                 model=config.EMBEDDING_MODEL,
                 api_key=config.OPENAI_API_KEY,
-                chunk_size=16
+                chunk_size=16,
+                dimensions=config.EMBEDDING_DIMENSIONS
             )
         else:
             logger.info("Creating embeddings from config: HuggingFace")

@@ -16,14 +16,14 @@ function App() {
           messages={messages}
         />
       </div>
+      <button
+        className={`collapse-toggle ${isMindMapCollapsed ? 'collapsed-btn' : 'expanded-btn'}`}
+        onClick={() => setIsMindMapCollapsed(!isMindMapCollapsed)}
+        title={isMindMapCollapsed ? 'Show Mind Map' : 'Hide Mind Map'}
+      >
+        {isMindMapCollapsed ? '◀' : '▶'}
+      </button>
       <div className={`mindmap-section ${isMindMapCollapsed ? 'collapsed' : ''}`}>
-        <button
-          className="collapse-toggle"
-          onClick={() => setIsMindMapCollapsed(!isMindMapCollapsed)}
-          title={isMindMapCollapsed ? 'Show Mind Map' : 'Hide Mind Map'}
-        >
-          {isMindMapCollapsed ? '◀' : '▶'}
-        </button>
         <MindMap messages={messages} isCollapsed={isMindMapCollapsed} />
       </div>
     </div>
