@@ -10,7 +10,9 @@ cd /home/evocenta/PycharmProjects/AI_teacher
 
 # Load environment variables from .env file
 if [ -f .env ]; then
-    export $(grep -v '^#' .env | xargs)
+    set -a
+    source <(grep -v '^#' .env | grep -v '^$' | sed 's/#.*//')
+    set +a
 fi
 
 # Ensure OPENAI_API_BASE is unset (in case it was set elsewhere)

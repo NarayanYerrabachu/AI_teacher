@@ -12,12 +12,18 @@ import shutil
 from pathlib import Path
 
 from config import Config, setup_logging
-# from ocr_document_loader import OCRDocumentLoader  # TEMP: Causes std::bad_alloc with langchain_community
-from simple_document_loader import SimplePDFLoader
-from simple_chunker import SimpleDocumentChunker
 from models import StatusResponse, WebPageRequest, QueryResponse, QueryRequest, ChatRequest, ChatResponse
-from vector_store import VectorStoreManager
 from simple_chat_service import SimpleChatService
+
+# Import design patterns
+from patterns import (
+    DocumentLoaderFactory,
+    EmbeddingFactory,
+    ChunkingContext,
+    RecursiveChunkingStrategy,
+    create_vector_repository,
+    VectorStoreManagerSingleton
+)
 
 # Setup logging
 setup_logging()
@@ -51,10 +57,26 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize components
-loader = SimplePDFLoader()
-chunker = SimpleDocumentChunker()
-vector_manager = VectorStoreManager()
+# Initialize components using Design Patterns
+
+# Singleton Pattern - Vector Store Manager (ensures single instance)
+vector_manager = VectorStoreManagerSingleton()
+
+# Repository Pattern - Clean data access layer
+vector_repository = create_vector_repository(
+    repository_type="chroma",
+    vector_store_manager=vector_manager
+)
+
+# Strategy Pattern - Chunking strategy (can be changed at runtime)
+chunking_context = ChunkingContext(
+    RecursiveChunkingStrategy(
+        chunk_size=Config.CHUNK_SIZE,
+        chunk_overlap=Config.CHUNK_OVERLAP
+    )
+)
+
+# Chat service
 chat_service = SimpleChatService()
 
 # Create uploads directory
@@ -177,20 +199,33 @@ async def upload_pdf(files: List[UploadFile] = File(...)):
             pdf_paths.append(str(file_path))
             logger.info(f"Saved uploaded file: {file.filename}")
 
-        # Load PDFs
-        documents = loader.load_pdfs(pdf_paths)
+        # Factory Pattern: Load PDFs using appropriate loader
+        all_documents = []
+        for pdf_path in pdf_paths:
+            try:
+                # Factory automatically detects if OCR is needed
+                document_loader = DocumentLoaderFactory.create_loader(
+                    file_path=pdf_path,
+                    auto_detect=True  # Auto-detect scanned PDFs
+                )
+                documents = document_loader.load(pdf_path)
+                all_documents.extend(documents)
+                logger.info(f"Loaded {len(documents)} pages from {Path(pdf_path).name}")
+            except Exception as e:
+                logger.error(f"Error loading {pdf_path}: {e}")
+                raise HTTPException(status_code=400, detail=f"Error loading {Path(pdf_path).name}: {str(e)}")
 
-        if not documents:
+        if not all_documents:
             raise HTTPException(
                 status_code=400,
                 detail="No content could be extracted from the PDFs"
             )
 
         logger.info(
-            f"Loaded {len(documents)} pages with total characters: {sum(len(doc.page_content) for doc in documents)}")
+            f"Loaded {len(all_documents)} pages with total characters: {sum(len(doc.page_content) for doc in all_documents)}")
 
-        # Chunk documents
-        chunks = chunker.chunk_documents(documents)
+        # Strategy Pattern: Chunk documents using configured strategy
+        chunks = chunking_context.chunk_documents(all_documents)
 
         if not chunks:
             raise HTTPException(
@@ -198,17 +233,11 @@ async def upload_pdf(files: List[UploadFile] = File(...)):
                 detail="No chunks created from documents. Documents may be empty."
             )
 
-        logger.info(f"Created {len(chunks)} chunks")
+        logger.info(f"Created {len(chunks)} chunks using {chunking_context.strategy.__class__.__name__}")
 
-        # Create or update vector store
-        try:
-            vectorstore = vector_manager.load_vector_store()
-            vector_manager.add_documents(vectorstore, chunks)
-            action = "updated"
-        except Exception as load_error:
-            logger.info(f"Creating new vector store (could not load existing: {str(load_error)})")
-            vectorstore = vector_manager.create_vector_store(chunks)
-            action = "created"
+        # Repository Pattern: Add documents to vector store
+        vector_repository.add_documents(chunks)
+        action = "updated"
 
         logger.info(f"Successfully processed {len(files)} PDFs. Vector store {action}.")
         return StatusResponse(
@@ -238,25 +267,44 @@ async def process_webpages(request: WebPageRequest):
     urls = [str(url) for url in request.urls]
     logger.info(f"Received request to process {len(urls)} web pages")
     try:
-        # Load web pages
-        documents = loader.load_web_pages(urls)
+        # Load web pages using WebBaseLoader
+        from langchain_community.document_loaders import WebBaseLoader
 
-        # Chunk documents
-        chunks = chunker.chunk_documents(documents)
+        all_documents = []
+        for url in urls:
+            try:
+                web_loader = WebBaseLoader(url)
+                documents = web_loader.load()
+                all_documents.extend(documents)
+                logger.info(f"Loaded content from {url}")
+            except Exception as e:
+                logger.error(f"Error loading {url}: {e}")
+                raise HTTPException(status_code=400, detail=f"Error loading {url}: {str(e)}")
 
-        # Create or update vector store
-        try:
-            vectorstore = vector_manager.load_vector_store()
-            vector_manager.add_documents(vectorstore, chunks)
-            action = "updated"
-        except Exception:
-            vectorstore = vector_manager.create_vector_store(chunks)
-            action = "created"
+        if not all_documents:
+            raise HTTPException(
+                status_code=400,
+                detail="No content could be extracted from the URLs"
+            )
 
-        logger.info(f"Successfully processed {len(urls)} web pages. Vector store {action}.")
+        # Strategy Pattern: Chunk documents using configured strategy
+        chunks = chunking_context.chunk_documents(all_documents)
+
+        if not chunks:
+            raise HTTPException(
+                status_code=400,
+                detail="No chunks created from documents. Documents may be empty."
+            )
+
+        logger.info(f"Created {len(chunks)} chunks using {chunking_context.strategy.__class__.__name__}")
+
+        # Repository Pattern: Add documents to vector store
+        vector_repository.add_documents(chunks)
+
+        logger.info(f"Successfully processed {len(urls)} web pages. Vector store updated.")
         return StatusResponse(
             status="success",
-            message=f"Web pages processed successfully. Vector store {action}.",
+            message=f"Web pages processed successfully. Vector store updated.",
             details={
                 "urls_processed": len(urls),
                 "total_chunks": len(chunks),
@@ -264,6 +312,8 @@ async def process_webpages(request: WebPageRequest):
             }
         )
 
+    except HTTPException:
+        raise
     except Exception as e:
         logger.error(f"Error processing web pages: {str(e)}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
@@ -279,11 +329,8 @@ async def query_vector_store(request: QueryRequest):
     """
     logger.info(f"Received query request: '{request.query}' with k={request.k}")
     try:
-        # Load vector store
-        vectorstore = vector_manager.load_vector_store()
-
-        # Perform query
-        results = vector_manager.query(vectorstore, request.query, request.k)
+        # Repository Pattern: Search for similar documents
+        results = vector_repository.search(request.query, k=request.k)
 
         # Format results
         formatted_results = [
