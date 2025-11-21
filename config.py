@@ -30,6 +30,11 @@ class Config:
     # Search configuration
     DEFAULT_SEARCH_K = int(os.getenv("DEFAULT_SEARCH_K", "4"))
 
+    # LLM configuration
+    LLM_MODEL = os.getenv("LLM_MODEL", "gpt-3.5-turbo")
+    LLM_TEMPERATURE = float(os.getenv("LLM_TEMPERATURE", "0.7"))
+    MAX_HISTORY_MESSAGES = int(os.getenv("MAX_HISTORY_MESSAGES", "10"))
+
     # Logging configuration
     LOG_LEVEL = os.getenv("LOG_LEVEL", "INFO")
     LOG_FORMAT = "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
@@ -41,6 +46,11 @@ class Config:
             raise ValueError(
                 "OPENAI_API_KEY not found but USE_OPENAI_EMBEDDINGS is true. "
                 "Please set it in your .env file or set USE_OPENAI_EMBEDDINGS=false"
+            )
+        if not cls.OPENAI_API_KEY and cls.LLM_MODEL.startswith("gpt"):
+            raise ValueError(
+                "OPENAI_API_KEY not found but LLM_MODEL is set to OpenAI model. "
+                "Please set OPENAI_API_KEY in your .env file"
             )
 
 

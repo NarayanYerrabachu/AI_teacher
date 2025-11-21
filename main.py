@@ -4,15 +4,20 @@ import os
 import logging
 from typing import List, Optional
 from fastapi import FastAPI, UploadFile, File, HTTPException
+from fastapi.responses import StreamingResponse
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, HttpUrl
+import json
 import shutil
 from pathlib import Path
 
 from config import Config, setup_logging
-from document_loader import DocumentLoader
-from chunker import DocumentChunker
-from models import StatusResponse, WebPageRequest, QueryResponse, QueryRequest
+# from ocr_document_loader import OCRDocumentLoader  # TEMP: Causes std::bad_alloc with langchain_community
+from simple_document_loader import SimplePDFLoader
+from simple_chunker import SimpleDocumentChunker
+from models import StatusResponse, WebPageRequest, QueryResponse, QueryRequest, ChatRequest, ChatResponse
 from vector_store import VectorStoreManager
+from simple_chat_service import SimpleChatService
 
 # Setup logging
 setup_logging()
@@ -37,10 +42,20 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# Add CORS middleware for frontend integration
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # In production, specify exact origins
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Initialize components
-loader = DocumentLoader()
-chunker = DocumentChunker()
+loader = SimplePDFLoader()
+chunker = SimpleDocumentChunker()
 vector_manager = VectorStoreManager()
+chat_service = SimpleChatService()
 
 # Create uploads directory
 UPLOAD_DIR = Path("./uploads")
@@ -76,6 +91,10 @@ async def root():
                 "/upload-pdf - Upload and process PDF files",
                 "/process-webpages - Process web pages from URLs",
                 "/query - Query the vector store",
+                "/chat - Chat with AI (with optional RAG)",
+                "/chat/stream - Stream chat responses",
+                "/chat/history/{session_id} - Get chat history",
+                "/chat/clear/{session_id} - Clear chat session",
                 "/clear-vector-store - Clear all documents"
             ]
         }
@@ -310,6 +329,121 @@ async def clear_vector_store():
 
     except Exception as e:
         logger.error(f"Error clearing vector store: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/chat", response_model=ChatResponse)
+async def chat(request: ChatRequest):
+    """
+    Chat with the AI assistant
+
+    - **message**: User message
+    - **session_id**: Optional session ID for conversation continuity
+    - **use_rag**: Whether to use RAG (default: true)
+    """
+    logger.info(f"Received chat request: '{request.message[:50]}...' with RAG={request.use_rag}")
+    try:
+        response, session_id, sources = await chat_service.chat(
+            message=request.message,
+            session_id=request.session_id,
+            use_rag=request.use_rag
+        )
+
+        logger.info(f"Chat response generated for session {session_id}")
+        return ChatResponse(
+            response=response,
+            session_id=session_id,
+            sources=sources
+        )
+
+    except Exception as e:
+        logger.error(f"Error in chat: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/chat/stream")
+async def chat_stream(request: ChatRequest):
+    """
+    Stream chat responses from the AI assistant
+
+    - **message**: User message
+    - **session_id**: Optional session ID for conversation continuity
+    - **use_rag**: Whether to use RAG (default: true)
+    """
+    logger.info(f"Received streaming chat request: '{request.message[:50]}...'")
+
+    async def event_generator():
+        try:
+            async for chunk, session_id, sources in chat_service.chat_stream(
+                message=request.message,
+                session_id=request.session_id,
+                use_rag=request.use_rag
+            ):
+                # Send text chunks
+                if chunk:
+                    yield f"data: {json.dumps({'type': 'chunk', 'content': chunk})}\n\n"
+
+                # Send sources in final message
+                if sources is not None:
+                    yield f"data: {json.dumps({'type': 'sources', 'sources': sources, 'session_id': session_id})}\n\n"
+
+            yield f"data: {json.dumps({'type': 'done'})}\n\n"
+
+        except Exception as e:
+            logger.error(f"Error in streaming chat: {str(e)}", exc_info=True)
+            yield f"data: {json.dumps({'type': 'error', 'message': str(e)})}\n\n"
+
+    return StreamingResponse(
+        event_generator(),
+        media_type="text/event-stream",
+        headers={
+            "Cache-Control": "no-cache",
+            "Connection": "keep-alive",
+        }
+    )
+
+
+@app.get("/chat/history/{session_id}")
+async def get_chat_history(session_id: str):
+    """Get chat history for a session"""
+    logger.info(f"Retrieving history for session {session_id}")
+    try:
+        history = chat_service.get_session_history(session_id)
+
+        if history is None:
+            raise HTTPException(status_code=404, detail="Session not found")
+
+        return {
+            "session_id": session_id,
+            "history": history
+        }
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error retrieving chat history: {str(e)}", exc_info=True)
+        raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.delete("/chat/clear/{session_id}", response_model=StatusResponse)
+async def clear_chat_session(session_id: str):
+    """Clear a chat session"""
+    logger.info(f"Clearing session {session_id}")
+    try:
+        success = chat_service.clear_session(session_id)
+
+        if not success:
+            raise HTTPException(status_code=404, detail="Session not found")
+
+        return StatusResponse(
+            status="success",
+            message=f"Session {session_id} cleared successfully"
+        )
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error clearing session: {str(e)}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
 
 

@@ -9,7 +9,6 @@ langchain-community = "*"
 langchain-openai = "*"
 langchain-chroma = "*"
 chromadb = "*"
-openai = "*"
 pypdf = "*"
 beautifulsoup4 = "*"
 lxml = "*"
@@ -19,6 +18,10 @@ uvicorn = {extras = ["standard"], version = "*"}
 python-multipart = "*"
 sentence-transformers = "*"
 torch = "*"
+pytesseract = "*"
+pdf2image = "*"
+pillow = "*"
+openai = "*"
 
 [dev-packages]
 pytest = "*"

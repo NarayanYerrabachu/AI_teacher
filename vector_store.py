@@ -3,10 +3,9 @@
 
 import logging
 from typing import List, Optional
-from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_openai import OpenAIEmbeddings
 from langchain_chroma import Chroma
-from langchain.schema import Document
+from langchain_core.documents import Document
 from config import Config
 
 logger = logging.getLogger(__name__)
@@ -32,10 +31,17 @@ class VectorStoreManager:
         if embedding_function:
             self.embeddings = embedding_function
         elif Config.USE_OPENAI_EMBEDDINGS:
-            logger.info("Using OpenAI embeddings")
-            self.embeddings = OpenAIEmbeddings()
+            logger.info(f"Using OpenAI embeddings: {Config.EMBEDDING_MODEL}")
+            # OpenAIEmbeddings will create its own client with proper API endpoint
+            # chunk_size limits how many texts are sent per API request (OpenAI limit ~2048 tokens per request for embeddings)
+            self.embeddings = OpenAIEmbeddings(
+                model=Config.EMBEDDING_MODEL,
+                openai_api_key=Config.OPENAI_API_KEY,
+                chunk_size=16  # Process 16 documents at a time to avoid API limits
+            )
         else:
             logger.info(f"Using HuggingFace embeddings: {Config.EMBEDDING_MODEL}")
+            from langchain_huggingface import HuggingFaceEmbeddings
             self.embeddings = HuggingFaceEmbeddings(
                 model_name=Config.EMBEDDING_MODEL
             )

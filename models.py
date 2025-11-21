@@ -23,3 +23,20 @@ class StatusResponse(BaseModel):
     message: str
     details: Optional[dict] = None
 
+
+class ChatMessage(BaseModel):
+    role: str  # "user" or "assistant"
+    content: str
+
+
+class ChatRequest(BaseModel):
+    message: str
+    session_id: Optional[str] = None
+    use_rag: bool = True
+
+
+class ChatResponse(BaseModel):
+    response: str
+    session_id: str
+    sources: Optional[List[dict]] = None
+
