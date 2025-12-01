@@ -210,16 +210,19 @@ if __name__ == "__main__":
         ]
 
         for query in queries:
-            print(f"\n{'='*80}")
-            print(f"Query: {query}")
-            print(f"{'='*80}\n")
+            logger.info(f"\n{'='*80}")
+            logger.info(f"Query: {query}")
+            logger.info(f"{'='*80}\n")
 
-            print("Streaming response:")
+            logger.info("Streaming response:")
+            response_parts = []
             async for chunk, session_id, sources in service.chat_stream(query):
+                response_parts.append(chunk)
+                # For demo purposes, still print chunks for real-time display
                 print(chunk, end="", flush=True)
 
             if sources:
-                print(f"\n\nSources: {sources}")
-            print("\n")
+                logger.info(f"\n\nSources: {sources}")
+            logger.info("")
 
     asyncio.run(test())

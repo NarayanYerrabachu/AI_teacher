@@ -192,21 +192,21 @@ if __name__ == "__main__":
         exa = ExaSearchTool()
 
         # Test search
-        print("\n=== Testing Exa Search ===\n")
+        logger.info("\n=== Testing Exa Search ===\n")
         results = exa.search("latest developments in artificial intelligence", num_results=3)
 
-        print(f"Found {len(results)} results:\n")
+        logger.info(f"Found {len(results)} results:\n")
         for i, result in enumerate(results, 1):
-            print(f"{i}. {result['title']}")
-            print(f"   URL: {result['url']}")
-            print(f"   Score: {result['score']:.3f}")
-            print()
+            logger.info(f"{i}. {result['title']}")
+            logger.info(f"   URL: {result['url']}")
+            logger.info(f"   Score: {result['score']:.3f}")
+            logger.info("")
 
         # Test formatted output
-        print("\n=== Formatted for LLM ===\n")
+        logger.info("\n=== Formatted for LLM ===\n")
         formatted = exa.format_results_for_llm(results[:2])
-        print(formatted)
+        logger.info(formatted)
 
     except Exception as e:
-        print(f"Error: {e}")
+        logger.error(f"Error: {e}", exc_info=True)
         sys.exit(1)

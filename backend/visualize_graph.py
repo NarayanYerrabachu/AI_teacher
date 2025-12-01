@@ -1,5 +1,6 @@
 """Generate LangGraph visualization for the Hybrid RAG Agent"""
 
+import logging
 import os
 import sys
 from pathlib import Path
@@ -10,17 +11,24 @@ sys.path.insert(0, str(project_root))
 
 from backend.hybrid_agent import HybridRAGAgent
 
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+)
+logger = logging.getLogger(__name__)
+
 def generate_graph_visualization():
     """Generate and save the LangGraph diagram"""
 
-    print("Initializing HybridRAGAgent...")
+    logger.info("Initializing HybridRAGAgent...")
 
     # Initialize the agent (without actually needing the vector store or API keys for graph viz)
     # We just need the graph structure
     try:
         agent = HybridRAGAgent()
     except Exception as e:
-        print(f"Note: Full initialization failed ({e}), but we can still visualize the graph structure")
+        logger.warning(f"Full initialization failed ({e}), but we can still visualize the graph structure")
         # Create a minimal instance just for visualization
         agent = HybridRAGAgent.__new__(HybridRAGAgent)
         agent.vector_manager = None
@@ -28,7 +36,7 @@ def generate_graph_visualization():
         agent.llm = None
         agent.graph = agent._build_graph()
 
-    print("Generating Mermaid diagram...")
+    logger.info("Generating Mermaid diagram...")
 
     # Get the graph
     app = agent.graph
@@ -41,8 +49,8 @@ def generate_graph_visualization():
     with open(output_path, "wb") as f:
         f.write(png_data)
 
-    print(f"✅ Graph visualization saved to: {output_path}")
-    print(f"   File size: {len(png_data)} bytes")
+    logger.info(f"Graph visualization saved to: {output_path}")
+    logger.info(f"File size: {len(png_data)} bytes")
 
     # Also save the Mermaid code as text
     mermaid_code = app.get_graph().draw_mermaid()
@@ -50,16 +58,14 @@ def generate_graph_visualization():
     with open(mermaid_path, "w") as f:
         f.write(mermaid_code)
 
-    print(f"✅ Mermaid code saved to: {mermaid_path}")
+    logger.info(f"Mermaid code saved to: {mermaid_path}")
 
     return output_path
 
 if __name__ == "__main__":
     try:
         output_path = generate_graph_visualization()
-        print(f"\n🎨 Success! Open the image at:\n   {output_path}")
+        logger.info(f"Success! Open the image at: {output_path}")
     except Exception as e:
-        print(f"❌ Error generating visualization: {e}")
-        import traceback
-        traceback.print_exc()
+        logger.error(f"Error generating visualization: {e}", exc_info=True)
         sys.exit(1)

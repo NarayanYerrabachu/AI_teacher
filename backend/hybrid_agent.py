@@ -801,18 +801,18 @@ if __name__ == "__main__":
         ]
 
         for query in test_queries:
-            print(f"\n{'='*80}")
-            print(f"Query: {query}")
-            print(f"{'='*80}\n")
+            logger.info(f"\n{'='*80}")
+            logger.info(f"Query: {query}")
+            logger.info(f"{'='*80}\n")
 
             result = agent.query(query)
 
-            print(f"Route: {result['route_used']}")
-            print(f"PDF Sources: {len(result['sources']['pdf'])}")
-            print(f"Web Sources: {len(result['sources']['web'])}")
-            print(f"\nAnswer:\n{result['answer'][:500]}...")
-            print()
+            logger.info(f"Route: {result['route_used']}")
+            logger.info(f"PDF Sources: {len(result['sources']['pdf'])}")
+            logger.info(f"Web Sources: {len(result['sources']['web'])}")
+            logger.info(f"\nAnswer:\n{result['answer'][:500]}...")
+            logger.info("")
 
     except Exception as e:
-        print(f"Error: {e}")
+        logger.error(f"Error: {e}", exc_info=True)
         sys.exit(1)
