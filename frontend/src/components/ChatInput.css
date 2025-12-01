@@ -10,6 +10,7 @@
   align-items: flex-end;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
 }
 
 .upload-button {
@@ -90,4 +91,30 @@
 
 .send-button:active:not(:disabled) {
   transform: scale(0.95);
+}
+
+.loading-indicator {
+  position: absolute;
+  right: 70px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #667eea;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #e0e0e0;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }

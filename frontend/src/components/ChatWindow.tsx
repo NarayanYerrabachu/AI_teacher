@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
+import ReactMarkdown from 'react-markdown';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 import { ChatMessage } from './ChatMessage';
 import { ChatInput } from './ChatInput';
 import { chatApi } from '../services/api';
@@ -32,10 +35,13 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onMessagesChan
   const [currentStreamingMessage, setCurrentStreamingMessage] = useState('');
   const [uploadStatus, setUploadStatus] = useState<string>('');
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const streamingMessageRef = useRef<string>('');
 
   const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight;
+    }
   };
 
   useEffect(() => {
@@ -164,6 +170,12 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onMessagesChan
           <p className="subtitle">RAG-powered AI Assistant</p>
         </div>
         <div className="header-actions">
+          {(isLoading || isStreaming) && (
+            <div className="header-loading-indicator">
+              <div className="header-spinner"></div>
+              <span>{isLoading ? 'Uploading...' : 'Processing...'}</span>
+            </div>
+          )}
           {uploadStatus && (
             <span className={`upload-status ${uploadStatus.includes('✓') ? 'success' : 'error'}`}>
               {uploadStatus}
@@ -179,7 +191,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onMessagesChan
         </div>
       </div>
 
-      <div className="messages-container">
+      <div className="messages-container" ref={messagesContainerRef}>
         {messages.length === 0 && !currentStreamingMessage && (
           <div className="welcome-message">
             <h2>👋 Welcome!</h2>
@@ -192,7 +204,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onMessagesChan
           <ChatMessage key={message.id} message={message} />
         ))}
 
-        {/* Show streaming message */}
+        {/* Show streaming message with LaTeX rendering */}
         {currentStreamingMessage && (
           <div className="message-container assistant-message">
             <div className="message-bubble">
@@ -201,7 +213,12 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onMessagesChan
                 <span className="streaming-indicator">●</span>
               </div>
               <div className="message-content">
-                <p>{currentStreamingMessage}</p>
+                <ReactMarkdown
+                  remarkPlugins={[remarkMath]}
+                  rehypePlugins={[rehypeKatex]}
+                >
+                  {currentStreamingMessage}
+                </ReactMarkdown>
               </div>
             </div>
           </div>

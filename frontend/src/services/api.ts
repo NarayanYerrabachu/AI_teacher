@@ -66,7 +66,8 @@ export const chatApi = {
                     onChunk(data.content);
                     break;
                   case 'sources':
-                    onSources(data.sources, data.session_id);
+                    // Extract the sources array from the nested structure
+                    onSources(data.sources.sources || data.sources, data.session_id);
                     break;
                   case 'done':
                     onComplete();

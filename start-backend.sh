@@ -24,4 +24,4 @@ if [ -z "$OPENAI_API_KEY" ]; then
     exit 1
 fi
 
-pipenv run uvicorn main:app --reload --host 0.0.0.0 --port 8000
+pipenv run uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000

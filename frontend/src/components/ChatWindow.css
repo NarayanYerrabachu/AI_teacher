@@ -3,6 +3,8 @@
   flex-direction: column;
   height: 100vh;
   background: #f5f7fa;
+  overflow: hidden;
+  position: relative;
 }
 
 .chat-header {
@@ -32,6 +34,33 @@
   display: flex;
   gap: 1rem;
   align-items: center;
+}
+
+.header-loading-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  animation: slideIn 0.3s ease-out;
+}
+
+.header-spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .upload-status {
@@ -86,11 +115,14 @@
 .messages-container {
   flex: 1;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 2rem;
   padding-bottom: 4rem;
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+  scroll-behavior: smooth;
+  position: relative;
 }
 
 .messages-container::-webkit-scrollbar {

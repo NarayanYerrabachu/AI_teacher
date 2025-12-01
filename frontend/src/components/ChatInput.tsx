@@ -70,6 +70,11 @@ export const ChatInput: React.FC<ChatInputProps> = ({
           disabled={disabled}
           rows={1}
         />
+        {disabled && (
+          <div className="loading-indicator">
+            <div className="spinner"></div>
+          </div>
+        )}
         <button
           type="submit"
           className="send-button"

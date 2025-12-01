@@ -1,0 +1,27 @@
+---
+config:
+  flowchart:
+    curve: linear
+---
+graph TD;
+	__start__([<p>__start__</p>]):::first
+	router(router)
+	search_pdf(search_pdf)
+	search_web(search_web)
+	search_parallel(search_parallel)
+	combine_context(combine_context)
+	generate_answer(generate_answer)
+	__end__([<p>__end__</p>]):::last
+	__start__ --> router;
+	combine_context --> generate_answer;
+	router -. &nbsp;none&nbsp; .-> generate_answer;
+	router -. &nbsp;both&nbsp; .-> search_parallel;
+	router -. &nbsp;pdf_only&nbsp; .-> search_pdf;
+	router -. &nbsp;web_only&nbsp; .-> search_web;
+	search_parallel --> combine_context;
+	search_pdf --> combine_context;
+	search_web --> combine_context;
+	generate_answer --> __end__;
+	classDef default fill:#f2f0ff,line-height:1.2
+	classDef first fill-opacity:0
+	classDef last fill:#bfb6fc

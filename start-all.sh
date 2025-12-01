@@ -4,7 +4,7 @@ echo "🚀 Starting AI Teacher Chatbot..."
 echo ""
 
 # Kill any existing processes
-pkill -f "uvicorn main:app" 2>/dev/null
+pkill -f "uvicorn backend.main:app" 2>/dev/null
 pkill -f "vite" 2>/dev/null
 sleep 2
 
@@ -27,7 +27,7 @@ if [ -z "$OPENAI_API_KEY" ]; then
     exit 1
 fi
 
-pipenv run uvicorn main:app --reload --host 0.0.0.0 --port 8000 > backend.log 2>&1 &
+pipenv run uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000 > backend.log 2>&1 &
 BACKEND_PID=$!
 echo "✅ Backend starting (PID: $BACKEND_PID)..."
 
@@ -56,6 +56,6 @@ echo "📝 Logs:"
 echo "   Backend:  tail -f /home/evocenta/PycharmProjects/AI_teacher/backend.log"
 echo "   Frontend: tail -f /home/evocenta/PycharmProjects/AI_teacher/frontend/frontend.log"
 echo ""
-echo "🛑 To stop: pkill -f 'uvicorn main:app' && pkill -f vite"
+echo "🛑 To stop: pkill -f 'uvicorn backend.main:app' && pkill -f vite"
 echo ""
 echo "✨ Open http://localhost:5173 in your browser!"
