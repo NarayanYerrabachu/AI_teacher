@@ -384,15 +384,22 @@ class HybridRAGAgent:
         # First, fix LaTeX formatting: Convert (math) to \( math \) if it contains LaTeX commands
         # Strategy: Only convert PLAIN parentheses ( ) that contain LaTeX, not already-correct \( \)
 
-        # Step 1: Temporarily replace already-correct math delimiters with placeholders
+        # Step 1: Convert LaTeX delimiters \( \) to $ $ and preserve existing $ $
         correct_latex = []
         def save_correct_latex(match):
             correct_latex.append(match.group(0))
             return f'<<<LATEX{len(correct_latex)-1}>>>'
 
-        # Match both $...$ and \( ... \) - save them to restore later
+        # First, convert \( ... \) to $ ... $ for markdown compatibility
+        text = re.sub(r'\\\((.*?)\\\)', r'$\1$', text)
+
+        # Also convert \[ ... \] to $$ ... $$ for display math
+        text = re.sub(r'\\\[(.*?)\\\]', r'$$\1$$', text)
+
+        # Now save all $...$ and $$...$$ expressions to restore later
+        # Save $$ first to avoid matching single $ inside $$
+        text = re.sub(r'\$\$.+?\$\$', save_correct_latex, text)
         text = re.sub(r'\$[^$]+\$', save_correct_latex, text)
-        text = re.sub(r'\\\(.*?\\\)', save_correct_latex, text)
 
         # Step 2: Now fix plain parentheses that contain LaTeX commands or mathematical notation
         # Need to handle nested parentheses like ( 2 \times (-1) = -2 )
@@ -616,7 +623,10 @@ ABSOLUTE REQUIREMENTS - CRITICAL FORMATTING:
 ✓ Each bullet point (•) MUST have BLANK LINE after it
 ✓ "**Summary:**" line with BLANK LINE before AND after
 ✓ Final question with BLANK LINE before it
-✓ USE LaTeX with $ delimiters: $\\frac{{a}}{{b}}$, $x^2$, $x \\geq 1$ for ALL math expressions
+✓ USE ONLY $ delimiters for math: $\\frac{{a}}{{b}}$, $x^2$, $x \\geq 1$ for ALL math expressions
+✓ NEVER use \\( \\) or \\[ \\] delimiters - ONLY use $ and $$
+✓ NEVER place $ inside math expressions - wrap the ENTIRE expression: $\\frac{{n(n+1)}}{{2}}$ NOT $\\frac{{$n$($n$+1$)}}{{2}}$
+✓ Examples: $T_n = \\frac{{n(n+1)}}{{2}}$, $T_1 + T_2 = 4$, $x^2 + y^2 = z^2$
 ✓ USE emojis throughout (📚, 🎓, ✨, 💡)
 
 FORBIDDEN:

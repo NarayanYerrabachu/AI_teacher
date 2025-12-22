@@ -134,18 +134,40 @@ class HybridChatService:
                     "has_web": result["has_web_context"]
                 }
 
-                # Simulate streaming while preserving newlines
+                # Simulate streaming while preserving LaTeX expressions and newlines
                 import asyncio
                 import re
 
-                # Split on spaces but preserve newlines
-                parts = re.split(r'( |\n)', response)
+                # Split response into chunks while keeping LaTeX expressions intact
+                parts = []
+                current_pos = 0
+
+                # Find all LaTeX expressions (both $ and $$)
+                latex_pattern = r'\$\$[^\$]+\$\$|\$[^\$]+\$'
+                for match in re.finditer(latex_pattern, response):
+                    start, end = match.span()
+
+                    # Add text before LaTeX expression (split on spaces/newlines)
+                    if start > current_pos:
+                        text_before = response[current_pos:start]
+                        parts.extend(re.split(r'( |\n)', text_before))
+
+                    # Add complete LaTeX expression as single chunk
+                    parts.append(match.group(0))
+                    current_pos = end
+
+                # Add remaining text after last LaTeX expression
+                if current_pos < len(response):
+                    remaining_text = response[current_pos:]
+                    parts.extend(re.split(r'( |\n)', remaining_text))
+
+                # Stream the parts
                 for part in parts:
                     if part:  # Skip empty strings
                         full_response += part
                         yield part, session_id, None
 
-                        # Small delay only for words, not for newlines
+                        # Small delay only for words, not for spaces/newlines
                         if part not in [' ', '\n']:
                             await asyncio.sleep(0.02)
 

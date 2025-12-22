@@ -31,7 +31,6 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  transition: all 0.3s ease;
 }
 
 .chat-section.full-width {
@@ -40,12 +39,11 @@ body {
 
 .mindmap-section {
   width: 40%;
-  min-width: 400px;
-  max-width: 600px;
+  min-width: 300px;
+  max-width: 800px;
   position: relative;
   display: flex;
   flex-direction: column;
-  transition: all 0.3s ease;
   background: white;
   box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
 }
@@ -54,6 +52,7 @@ body {
   width: 0;
   min-width: 0;
   overflow: hidden;
+  transition: all 0.3s ease;
 }
 
 .collapse-toggle {
@@ -81,30 +80,6 @@ body {
   right: 0;
 }
 
-/* When mind map is expanded - button at left edge of mind map (60% from left = 40% mind map width) */
-.collapse-toggle.expanded-btn {
-  right: calc(40% - 32px);
-}
-
-/* Responsive positioning for different screen sizes */
-@media (max-width: 1024px) {
-  .mindmap-section {
-    min-width: 400px;
-  }
-  .collapse-toggle.expanded-btn {
-    right: calc(400px - 32px);
-  }
-}
-
-@media (min-width: 1500px) {
-  .mindmap-section {
-    max-width: 600px;
-  }
-  .collapse-toggle.expanded-btn {
-    right: calc(600px - 32px);
-  }
-}
-
 .collapse-toggle:hover {
   background: #f8fafc;
   color: #764ba2;
@@ -113,6 +88,40 @@ body {
 
 .collapse-toggle:active {
   transform: translateY(-50%) scale(0.95);
+}
+
+/* Resize handle for dragging */
+.resize-handle {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 6px;
+  cursor: col-resize;
+  z-index: 999;
+}
+
+.resize-handle::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 2px;
+  height: 40px;
+  background: #cbd5e1;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.resize-handle:hover::before {
+  background: #667eea;
+  width: 3px;
+  height: 60px;
+  box-shadow: 0 0 8px rgba(102, 126, 234, 0.4);
+}
+
+.resize-handle:active::before {
+  background: #764ba2;
 }
 
 /* Responsive design */
