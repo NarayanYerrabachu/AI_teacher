@@ -33,10 +33,23 @@ class ChatRequest(BaseModel):
     message: str
     session_id: Optional[str] = None
     use_rag: bool = True
+    image_data: Optional[str] = None  # Base64 encoded image
+    extracted_text: Optional[str] = None  # OCR extracted text from image
 
 
 class ChatResponse(BaseModel):
     response: str
     session_id: str
     sources: Optional[List[dict]] = None
+
+
+class StudioGenerateRequest(BaseModel):
+    session_id: str
+    content_type: str  # "summary", "quiz", "flashcards", "report"
+
+
+class StudioGenerateResponse(BaseModel):
+    success: bool
+    data: dict
+    message: Optional[str] = None
 

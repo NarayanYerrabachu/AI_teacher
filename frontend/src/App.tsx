@@ -1,24 +1,27 @@
 import { useState, useCallback, useRef, useEffect } from 'react';
 import { ChatWindow } from './components/ChatWindow';
-import { MindMap } from './components/MindMap';
+import { Studio } from './components/Studio';
 import type { Message } from './types/chat';
 import './App.css';
 
 function App() {
   const [messages, setMessages] = useState<Message[]>([]);
-  const [isMindMapCollapsed, setIsMindMapCollapsed] = useState(false);
-  const [mindMapWidth, setMindMapWidth] = useState(40); // percentage
+  const [sessionId, setSessionId] = useState<string | undefined>();
+  const [isStudioCollapsed, setIsStudioCollapsed] = useState(false);
+  const [studioWidth, setStudioWidth] = useState(40); // percentage
   const [isDragging, setIsDragging] = useState(false);
   const dragStartX = useRef(0);
   const dragStartWidth = useRef(40);
+  const collapseButtonRef = useRef<HTMLButtonElement>(null);
+  const studioSectionRef = useRef<HTMLDivElement>(null);
 
   const handleMouseDown = useCallback((e: React.MouseEvent) => {
-    if (isMindMapCollapsed) return;
+    if (isStudioCollapsed) return;
     setIsDragging(true);
     dragStartX.current = e.clientX;
-    dragStartWidth.current = mindMapWidth;
+    dragStartWidth.current = studioWidth;
     e.preventDefault();
-  }, [isMindMapCollapsed, mindMapWidth]);
+  }, [isStudioCollapsed, studioWidth]);
 
   const handleMouseMove = useCallback((e: MouseEvent) => {
     if (!isDragging) return;
@@ -29,7 +32,14 @@ function App() {
 
     // Calculate new width with constraints (min 25%, max 60%)
     const newWidth = Math.min(60, Math.max(25, dragStartWidth.current + deltaPercent));
-    setMindMapWidth(newWidth);
+
+    // Update state
+    setStudioWidth(newWidth);
+
+    // Directly update DOM for immediate visual feedback during dragging
+    if (studioSectionRef.current) {
+      studioSectionRef.current.style.width = `${newWidth}%`;
+    }
   }, [isDragging]);
 
   const handleMouseUp = useCallback(() => {
@@ -58,35 +68,45 @@ function App() {
     };
   }, [isDragging, handleMouseMove, handleMouseUp]);
 
+  // Debug logging
+  useEffect(() => {
+    console.log('🔧 Studio state:', { isStudioCollapsed, studioWidth });
+  }, [isStudioCollapsed, studioWidth]);
+
   return (
     <div className="app-container">
-      <div className={`chat-section ${isMindMapCollapsed ? 'full-width' : ''}`}>
+      <div className={`chat-section ${isStudioCollapsed ? 'full-width' : ''}`}>
         <ChatWindow
           onMessagesChange={setMessages}
           messages={messages}
+          onSessionIdChange={setSessionId}
         />
       </div>
-      <button
-        className={`collapse-toggle ${isMindMapCollapsed ? 'collapsed-btn' : 'expanded-btn'}`}
-        onClick={() => setIsMindMapCollapsed(!isMindMapCollapsed)}
-        title={isMindMapCollapsed ? 'Show Mind Map' : 'Hide Mind Map'}
-        style={!isMindMapCollapsed ? { right: `calc(${mindMapWidth}% - 32px)` } : undefined}
-      >
-        {isMindMapCollapsed ? '◀' : '▶'}
-      </button>
-      {!isMindMapCollapsed && (
+      {!isStudioCollapsed && (
         <div
           className="resize-handle"
           onMouseDown={handleMouseDown}
           title="Drag to resize"
-          style={{ right: `${mindMapWidth}%` }}
+          style={{ right: `${studioWidth}%` }}
         />
       )}
       <div
-        className={`mindmap-section ${isMindMapCollapsed ? 'collapsed' : ''}`}
-        style={!isMindMapCollapsed ? { width: `${mindMapWidth}%` } : undefined}
+        ref={studioSectionRef}
+        className={`studio-section ${isStudioCollapsed ? 'collapsed' : ''} ${isDragging ? 'dragging' : ''}`}
+        style={!isStudioCollapsed ? { width: `${studioWidth}%` } : undefined}
       >
-        <MindMap messages={messages} isCollapsed={isMindMapCollapsed} />
+        <button
+          ref={collapseButtonRef}
+          className={`collapse-toggle ${isStudioCollapsed ? 'collapsed-btn' : 'expanded-btn'} ${isDragging ? 'dragging' : ''}`}
+          onClick={() => {
+            console.log('🔄 Toggle clicked! Current:', isStudioCollapsed, '→ New:', !isStudioCollapsed);
+            setIsStudioCollapsed(!isStudioCollapsed);
+          }}
+          title={isStudioCollapsed ? 'Show Studio' : 'Hide Studio'}
+        >
+          {isStudioCollapsed ? '◀' : '▶'}
+        </button>
+        <Studio messages={messages} sessionId={sessionId} isCollapsed={isStudioCollapsed} />
       </div>
     </div>
   );

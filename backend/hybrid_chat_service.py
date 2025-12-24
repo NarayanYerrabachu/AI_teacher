@@ -36,7 +36,9 @@ class HybridChatService:
         self,
         message: str,
         session_id: Optional[str] = None,
-        use_hybrid: bool = True
+        use_hybrid: bool = True,
+        image_data: Optional[str] = None,
+        extracted_text: Optional[str] = None
     ) -> tuple[str, str, Optional[Dict]]:
         """
         Process a chat message with hybrid search
@@ -45,11 +47,24 @@ class HybridChatService:
             message: User's message
             session_id: Optional session ID
             use_hybrid: Whether to use hybrid agent (True) or basic mode (False)
+            image_data: Base64 encoded image (optional)
+            extracted_text: OCR extracted text from image (optional)
 
         Returns:
             tuple: (response, session_id, sources_dict)
         """
         session_id, history = self._get_or_create_session(session_id)
+
+        # If image data is provided, save it for logging
+        if image_data:
+            logger.info(f"Received image data for session {session_id}")
+            # Optionally save image to disk for debugging/logging
+            # self._save_image(session_id, image_data)
+
+        # If extracted text is provided, append it to the message
+        if extracted_text:
+            logger.info(f"Using extracted text from image: {extracted_text[:100]}...")
+            # The extracted text is already incorporated in the message on frontend
 
         try:
             if use_hybrid:
@@ -74,7 +89,7 @@ class HybridChatService:
 
             else:
                 # Basic mode without agent (for testing)
-                from simple_chat_service import SimpleChatService
+                from .simple_chat_service import SimpleChatService
                 simple_service = SimpleChatService()
                 response, session_id, sources = await simple_service.chat(
                     message, session_id, use_rag=True
@@ -96,7 +111,9 @@ class HybridChatService:
         self,
         message: str,
         session_id: Optional[str] = None,
-        use_hybrid: bool = True
+        use_hybrid: bool = True,
+        image_data: Optional[str] = None,
+        extracted_text: Optional[str] = None
     ) -> AsyncGenerator[tuple[str, str, Optional[Dict]], None]:
         """
         Stream chat response with hybrid search
@@ -105,11 +122,21 @@ class HybridChatService:
             message: User's message
             session_id: Optional session ID
             use_hybrid: Whether to use hybrid agent
+            image_data: Base64 encoded image (optional)
+            extracted_text: OCR extracted text from image (optional)
 
         Yields:
             tuple: (chunk, session_id, sources_dict) - sources only in last chunk
         """
         session_id, history = self._get_or_create_session(session_id)
+
+        # If image data is provided, log it
+        if image_data:
+            logger.info(f"Received image data for streaming session {session_id}")
+
+        # If extracted text is provided, log it
+        if extracted_text:
+            logger.info(f"Using extracted text from image: {extracted_text[:100]}...")
         full_response = ""
         sources_dict = None
 
@@ -173,7 +200,7 @@ class HybridChatService:
 
             else:
                 # Fallback to simple service
-                from simple_chat_service import SimpleChatService
+                from .simple_chat_service import SimpleChatService
                 simple_service = SimpleChatService()
 
                 async for chunk, sid, sources in simple_service.chat_stream(

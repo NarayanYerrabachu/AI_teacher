@@ -62,6 +62,26 @@
   line-height: 1.6;
 }
 
+.message-image-container {
+  margin-bottom: 0.75rem;
+}
+
+.message-image {
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  object-fit: contain;
+}
+
+.user-message .message-image {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.assistant-message .message-image {
+  border-color: #e0e0e0;
+}
+
 .message-content p {
   margin: 0;
 }
@@ -131,7 +151,7 @@
   font-weight: 600;
 }
 
-/* Knowledge Map Styles */
+/* Location Map Styles */
 .knowledge-map {
   margin-top: 1.5rem;
   padding-top: 1rem;

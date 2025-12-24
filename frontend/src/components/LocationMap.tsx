@@ -11,16 +11,17 @@ import {
   MarkerType,
   Position,
 } from 'reactflow';
+import dagre from 'dagre';
 import 'reactflow/dist/style.css';
 import type { Message } from '../types/chat';
-import './MindMap.css';
+import './LocationMap.css';
 
-interface MindMapProps {
+interface LocationMapProps {
   messages: Message[];
   isCollapsed?: boolean;
 }
 
-interface MindMapNode {
+interface LocationMapNode {
   id: string;
   type?: string;
   data: { label: string; description?: string };
@@ -30,10 +31,38 @@ interface MindMapNode {
   targetPosition?: Position;
 }
 
-export const MindMap: React.FC<MindMapProps> = ({ messages, isCollapsed = false }) => {
+// Dagre layout function
+const getLayoutedElements = (nodes: LocationMapNode[], edges: Edge[], direction = 'TB') => {
+  const dagreGraph = new dagre.graphlib.Graph();
+  dagreGraph.setDefaultEdgeLabel(() => ({}));
+  dagreGraph.setGraph({ rankdir: direction, nodesep: 100, ranksep: 150 });
+
+  nodes.forEach((node) => {
+    dagreGraph.setNode(node.id, { width: node.style?.width || 220, height: 80 });
+  });
+
+  edges.forEach((edge) => {
+    dagreGraph.setEdge(edge.source, edge.target);
+  });
+
+  dagre.layout(dagreGraph);
+
+  nodes.forEach((node) => {
+    const nodeWithPosition = dagreGraph.node(node.id);
+    const nodeWidth = typeof node.style?.width === 'number' ? node.style.width : 220;
+    node.position = {
+      x: nodeWithPosition.x - nodeWidth / 2,
+      y: nodeWithPosition.y - 40,
+    };
+  });
+
+  return { nodes, edges };
+};
+
+export const LocationMap: React.FC<LocationMapProps> = ({ messages, isCollapsed = false }) => {
   // Generate nodes and edges from messages
   const { nodes: initialNodes, edges: initialEdges } = useMemo(() => {
-    const nodes: MindMapNode[] = [];
+    const nodes: LocationMapNode[] = [];
     const edges: Edge[] = [];
 
     if (messages.length === 0) {
@@ -41,7 +70,7 @@ export const MindMap: React.FC<MindMapProps> = ({ messages, isCollapsed = false 
       nodes.push({
         id: 'root',
         type: 'input',
-        data: { label: '💭 Conversation Map', description: 'Start chatting to see the map' },
+        data: { label: '📍 Location Map', description: 'Start chatting to see knowledge locations' },
         position: { x: 250, y: 50 },
         style: {
           background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
@@ -82,8 +111,8 @@ export const MindMap: React.FC<MindMapProps> = ({ messages, isCollapsed = false 
     const topicsWithSources = new Map<string, Map<string, { content: string; pages: Set<number> }>>();
     let currentTopic: string | null = null;
 
-    let yOffset = 180;
-    const xSpacing = 280;
+    let yOffset = 250;  // Increased from 180 to give more space
+    const xSpacing = 320;  // Increased from 280 for better horizontal separation
 
     // Process messages to extract topics and their specific sources
     messages.forEach((message) => {
@@ -99,10 +128,15 @@ export const MindMap: React.FC<MindMapProps> = ({ messages, isCollapsed = false 
       if (message.role === 'assistant' && currentTopic && message.sources && message.sources.length > 0) {
         const topicSources = topicsWithSources.get(currentTopic)!;
         message.sources.forEach(source => {
+          // Skip sources without metadata
+          if (!source.metadata || !source.metadata.source) {
+            return;
+          }
+
           const sourceKey = source.metadata.source;
           if (!topicSources.has(sourceKey)) {
             topicSources.set(sourceKey, {
-              content: source.content.slice(0, 100),
+              content: source.content?.slice(0, 100) || '',
               pages: new Set()
             });
           }
@@ -117,10 +151,14 @@ export const MindMap: React.FC<MindMapProps> = ({ messages, isCollapsed = false 
     const topicArray = Array.from(topicsWithSources.entries());
     let sourceNodeIndex = 0;
 
+    // Calculate root X position for centering
+    const rootX = 250;
+
     topicArray.forEach(([topic, topicSources], topicIndex) => {
       const topicNodeId = `topic-${topicIndex}`;
-      const topicX = (topicIndex % 2) * xSpacing;
-      const topicY = yOffset + Math.floor(topicIndex / 2) * 180;
+      // Center topics around root X position with better spacing
+      const topicX = rootX + ((topicIndex % 2) * xSpacing) - (xSpacing / 2);
+      const topicY = yOffset + Math.floor(topicIndex / 2) * 240;  // Increased from 180 to 240 for more vertical space
 
       // Create topic node
       nodes.push({
@@ -145,7 +183,7 @@ export const MindMap: React.FC<MindMapProps> = ({ messages, isCollapsed = false 
         id: `root-${topicNodeId}`,
         source: 'root',
         target: topicNodeId,
-        type: 'smoothstep',
+        type: 'default',  // Dagre will handle layout, use default bezier
         animated: false,
         style: { stroke: '#667eea', strokeWidth: 2 },
         markerEnd: { type: MarkerType.ArrowClosed, color: '#667eea' },
@@ -155,8 +193,8 @@ export const MindMap: React.FC<MindMapProps> = ({ messages, isCollapsed = false 
       const sourceArray = Array.from(topicSources.entries());
       sourceArray.forEach(([sourceKey, sourceData], sourceIdx) => {
         const sourceNodeId = `source-${sourceNodeIndex++}`;
-        const sourceX = topicX + (sourceIdx % 2) * 140 - 70;
-        const sourceY = topicY + 100;
+        const sourceX = topicX + (sourceIdx % 2) * 150 - 75;  // Increased horizontal spacing
+        const sourceY = topicY + 130;  // Increased from 100 to 130 for more vertical space
 
         const fileName = sourceKey.split('/').pop() || sourceKey;
         const pageInfo = sourceData.pages.size > 0
@@ -186,7 +224,7 @@ export const MindMap: React.FC<MindMapProps> = ({ messages, isCollapsed = false 
           id: `${topicNodeId}-${sourceNodeId}`,
           source: topicNodeId,
           target: sourceNodeId,
-          type: 'smoothstep',
+          type: 'default',  // Dagre will handle layout, use default bezier
           animated: false,
           style: { stroke: '#a5b4fc', strokeWidth: 1.5 },
           markerEnd: { type: MarkerType.ArrowClosed, color: '#a5b4fc' },
@@ -194,7 +232,8 @@ export const MindMap: React.FC<MindMapProps> = ({ messages, isCollapsed = false 
       });
     });
 
-    return { nodes, edges };
+    // Apply dagre layout for automatic positioning
+    return getLayoutedElements(nodes, edges, 'TB');
   }, [messages]);
 
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -223,13 +262,21 @@ export const MindMap: React.FC<MindMapProps> = ({ messages, isCollapsed = false 
     return null;
   }
 
+  // Debug logging
+  console.log('📍 Location Map rendering:', {
+    messages: messages.length,
+    nodes: nodes.length,
+    edges: edges.length,
+    isCollapsed
+  });
+
   return (
-    <div className="mindmap-container">
-      <div className="mindmap-header">
-        <h3>🗺️ Knowledge Map</h3>
-        <span className="mindmap-subtitle">Visual overview of your conversation</span>
+    <div className="locationmap-container">
+      <div className="locationmap-header">
+        <h3>📍 Location Map</h3>
+        <span className="locationmap-subtitle">Track knowledge sources and their locations</span>
       </div>
-      <div className="mindmap-canvas">
+      <div className="locationmap-canvas" style={{ width: '100%', height: '100%' }}>
         <ReactFlow
           nodes={nodes}
           edges={edges}
@@ -239,6 +286,15 @@ export const MindMap: React.FC<MindMapProps> = ({ messages, isCollapsed = false 
           attributionPosition="bottom-left"
           minZoom={0.5}
           maxZoom={1.5}
+          fitView
+          panOnDrag={true}
+          panOnScroll={false}
+          zoomOnScroll={true}
+          zoomOnPinch={true}
+          zoomOnDoubleClick={false}
+          nodesDraggable={false}
+          nodesConnectable={false}
+          elementsSelectable={true}
         >
           <Background color="#f0f4ff" gap={16} />
           <Controls showInteractive={false} />

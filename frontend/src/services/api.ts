@@ -120,4 +120,13 @@ export const chatApi = {
     const response = await api.get(`/chat/history/${sessionId}`);
     return response.data;
   },
+
+  // Generate Studio content
+  generateStudioContent: async (sessionId: string, contentType: string): Promise<any> => {
+    const response = await api.post('/studio/generate', {
+      session_id: sessionId,
+      content_type: contentType
+    });
+    return response.data;
+  },
 };

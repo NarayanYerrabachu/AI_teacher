@@ -11,9 +11,10 @@ import './ChatWindow.css';
 interface ChatWindowProps {
   messages: Message[];
   onMessagesChange: (messages: Message[]) => void;
+  onSessionIdChange?: (sessionId: string) => void;
 }
 
-export const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onMessagesChange }) => {
+export const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onMessagesChange, onSessionIdChange }) => {
   // Use ref to always have the latest messages for functional updates
   const messagesRef = useRef<Message[]>(messages);
 
@@ -48,13 +49,14 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onMessagesChan
     scrollToBottom();
   }, [messages, currentStreamingMessage]);
 
-  const handleSendMessage = async (message: string) => {
+  const handleSendMessage = async (message: string, imageData?: string, extractedText?: string) => {
     // Add user message with unique ID
     const userMessage: Message = {
       id: `user-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
       role: 'user',
       content: message,
       timestamp: new Date(),
+      imageData: imageData, // Include image data for display in chat
     };
     setMessages((prev) => [...prev, userMessage]);
     setIsStreaming(true);
@@ -67,6 +69,8 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onMessagesChan
         message,
         session_id: sessionId,
         use_rag: true,  // Use RAG mode - requires documents to be uploaded
+        image_data: imageData,
+        extracted_text: extractedText,
       },
       // onChunk
       (chunk: string) => {
@@ -76,6 +80,7 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onMessagesChan
       // onSources
       (sources: Source[], newSessionId: string) => {
         setSessionId(newSessionId);
+        onSessionIdChange?.(newSessionId);
         // Create assistant message with accumulated content from ref
         const assistantMessage: Message = {
           id: `assistant-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,

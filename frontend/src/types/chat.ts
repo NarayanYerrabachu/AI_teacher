@@ -4,6 +4,7 @@ export interface Message {
   content: string;
   timestamp: Date;
   sources?: Source[];
+  imageData?: string; // Base64 image data for display in chat
 }
 
 export interface Source {
@@ -18,6 +19,8 @@ export interface ChatRequest {
   message: string;
   session_id?: string;
   use_rag?: boolean;
+  image_data?: string; // Base64 encoded image
+  extracted_text?: string; // OCR extracted text from image
 }
 
 export interface ChatResponse {

@@ -12,9 +12,10 @@ import shutil
 from pathlib import Path
 
 from .config import Config, setup_logging
-from .models import StatusResponse, WebPageRequest, QueryResponse, QueryRequest, ChatRequest, ChatResponse
+from .models import StatusResponse, WebPageRequest, QueryResponse, QueryRequest, ChatRequest, ChatResponse, StudioGenerateRequest, StudioGenerateResponse
 from .simple_chat_service import SimpleChatService
 from .hybrid_chat_service import HybridChatService
+from .studio_service import StudioService
 
 # Import design patterns
 # TEMPORARILY DISABLED due to memory allocation error in sentence-transformers
@@ -98,6 +99,10 @@ if USE_HYBRID:
 else:
     chat_service = SimpleChatService()
     logger.info("Using SimpleChatService (PDF only)")
+
+# Initialize Studio Service
+studio_service = StudioService()
+logger.info("StudioService initialized")
 
 # Create uploads directory
 UPLOAD_DIR = Path("./uploads")
@@ -202,6 +207,10 @@ async def upload_pdf(files: List[UploadFile] = File(...)):
     """
     logger.info(f"Received request to upload {len(files)} PDF files")
     try:
+        from langchain_community.document_loaders import PyPDFLoader
+        from langchain.text_splitter import RecursiveCharacterTextSplitter
+        from .vector_store import VectorStoreManager
+
         pdf_paths = []
 
         # Save uploaded files
@@ -219,16 +228,12 @@ async def upload_pdf(files: List[UploadFile] = File(...)):
             pdf_paths.append(str(file_path))
             logger.info(f"Saved uploaded file: {file.filename}")
 
-        # Factory Pattern: Load PDFs using appropriate loader
+        # Load PDFs
         all_documents = []
         for pdf_path in pdf_paths:
             try:
-                # Factory automatically detects if OCR is needed
-                document_loader = DocumentLoaderFactory.create_loader(
-                    file_path=pdf_path,
-                    auto_detect=True  # Auto-detect scanned PDFs
-                )
-                documents = document_loader.load(pdf_path)
+                loader = PyPDFLoader(pdf_path)
+                documents = loader.load()
                 all_documents.extend(documents)
                 logger.info(f"Loaded {len(documents)} pages from {Path(pdf_path).name}")
             except Exception as e:
@@ -244,8 +249,12 @@ async def upload_pdf(files: List[UploadFile] = File(...)):
         logger.info(
             f"Loaded {len(all_documents)} pages with total characters: {sum(len(doc.page_content) for doc in all_documents)}")
 
-        # Strategy Pattern: Chunk documents using configured strategy
-        chunks = chunking_context.chunk_documents(all_documents)
+        # Chunk documents
+        text_splitter = RecursiveCharacterTextSplitter(
+            chunk_size=Config.CHUNK_SIZE,
+            chunk_overlap=Config.CHUNK_OVERLAP
+        )
+        chunks = text_splitter.split_documents(all_documents)
 
         if not chunks:
             raise HTTPException(
@@ -253,11 +262,33 @@ async def upload_pdf(files: List[UploadFile] = File(...)):
                 detail="No chunks created from documents. Documents may be empty."
             )
 
-        logger.info(f"Created {len(chunks)} chunks using {chunking_context.strategy.__class__.__name__}")
+        total_chunks = len(chunks)
+        logger.info(f"Created {total_chunks} chunks")
 
-        # Repository Pattern: Add documents to vector store
-        vector_repository.add_documents(chunks)
-        action = "updated"
+        # Add to vector store in small batches to avoid memory issues
+        import gc
+        vector_manager = VectorStoreManager()
+        BATCH_SIZE = 20  # Process only 20 chunks at a time
+
+        try:
+            # Try to load existing store
+            vectorstore = vector_manager.load_vector_store()
+            action = "updated"
+        except:
+            # Create new store with first batch
+            first_batch = chunks[:BATCH_SIZE]
+            vectorstore = vector_manager.create_vector_store(first_batch)
+            action = "created"
+            chunks = chunks[BATCH_SIZE:]  # Remove processed chunks
+            logger.info(f"Created vector store with {len(first_batch)} chunks")
+            gc.collect()  # Force garbage collection
+
+        # Add remaining chunks in batches
+        for i in range(0, len(chunks), BATCH_SIZE):
+            batch = chunks[i:i+BATCH_SIZE]
+            logger.info(f"Processing batch {i//BATCH_SIZE + 1}: {len(batch)} chunks")
+            vector_manager.add_documents(vectorstore, batch)
+            gc.collect()  # Force garbage collection after each batch
 
         logger.info(f"Successfully processed {len(files)} PDFs. Vector store {action}.")
         return StatusResponse(
@@ -265,7 +296,7 @@ async def upload_pdf(files: List[UploadFile] = File(...)):
             message=f"PDFs processed successfully. Vector store {action}.",
             details={
                 "files_processed": len(files),
-                "total_chunks": len(chunks),
+                "total_chunks": total_chunks,
                 "filenames": [f.filename for f in files]
             }
         )
@@ -407,14 +438,31 @@ async def chat(request: ChatRequest):
     - **message**: User message
     - **session_id**: Optional session ID for conversation continuity
     - **use_rag**: Whether to use RAG (default: true)
+    - **image_data**: Optional base64 encoded image
+    - **extracted_text**: Optional OCR extracted text from image
     """
     logger.info(f"Received chat request: '{request.message[:50]}...' with RAG={request.use_rag}")
+    if request.image_data:
+        logger.info("Chat request includes image data")
     try:
-        response, session_id, sources = await chat_service.chat(
-            message=request.message,
-            session_id=request.session_id,
-            use_rag=request.use_rag
-        )
+        # Check if it's HybridChatService
+        if isinstance(chat_service, HybridChatService):
+            response, session_id, sources_dict = await chat_service.chat(
+                message=request.message,
+                session_id=request.session_id,
+                use_hybrid=request.use_rag,
+                image_data=request.image_data,
+                extracted_text=request.extracted_text
+            )
+            # Extract flat sources list from dict for ChatResponse model
+            sources = sources_dict.get("sources", []) if sources_dict else []
+        else:
+            # SimpleChatService doesn't support image yet, just use message
+            response, session_id, sources = await chat_service.chat(
+                message=request.message,
+                session_id=request.session_id,
+                use_rag=request.use_rag
+            )
 
         logger.info(f"Chat response generated for session {session_id}")
         return ChatResponse(
@@ -436,8 +484,12 @@ async def chat_stream(request: ChatRequest):
     - **message**: User message
     - **session_id**: Optional session ID for conversation continuity
     - **use_rag**: Whether to use RAG (default: true)
+    - **image_data**: Optional base64 encoded image
+    - **extracted_text**: Optional OCR extracted text from image
     """
     logger.info(f"Received streaming chat request: '{request.message[:50]}...'")
+    if request.image_data:
+        logger.info("Streaming chat request includes image data")
 
     async def event_generator():
         try:
@@ -446,7 +498,9 @@ async def chat_stream(request: ChatRequest):
                 async for chunk, session_id, sources in chat_service.chat_stream(
                     message=request.message,
                     session_id=request.session_id,
-                    use_hybrid=request.use_rag  # HybridChatService uses use_hybrid
+                    use_hybrid=request.use_rag,  # HybridChatService uses use_hybrid
+                    image_data=request.image_data,
+                    extracted_text=request.extracted_text
                 ):
                     # Send text chunks
                     if chunk:
@@ -527,6 +581,56 @@ async def clear_chat_session(session_id: str):
     except Exception as e:
         logger.error(f"Error clearing session: {str(e)}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/studio/generate", response_model=StudioGenerateResponse)
+async def generate_studio_content(request: StudioGenerateRequest):
+    """
+    Generate Studio content (summary, quiz, flashcards, report, or analyzemap)
+
+    - **session_id**: Session ID to generate content from
+    - **content_type**: Type of content to generate ("summary", "quiz", "flashcards", "report", "analyzemap")
+    """
+    logger.info(f"Generating {request.content_type} for session {request.session_id}")
+
+    try:
+        # Get conversation history from chat service
+        history = chat_service.get_session_history(request.session_id)
+
+        if not history:
+            raise HTTPException(status_code=404, detail="Session not found or empty")
+
+        # Generate content based on type
+        if request.content_type == "summary":
+            result = await studio_service.generate_summary(history, request.session_id)
+        elif request.content_type == "quiz":
+            result = await studio_service.generate_quiz(history, request.session_id)
+        elif request.content_type == "flashcards":
+            result = await studio_service.generate_flashcards(history, request.session_id)
+        elif request.content_type == "report":
+            result = await studio_service.generate_report(history, request.session_id)
+        elif request.content_type == "analyzemap":
+            result = await studio_service.generate_analyze_map(history, request.session_id)
+        else:
+            raise HTTPException(status_code=400, detail=f"Invalid content_type: {request.content_type}")
+
+        logger.info(f"Successfully generated {request.content_type} for session {request.session_id}")
+
+        return StudioGenerateResponse(
+            success=True,
+            data=result,
+            message=f"{request.content_type.capitalize()} generated successfully"
+        )
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error generating studio content: {str(e)}", exc_info=True)
+        return StudioGenerateResponse(
+            success=False,
+            data={},
+            message=f"Error: {str(e)}"
+        )
 
 
 if __name__ == "__main__":

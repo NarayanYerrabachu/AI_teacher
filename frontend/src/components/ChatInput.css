@@ -118,3 +118,120 @@
     transform: rotate(360deg);
   }
 }
+
+.image-upload-button {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #48bb78;
+  background: white;
+  color: #48bb78;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-upload-button:hover:not(:disabled) {
+  background: #48bb78;
+  color: white;
+  transform: scale(1.05);
+}
+
+.image-upload-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.image-preview-container {
+  margin-bottom: 1rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+}
+
+.image-preview-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  background: #f7fafc;
+  border-bottom: 1px solid #e0e0e0;
+  font-weight: 600;
+  color: #2d3748;
+}
+
+.remove-image-btn {
+  background: transparent;
+  border: none;
+  color: #e53e3e;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.remove-image-btn:hover {
+  background: #fff5f5;
+  transform: scale(1.1);
+}
+
+.image-preview-content {
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.preview-image {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: contain;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+}
+
+.extracted-text-preview {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.extracted-text-header {
+  font-weight: 600;
+  color: #2d3748;
+  font-size: 0.9rem;
+}
+
+.extracted-text-content {
+  padding: 0.75rem;
+  background: #f7fafc;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #4a5568;
+  max-height: 150px;
+  overflow-y: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.ocr-loading {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  color: #667eea;
+  font-size: 0.9rem;
+}
+
+.ocr-loading .spinner {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}

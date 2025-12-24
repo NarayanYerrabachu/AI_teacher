@@ -23,6 +23,15 @@ export const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
           </span>
         </div>
         <div className="message-content">
+          {message.imageData && (
+            <div className="message-image-container">
+              <img
+                src={message.imageData}
+                alt="Uploaded content"
+                className="message-image"
+              />
+            </div>
+          )}
           {isUser ? (
             <p>{message.content}</p>
           ) : (

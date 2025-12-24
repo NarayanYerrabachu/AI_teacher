@@ -31,13 +31,14 @@ body {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  transition: flex 0.3s ease;
 }
 
 .chat-section.full-width {
   flex: 1;
 }
 
-.mindmap-section {
+.studio-section {
   width: 40%;
   min-width: 300px;
   max-width: 800px;
@@ -46,17 +47,24 @@ body {
   flex-direction: column;
   background: white;
   box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease;
 }
 
-.mindmap-section.collapsed {
+/* Disable transition during dragging for smooth resize */
+.studio-section.dragging {
+  transition: none !important;
+}
+
+.studio-section.collapsed {
   width: 0;
   min-width: 0;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: width 0.3s ease, min-width 0.3s ease;
 }
 
 .collapse-toggle {
-  position: fixed;
+  position: absolute;
+  left: -32px;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1000;
@@ -72,12 +80,19 @@ body {
   font-size: 16px;
   color: #667eea;
   box-shadow: -2px 0 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
-/* When mind map is collapsed - button at right edge of screen */
-.collapse-toggle.collapsed-btn {
+/* When panel is collapsed, button should be at the right edge of viewport */
+.studio-section.collapsed .collapse-toggle {
+  position: fixed;
   right: 0;
+  left: auto;
+}
+
+/* Disable transition during dragging for smooth synchronization */
+.collapse-toggle.dragging {
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease !important;
 }
 
 .collapse-toggle:hover {
@@ -126,7 +141,7 @@ body {
 
 /* Responsive design */
 @media (max-width: 1024px) {
-  .mindmap-section {
+  .studio-section {
     display: none;
   }
 

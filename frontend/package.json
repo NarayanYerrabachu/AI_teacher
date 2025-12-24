@@ -12,16 +12,19 @@
   "dependencies": {
     "@tanstack/react-query": "^5.90.10",
     "axios": "^1.13.2",
+    "dagre": "^0.8.5",
     "katex": "^0.16.25",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-markdown": "^10.1.0",
     "reactflow": "^11.11.4",
     "rehype-katex": "^7.0.1",
-    "remark-math": "^6.0.0"
+    "remark-math": "^6.0.0",
+    "tesseract.js": "^7.0.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@types/dagre": "^0.7.53",
     "@types/node": "^24.10.0",
     "@types/react": "^19.2.2",
     "@types/react-dom": "^19.2.2",

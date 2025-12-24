@@ -35,7 +35,6 @@ class ExaSearchTool:
         self,
         query: str,
         num_results: int = 5,
-        use_autoprompt: bool = True,
         search_type: str = "auto",
         days_back: Optional[int] = None
     ) -> List[Dict]:
@@ -45,7 +44,6 @@ class ExaSearchTool:
         Args:
             query: Search query
             num_results: Number of results to return (max 10)
-            use_autoprompt: Let Exa optimize the query for better results
             search_type: "auto", "neural" (semantic), or "keyword" (traditional)
             days_back: Limit results to last N days (None = no limit)
 
@@ -68,7 +66,6 @@ class ExaSearchTool:
             search_params = {
                 "query": query,
                 "num_results": num_results,
-                "use_autoprompt": use_autoprompt,
                 "type": search_type,
                 "contents": {
                     "text": {"max_characters": 2000},  # Get page content
@@ -116,7 +113,6 @@ class ExaSearchTool:
         return self.search(
             query=query,
             num_results=num_results,
-            use_autoprompt=True,
             search_type="auto",
             days_back=days_back
         )
@@ -138,7 +134,6 @@ class ExaSearchTool:
         return self.search(
             query=enhanced_query,
             num_results=num_results,
-            use_autoprompt=True,
             search_type="neural"  # Semantic search for better understanding
         )
 
