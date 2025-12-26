@@ -21,7 +21,7 @@ export const chatApi = {
   streamMessage: (
     request: ChatRequest,
     onChunk: (chunk: string) => void,
-    onSources: (sources: any[], sessionId: string) => void,
+    onSources: (sources: any[], sessionId: string, explanationData?: any) => void,
     onError: (error: string) => void,
     onComplete: () => void
   ): (() => void) => {
@@ -49,25 +49,63 @@ export const chatApi = {
           throw new Error('No reader available');
         }
 
+        let buffer = ''; // Buffer for incomplete lines
+
         while (true) {
           const { done, value } = await reader.read();
           if (done) break;
 
-          const chunk = decoder.decode(value);
-          const lines = chunk.split('\n');
+          // Add new chunk to buffer
+          buffer += decoder.decode(value, { stream: true });
+
+          // Split by newlines to find complete lines
+          const lines = buffer.split('\n');
+
+          // Keep the last (potentially incomplete) line in the buffer
+          buffer = lines.pop() || '';
 
           for (const line of lines) {
             if (line.startsWith('data: ')) {
               try {
-                const data = JSON.parse(line.slice(6));
+                const jsonStr = line.slice(6).trim();
+                if (!jsonStr) continue; // Skip empty data lines
+
+                const data = JSON.parse(jsonStr);
 
                 switch (data.type) {
                   case 'chunk':
                     onChunk(data.content);
                     break;
                   case 'sources':
-                    // Extract the sources array from the nested structure
-                    onSources(data.sources.sources || data.sources, data.session_id);
+                    // Extract the sources array and explanation data from the nested structure
+                    console.log('📡 API received sources data:', {
+                      hasExplanationAnimation: !!data.sources.explanation_animation,
+                      hasExplanationAudio: !!data.sources.explanation_audio,
+                      explanationDuration: data.sources.explanation_duration,
+                      hasAvatarVideo: !!data.sources.avatar_video_url,
+                      sourcesKeys: Object.keys(data.sources)
+                    });
+
+                    const explanationData = {
+                      animation: data.sources.explanation_animation,
+                      audio: data.sources.explanation_audio,
+                      duration: data.sources.explanation_duration,
+                      avatarVideoUrl: data.sources.avatar_video_url,
+                      avatarVideoId: data.sources.avatar_video_id
+                    };
+
+                    console.log('📡 Extracted explanationData:', {
+                      hasAnimation: !!explanationData.animation,
+                      hasAudio: !!explanationData.audio,
+                      hasAvatarVideo: !!explanationData.avatarVideoUrl,
+                      animationSteps: explanationData.animation?.steps?.length
+                    });
+
+                    onSources(
+                      data.sources.sources || data.sources,
+                      data.session_id,
+                      explanationData
+                    );
                     break;
                   case 'done':
                     onComplete();
@@ -77,7 +115,7 @@ export const chatApi = {
                     return;
                 }
               } catch (e) {
-                console.error('Error parsing SSE data:', e);
+                console.error('Error parsing SSE data:', e, 'Line:', line);
               }
             }
           }
@@ -126,6 +164,15 @@ export const chatApi = {
     const response = await api.post('/studio/generate', {
       session_id: sessionId,
       content_type: contentType
+    });
+    return response.data;
+  },
+
+  // Generate explanation on-demand
+  generateExplanation: async (message: string, answer: string): Promise<any> => {
+    const response = await api.post('/explanation/generate', {
+      message,
+      answer
     });
     return response.data;
   },

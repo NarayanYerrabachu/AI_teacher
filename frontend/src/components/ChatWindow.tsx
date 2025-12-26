@@ -78,7 +78,14 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onMessagesChan
         setCurrentStreamingMessage((prev) => prev + chunk);
       },
       // onSources
-      (sources: Source[], newSessionId: string) => {
+      (sources: Source[], newSessionId: string, explanationData?: any) => {
+        console.log('🎬 onSources called with explanationData:', {
+          hasAnimation: !!explanationData?.animation,
+          hasAudio: !!explanationData?.audio,
+          animationSteps: explanationData?.animation?.steps?.length,
+          audioLength: explanationData?.audio?.length
+        });
+
         setSessionId(newSessionId);
         onSessionIdChange?.(newSessionId);
         // Create assistant message with accumulated content from ref
@@ -88,7 +95,22 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onMessagesChan
           content: streamingMessageRef.current,
           timestamp: new Date(),
           sources,
+          // Add explanation data if available
+          explanationAnimation: explanationData?.animation,
+          explanationAudio: explanationData?.audio,
+          explanationDuration: explanationData?.duration,
+          avatarVideoUrl: explanationData?.avatarVideoUrl,
+          avatarVideoId: explanationData?.avatarVideoId,
         };
+
+        console.log('🎬 Created message:', {
+          id: assistantMessage.id,
+          hasExplanation: !!(assistantMessage.explanationAnimation && assistantMessage.explanationAudio),
+          explanationAnimation: !!assistantMessage.explanationAnimation,
+          explanationAudio: !!assistantMessage.explanationAudio,
+          hasAvatarVideo: !!assistantMessage.avatarVideoUrl
+        });
+
         setMessages((prev) => [...prev, assistantMessage]);
         setCurrentStreamingMessage('');
         streamingMessageRef.current = '';

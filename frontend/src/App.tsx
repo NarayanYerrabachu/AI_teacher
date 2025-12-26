@@ -8,10 +8,10 @@ function App() {
   const [messages, setMessages] = useState<Message[]>([]);
   const [sessionId, setSessionId] = useState<string | undefined>();
   const [isStudioCollapsed, setIsStudioCollapsed] = useState(false);
-  const [studioWidth, setStudioWidth] = useState(40); // percentage
+  const [studioWidth, setStudioWidth] = useState(50); // percentage - increased for video content
   const [isDragging, setIsDragging] = useState(false);
   const dragStartX = useRef(0);
-  const dragStartWidth = useRef(40);
+  const dragStartWidth = useRef(50);
   const collapseButtonRef = useRef<HTMLButtonElement>(null);
   const studioSectionRef = useRef<HTMLDivElement>(null);
 

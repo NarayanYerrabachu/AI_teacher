@@ -41,6 +41,9 @@ class ChatResponse(BaseModel):
     response: str
     session_id: str
     sources: Optional[List[dict]] = None
+    explanation_animation: Optional[dict] = None  # Animation steps data
+    explanation_audio: Optional[str] = None  # Base64 encoded audio
+    explanation_duration: Optional[float] = None  # Duration in seconds
 
 
 class StudioGenerateRequest(BaseModel):
@@ -51,5 +54,18 @@ class StudioGenerateRequest(BaseModel):
 class StudioGenerateResponse(BaseModel):
     success: bool
     data: dict
+    message: Optional[str] = None
+
+
+class ExplanationGenerateRequest(BaseModel):
+    message: str  # User's question
+    answer: str  # Assistant's answer
+
+
+class ExplanationGenerateResponse(BaseModel):
+    success: bool
+    animation: Optional[dict] = None  # Animation steps data
+    audio: Optional[str] = None  # Base64 encoded audio
+    duration: Optional[float] = None  # Duration in seconds
     message: Optional[str] = None
 

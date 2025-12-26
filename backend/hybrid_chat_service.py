@@ -8,6 +8,7 @@ from openai import AsyncOpenAI
 
 from .config import Config
 from .hybrid_agent import HybridRAGAgent
+from .explanation_service import ExplanationService
 
 logger = logging.getLogger(__name__)
 
@@ -22,7 +23,8 @@ class HybridChatService:
         self.agent = HybridRAGAgent()
         self.sessions: Dict[str, List[Dict]] = {}
         self.client = AsyncOpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-        logger.info("HybridChatService initialized with LangGraph agent")
+        self.explanation_service = ExplanationService()
+        logger.info("HybridChatService initialized with LangGraph agent and ExplanationService")
 
     def _get_or_create_session(self, session_id: Optional[str] = None) -> tuple[str, List[Dict]]:
         """Get existing session or create new one"""
@@ -216,6 +218,9 @@ class HybridChatService:
             history.append({"role": "user", "content": message})
             history.append({"role": "assistant", "content": full_response})
 
+            # Note: Explanation generation moved to on-demand endpoint
+            # to avoid blocking chat response with video generation
+
             # Send sources in final message
             yield "", session_id, sources_dict
 
@@ -240,6 +245,36 @@ class HybridChatService:
     def get_session_history(self, session_id: str) -> Optional[List[Dict[str, str]]]:
         """Get chat history for a session"""
         return self.sessions.get(session_id)
+
+    async def generate_explanation(self, message: str, answer: str) -> Optional[Dict]:
+        """
+        Generate animated explanation for a message on-demand
+
+        Args:
+            message: The user's question
+            answer: The assistant's answer
+
+        Returns:
+            Dictionary with animation, audio, and duration, or None if not applicable
+        """
+        try:
+            if self.explanation_service.should_generate_explanation(answer, message):
+                logger.info("Generating on-demand explanation...")
+                explanation = await self.explanation_service.generate_explanation(
+                    answer=answer,
+                    question=message
+                )
+                if explanation:
+                    logger.info("✓ On-demand explanation generated")
+                    return {
+                        "animation": explanation["animation"],
+                        "audio": explanation["audio"],
+                        "duration": explanation["duration"]
+                    }
+            return None
+        except Exception as e:
+            logger.error(f"Error generating explanation: {str(e)}", exc_info=True)
+            return None
 
 
 # Testing

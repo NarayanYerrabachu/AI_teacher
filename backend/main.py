@@ -12,7 +12,7 @@ import shutil
 from pathlib import Path
 
 from .config import Config, setup_logging
-from .models import StatusResponse, WebPageRequest, QueryResponse, QueryRequest, ChatRequest, ChatResponse, StudioGenerateRequest, StudioGenerateResponse
+from .models import StatusResponse, WebPageRequest, QueryResponse, QueryRequest, ChatRequest, ChatResponse, StudioGenerateRequest, StudioGenerateResponse, ExplanationGenerateRequest, ExplanationGenerateResponse
 from .simple_chat_service import SimpleChatService
 from .hybrid_chat_service import HybridChatService
 from .studio_service import StudioService
@@ -508,6 +508,10 @@ async def chat_stream(request: ChatRequest):
 
                     # Send sources in final message
                     if sources is not None:
+                        logger.info(f"📡 Sending sources to frontend - keys: {list(sources.keys())}")
+                        logger.info(f"📡 Has explanation_animation: {('explanation_animation' in sources)}, has explanation_audio: {('explanation_audio' in sources)}")
+                        if 'explanation_animation' in sources:
+                            logger.info(f"📡 Animation has {len(sources['explanation_animation'].get('steps', []))} steps")
                         yield f"data: {json.dumps({'type': 'sources', 'sources': sources, 'session_id': session_id})}\n\n"
             else:
                 async for chunk, session_id, sources in chat_service.chat_stream(
@@ -581,6 +585,53 @@ async def clear_chat_session(session_id: str):
     except Exception as e:
         logger.error(f"Error clearing session: {str(e)}", exc_info=True)
         raise HTTPException(status_code=500, detail=str(e))
+
+
+@app.post("/explanation/generate", response_model=ExplanationGenerateResponse)
+async def generate_explanation(request: ExplanationGenerateRequest):
+    """
+    Generate animated explanation for a message on-demand
+
+    - **message**: The user's question
+    - **answer**: The assistant's answer
+    """
+    logger.info(f"Generating explanation for question: '{request.message[:50]}...'")
+
+    try:
+        # Only HybridChatService has the explanation generation method
+        if not isinstance(chat_service, HybridChatService):
+            return ExplanationGenerateResponse(
+                success=False,
+                message="Explanation generation not available with current chat service"
+            )
+
+        explanation = await chat_service.generate_explanation(
+            message=request.message,
+            answer=request.answer
+        )
+
+        if explanation:
+            logger.info("✓ Explanation generated successfully")
+            return ExplanationGenerateResponse(
+                success=True,
+                animation=explanation["animation"],
+                audio=explanation["audio"],
+                duration=explanation["duration"],
+                message="Explanation generated successfully"
+            )
+        else:
+            logger.info("No explanation generated (not applicable for this message)")
+            return ExplanationGenerateResponse(
+                success=False,
+                message="Explanation not applicable for this message type"
+            )
+
+    except Exception as e:
+        logger.error(f"Error generating explanation: {str(e)}", exc_info=True)
+        return ExplanationGenerateResponse(
+            success=False,
+            message=f"Error generating explanation: {str(e)}"
+        )
 
 
 @app.post("/studio/generate", response_model=StudioGenerateResponse)

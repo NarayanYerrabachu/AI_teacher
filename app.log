@@ -121324,3 +121324,1777 @@ According to the textbook, a contradiction occurs when we find a statement such 
 2025-12-24 01:03:21,249 - backend.main - INFO - Generating quiz for session 2d8359d3-771c-4ba4-b413-06c44be4d0eb
 2025-12-24 01:03:21,256 - backend.studio_service - INFO - Generating quiz for session 2d8359d3-771c-4ba4-b413-06c44be4d0eb
 2025-12-24 01:03:37,814 - backend.main - INFO - Successfully generated quiz for session 2d8359d3-771c-4ba4-b413-06c44be4d0eb
+2025-12-24 06:08:15,623 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 06:08:17,741 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 06:08:17,741 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 06:08:17,742 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 06:08:17,742 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 06:08:17,791 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 06:08:17,860 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 06:08:17,977 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 06:08:17,990 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent
+2025-12-24 06:08:17,990 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 06:08:18,003 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 06:08:18,003 - backend.main - INFO - StudioService initialized
+2025-12-24 06:08:18,004 - backend.main - INFO - Document Processing API initialized
+2025-12-24 06:08:18,009 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 06:08:26,931 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 06:08:29,127 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 06:08:29,127 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 06:08:29,127 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 06:08:29,127 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 06:08:29,183 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 06:08:29,254 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 06:08:29,369 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 06:08:29,382 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent
+2025-12-24 06:08:29,382 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 06:08:29,395 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 06:08:29,395 - backend.main - INFO - StudioService initialized
+2025-12-24 06:08:29,395 - backend.main - INFO - Document Processing API initialized
+2025-12-24 06:08:29,401 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 06:08:34,014 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 06:08:36,225 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 06:08:36,225 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 06:08:36,226 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 06:08:36,226 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 06:08:36,274 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 06:08:36,343 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 06:08:36,458 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 06:08:36,472 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent
+2025-12-24 06:08:36,472 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 06:08:36,486 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 06:08:36,486 - backend.main - INFO - StudioService initialized
+2025-12-24 06:08:36,486 - backend.main - INFO - Document Processing API initialized
+2025-12-24 06:08:36,492 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 06:08:40,907 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 06:08:43,037 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 06:08:43,037 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 06:08:43,037 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 06:08:43,037 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 06:08:43,087 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 06:08:43,156 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 06:08:43,274 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 06:08:43,301 - backend.explanation_service - INFO - ExplanationService initialized
+2025-12-24 06:08:43,301 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 06:08:43,301 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 06:08:43,315 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 06:08:43,315 - backend.main - INFO - StudioService initialized
+2025-12-24 06:08:43,315 - backend.main - INFO - Document Processing API initialized
+2025-12-24 06:08:43,321 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 06:08:50,040 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 06:08:52,262 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 06:08:52,262 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 06:08:52,262 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 06:08:52,262 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 06:08:52,315 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 06:08:52,384 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 06:08:52,503 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 06:08:52,530 - backend.explanation_service - INFO - ExplanationService initialized
+2025-12-24 06:08:52,530 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 06:08:52,530 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 06:08:52,543 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 06:08:52,544 - backend.main - INFO - StudioService initialized
+2025-12-24 06:08:52,544 - backend.main - INFO - Document Processing API initialized
+2025-12-24 06:08:52,549 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 06:13:28,562 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 06:13:32,885 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 06:13:32,886 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 06:13:32,886 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 06:13:32,886 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 06:13:32,942 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 06:13:33,016 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 06:13:33,132 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 06:13:33,160 - backend.explanation_service - INFO - ExplanationService initialized
+2025-12-24 06:13:33,160 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 06:13:33,160 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 06:13:33,180 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 06:13:33,181 - backend.main - INFO - StudioService initialized
+2025-12-24 06:13:33,181 - backend.main - INFO - Document Processing API initialized
+2025-12-24 06:13:33,188 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 06:14:47,700 - backend.main - INFO - Received streaming chat request: 'So, the statements we choose as axioms require a l...'
+2025-12-24 06:14:47,702 - backend.hybrid_chat_service - INFO - Created new chat session: 098cb762-9c0d-4e2f-b9ae-8773929a48a4
+2025-12-24 06:14:47,702 - backend.hybrid_agent - INFO - Processing query: 'So, the statements we choose as axioms require a lot of thought and insight. We
+must make sure they do not lead to inconsistencies or logical contradictions. Moreover,
+the choice of axioms themselves, sometimes leads us to new discoveries. From Chapter
+5, you are familiar with Euclid’s fifth postulate and the discoveries of non-Euclidean
+geometries. You saw that mathematicians believed that the fifth postulate need not be
+a postulate and is actually a theorem that can be proved using just the first four
+postulates. Amazingly these attempts led to the discovery of non-Euclidean geometries.'
+2025-12-24 06:14:47,703 - backend.hybrid_agent - INFO - Route decision: PDF only (textbook query)
+2025-12-24 06:14:47,703 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-24 06:14:47,779 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-24 06:14:47,780 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-24 06:14:49,081 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-24 06:14:49,118 - backend.hybrid_agent - INFO - PDF search: Found 4 relevant documents
+2025-12-24 06:14:49,118 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-24 06:14:49,118 - backend.hybrid_agent - INFO - pdf_context exists: True, web_context exists: False
+2025-12-24 06:14:49,118 - backend.hybrid_agent - INFO - Using PDF context only
+2025-12-24 06:14:49,118 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-24 06:14:49,119 - backend.hybrid_agent - INFO - Context length: 3068 chars
+2025-12-24 06:14:49,119 - backend.hybrid_agent - INFO - Context preview: TEXTBOOK CONTENT:
+must make sure they do not lead to inconsistencies or logical contradictions.  Moreover,
+the choice of axioms themselves, sometimes leads us to new discoveries. From Chapter
+5, you a...
+2025-12-24 06:14:57,677 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **The Importance of Axioms in Mathematics** 📚
+
+According to the textbook, "the choice of axioms themselves, sometimes leads us to new discoveries," particularly in the context of Euclid’s fifth postulate and the emergence of non-Euclidean geometries.
+
+**Detailed Explanation:**
+
+
+1. **Axioms and Consistency** - Axioms are foundational statements assumed to be true without proof. They must be chosen carefully to ensure that they do not lead to contradictions or inconsistencies within the mathemati
+2025-12-24 06:14:57,678 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-24 06:14:57,678 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **The Importance of Axioms in Mathematics** 📚
+
+According to the textbook, "the choice of axioms themselves, sometimes leads us to new discoveries," particularly in the context of Euclid’s fifth postulate and the emergence of non-Euclidean geometries.
+
+**Detailed Explanation:**
+
+
+1. **Axioms and Consistency** - Axioms are foundational statements assumed to be true without proof. They must be chosen carefully to ensure that they do not lead to contradictions or inconsistencies within the mathemati
+2025-12-24 06:14:57,678 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-24 06:14:57,678 - backend.hybrid_agent - INFO - Query completed: route=pdf_only, pdf_sources=4, web_sources=0
+2025-12-24 06:16:46,181 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 06:16:48,339 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 06:16:48,339 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 06:16:48,339 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 06:16:48,339 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 06:16:48,389 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 06:16:48,459 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 06:16:48,576 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 06:16:48,604 - backend.explanation_service - INFO - ExplanationService initialized
+2025-12-24 06:16:48,604 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 06:16:48,604 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 06:16:48,617 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 06:16:48,617 - backend.main - INFO - StudioService initialized
+2025-12-24 06:16:48,618 - backend.main - INFO - Document Processing API initialized
+2025-12-24 06:16:48,623 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 06:16:51,932 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 06:17:06,813 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 06:17:06,813 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 06:17:06,814 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 06:17:06,814 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 06:17:06,863 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 06:17:06,932 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 06:17:07,050 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 06:17:07,078 - backend.explanation_service - INFO - ExplanationService initialized
+2025-12-24 06:17:07,078 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 06:17:07,078 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 06:17:07,091 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 06:17:07,092 - backend.main - INFO - StudioService initialized
+2025-12-24 06:17:07,092 - backend.main - INFO - Document Processing API initialized
+2025-12-24 06:17:07,097 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 06:19:11,204 - backend.main - INFO - Received streaming chat request: 'So, the statements we choose as axioms require a l...'
+2025-12-24 06:19:11,207 - backend.hybrid_chat_service - INFO - Created new chat session: 0c275187-3f2f-471b-be68-f9bf785e67de
+2025-12-24 06:19:11,207 - backend.hybrid_agent - INFO - Processing query: 'So, the statements we choose as axioms require a lot of thought and insight. We
+must make sure they do not lead to inconsistencies or logical contradictions. Moreover,
+the choice of axioms themselves, sometimes leads us to new discoveries. From Chapter
+5, you are familiar with Euclid’s fifth postulate and the discoveries of non-Euclidean
+geometries. You saw that mathematicians believed that the fifth postulate need not be
+a postulate and is actually a theorem that can be proved using just the first four
+postulates. Amazingly these attempts led to the discovery of non-Euclidean geometries.'
+2025-12-24 06:19:11,208 - backend.hybrid_agent - INFO - Route decision: PDF only (textbook query)
+2025-12-24 06:19:11,209 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-24 06:19:11,284 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-24 06:19:11,284 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-24 06:19:12,485 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-24 06:19:12,512 - backend.hybrid_agent - INFO - PDF search: Found 4 relevant documents
+2025-12-24 06:19:12,512 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-24 06:19:12,512 - backend.hybrid_agent - INFO - pdf_context exists: True, web_context exists: False
+2025-12-24 06:19:12,512 - backend.hybrid_agent - INFO - Using PDF context only
+2025-12-24 06:19:12,513 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-24 06:19:12,513 - backend.hybrid_agent - INFO - Context length: 3068 chars
+2025-12-24 06:19:12,513 - backend.hybrid_agent - INFO - Context preview: TEXTBOOK CONTENT:
+must make sure they do not lead to inconsistencies or logical contradictions.  Moreover,
+the choice of axioms themselves, sometimes leads us to new discoveries. From Chapter
+5, you a...
+2025-12-24 06:19:21,899 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **Importance of Axioms in Mathematics** 📚
+
+According to the textbook, "the statements we choose as axioms require a lot of thought and insight. We must make sure they do not lead to inconsistencies or logical contradictions." 
+
+**Detailed Explanation:** 
+
+1. **Axioms as Foundations** - Axioms serve as the foundational building blocks of any mathematical system. They are self-evident truths that we accept without proof, and their consistency is crucial for the integrity of the entire mathematical
+2025-12-24 06:19:21,899 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-24 06:19:21,899 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **Importance of Axioms in Mathematics** 📚
+
+According to the textbook, "the statements we choose as axioms require a lot of thought and insight. We must make sure they do not lead to inconsistencies or logical contradictions." 
+
+**Detailed Explanation:** 
+
+1. **Axioms as Foundations** - Axioms serve as the foundational building blocks of any mathematical system. They are self-evident truths that we accept without proof, and their consistency is crucial for the integrity of the entire mathematical
+2025-12-24 06:19:21,899 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-24 06:19:21,899 - backend.hybrid_agent - INFO - Query completed: route=pdf_only, pdf_sources=4, web_sources=0
+2025-12-24 06:19:27,741 - backend.explanation_service - INFO - ✓ Explanation eligible: 2020 chars, 7 educational keywords
+2025-12-24 06:19:27,741 - backend.hybrid_chat_service - INFO - Generating animated explanation...
+2025-12-24 06:19:37,781 - backend.explanation_service - INFO - Generated animation with 5 steps
+2025-12-24 06:19:40,135 - backend.explanation_service - INFO - Generated audio: 134400 bytes
+2025-12-24 06:19:40,135 - backend.hybrid_chat_service - INFO - ✓ Animated explanation generated
+2025-12-24 06:22:05,291 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 06:22:09,609 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 06:22:09,609 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 06:22:09,609 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 06:22:09,609 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 06:22:09,661 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 06:22:09,732 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 06:22:09,851 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 06:22:09,879 - backend.explanation_service - INFO - ExplanationService initialized
+2025-12-24 06:22:09,879 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 06:22:09,879 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 06:22:09,894 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 06:22:09,894 - backend.main - INFO - StudioService initialized
+2025-12-24 06:22:09,894 - backend.main - INFO - Document Processing API initialized
+2025-12-24 06:22:09,900 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 06:25:05,945 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 06:25:10,273 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 06:25:10,273 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 06:25:10,273 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 06:25:10,273 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 06:25:10,323 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 06:25:10,390 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 06:25:10,508 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 06:25:10,535 - backend.explanation_service - INFO - ExplanationService initialized
+2025-12-24 06:25:10,535 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 06:25:10,535 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 06:25:10,548 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 06:25:10,548 - backend.main - INFO - StudioService initialized
+2025-12-24 06:25:10,548 - backend.main - INFO - Document Processing API initialized
+2025-12-24 06:25:10,554 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 06:26:02,685 - backend.main - INFO - Received streaming chat request: 'So, the statements we choose as axioms require a l...'
+2025-12-24 06:26:02,687 - backend.hybrid_chat_service - INFO - Created new chat session: 2fc9c8be-8f55-4ea2-ac3f-0c46b68dac96
+2025-12-24 06:26:02,687 - backend.hybrid_agent - INFO - Processing query: 'So, the statements we choose as axioms require a lot of thought and insight. We
+must make sure they do not lead to inconsistencies or logical contradictions. Moreover,
+the choice of axioms themselves, sometimes leads us to new discoveries. From Chapter
+5, you are familiar with Euclid’s fifth postulate and the discoveries of non-Euclidean
+geometries. You saw that mathematicians believed that the fifth postulate need not be
+a postulate and is actually a theorem that can be proved using just the first four
+postulates. Amazingly these attempts led to the discovery of non-Euclidean geometries.'
+2025-12-24 06:26:02,688 - backend.hybrid_agent - INFO - Route decision: PDF only (textbook query)
+2025-12-24 06:26:02,688 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-24 06:26:02,764 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-24 06:26:02,764 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-24 06:26:05,064 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-24 06:26:05,096 - backend.hybrid_agent - INFO - PDF search: Found 4 relevant documents
+2025-12-24 06:26:05,096 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-24 06:26:05,096 - backend.hybrid_agent - INFO - pdf_context exists: True, web_context exists: False
+2025-12-24 06:26:05,096 - backend.hybrid_agent - INFO - Using PDF context only
+2025-12-24 06:26:05,096 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-24 06:26:05,096 - backend.hybrid_agent - INFO - Context length: 3068 chars
+2025-12-24 06:26:05,096 - backend.hybrid_agent - INFO - Context preview: TEXTBOOK CONTENT:
+must make sure they do not lead to inconsistencies or logical contradictions.  Moreover,
+the choice of axioms themselves, sometimes leads us to new discoveries. From Chapter
+5, you a...
+2025-12-24 06:26:16,324 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **The Importance of Axioms in Mathematics** 📚
+
+According to the textbook, "the choice of axioms themselves, sometimes leads us to new discoveries... you are familiar with Euclid’s fifth postulate and the discoveries of non-Euclidean geometries." 
+
+**Detailed Explanation:**
+
+1. **Axioms as Foundations** - Axioms serve as the foundational building blocks of mathematical systems. They are statements assumed to be true without proof, and their careful selection is crucial to avoid inconsistencies in
+2025-12-24 06:26:16,324 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-24 06:26:16,324 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **The Importance of Axioms in Mathematics** 📚
+
+According to the textbook, "the choice of axioms themselves, sometimes leads us to new discoveries... you are familiar with Euclid’s fifth postulate and the discoveries of non-Euclidean geometries." 
+
+**Detailed Explanation:**
+
+1. **Axioms as Foundations** - Axioms serve as the foundational building blocks of mathematical systems. They are statements assumed to be true without proof, and their careful selection is crucial to avoid inconsistencies in
+2025-12-24 06:26:16,324 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-24 06:26:16,324 - backend.hybrid_agent - INFO - Query completed: route=pdf_only, pdf_sources=4, web_sources=0
+2025-12-24 06:26:22,815 - backend.explanation_service - INFO - ✓ Explanation eligible: 2215 chars, 5 educational keywords
+2025-12-24 06:26:22,815 - backend.hybrid_chat_service - INFO - Generating animated explanation...
+2025-12-24 06:26:32,719 - backend.explanation_service - INFO - Generated animation with 6 steps
+2025-12-24 06:26:36,003 - backend.explanation_service - INFO - Generated audio: 123360 bytes
+2025-12-24 06:26:36,003 - backend.hybrid_chat_service - INFO - ✓ Animated explanation generated
+2025-12-24 06:31:02,096 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 06:31:06,344 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 06:31:06,345 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 06:31:06,345 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 06:31:06,345 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 06:31:06,393 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 06:31:06,461 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 06:31:06,577 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 06:31:06,604 - backend.explanation_service - INFO - ExplanationService initialized
+2025-12-24 06:31:06,604 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 06:31:06,604 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 06:31:06,617 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 06:31:06,617 - backend.main - INFO - StudioService initialized
+2025-12-24 06:31:06,617 - backend.main - INFO - Document Processing API initialized
+2025-12-24 06:31:06,623 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 06:32:32,961 - backend.main - INFO - Received streaming chat request: 'So, the statements we choose as axioms require a l...'
+2025-12-24 06:32:32,963 - backend.hybrid_chat_service - INFO - Created new chat session: 5dc786d5-f35b-43da-8e3c-8a02eb528c6b
+2025-12-24 06:32:32,963 - backend.hybrid_agent - INFO - Processing query: 'So, the statements we choose as axioms require a lot of thought and insight. We
+must make sure they do not lead to inconsistencies or logical contradictions. Moreover,
+the choice of axioms themselves, sometimes leads us to new discoveries. From Chapter
+5, you are familiar with Euclid’s fifth postulate and the discoveries of non-Euclidean
+geometries. You saw that mathematicians believed that the fifth postulate need not be
+a postulate and is actually a theorem that can be proved using just the first four
+postulates. Amazingly these attempts led to the discovery of non-Euclidean geometries.
+We end the section by recalling the differences between an axiom, a theorem and
+a conjecture. An axiom is a mathematical statement which is assumed to be true'
+2025-12-24 06:32:32,964 - backend.hybrid_agent - INFO - Route decision: PDF only (textbook query)
+2025-12-24 06:32:32,964 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-24 06:32:33,040 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-24 06:32:33,040 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-24 06:32:34,604 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-24 06:32:34,638 - backend.hybrid_agent - INFO - PDF search: Found 4 relevant documents
+2025-12-24 06:32:34,639 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-24 06:32:34,639 - backend.hybrid_agent - INFO - pdf_context exists: True, web_context exists: False
+2025-12-24 06:32:34,639 - backend.hybrid_agent - INFO - Using PDF context only
+2025-12-24 06:32:34,639 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-24 06:32:34,639 - backend.hybrid_agent - INFO - Context length: 3616 chars
+2025-12-24 06:32:34,639 - backend.hybrid_agent - INFO - Context preview: TEXTBOOK CONTENT:
+must make sure they do not lead to inconsistencies or logical contradictions.  Moreover,
+the choice of axioms themselves, sometimes leads us to new discoveries. From Chapter
+5, you a...
+2025-12-24 06:32:44,970 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **The Importance of Axioms in Mathematics** 📚
+
+According to the textbook, "the choice of axioms themselves, sometimes leads us to new discoveries," highlighting the critical role that axioms play in the development of mathematical theories. 
+
+**Detailed Explanation:** 
+
+1. **Axioms as Foundations** - Axioms are fundamental statements that are accepted as true without proof. They serve as the building blocks for mathematical reasoning, allowing mathematicians to derive theorems and build entire s
+2025-12-24 06:32:44,970 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-24 06:32:44,970 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **The Importance of Axioms in Mathematics** 📚
+
+According to the textbook, "the choice of axioms themselves, sometimes leads us to new discoveries," highlighting the critical role that axioms play in the development of mathematical theories. 
+
+**Detailed Explanation:** 
+
+1. **Axioms as Foundations** - Axioms are fundamental statements that are accepted as true without proof. They serve as the building blocks for mathematical reasoning, allowing mathematicians to derive theorems and build entire s
+2025-12-24 06:32:44,970 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-24 06:32:44,970 - backend.hybrid_agent - INFO - Query completed: route=pdf_only, pdf_sources=4, web_sources=0
+2025-12-24 06:32:51,117 - backend.explanation_service - INFO - ✓ Explanation eligible: 2035 chars, 5 educational keywords
+2025-12-24 06:32:51,117 - backend.hybrid_chat_service - INFO - Generating animated explanation...
+2025-12-24 06:32:59,803 - backend.explanation_service - INFO - Generated animation with 5 steps
+2025-12-24 06:33:02,864 - backend.explanation_service - INFO - Generated audio: 93120 bytes
+2025-12-24 06:33:02,865 - backend.hybrid_chat_service - INFO - ✓ Animated explanation generated
+2025-12-24 06:35:37,099 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 06:35:41,402 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 06:35:41,402 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 06:35:41,403 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 06:35:41,403 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 06:35:41,464 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 06:35:41,537 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 06:35:41,660 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 06:35:41,689 - backend.explanation_service - INFO - ExplanationService initialized
+2025-12-24 06:35:41,689 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 06:35:41,689 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 06:35:41,702 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 06:35:41,703 - backend.main - INFO - StudioService initialized
+2025-12-24 06:35:41,703 - backend.main - INFO - Document Processing API initialized
+2025-12-24 06:35:41,708 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 06:36:41,579 - backend.main - INFO - Received streaming chat request: 'So, the statements we choose as axioms require a l...'
+2025-12-24 06:36:41,582 - backend.hybrid_chat_service - INFO - Created new chat session: 0abbe974-8b38-4010-a042-37b7d6422219
+2025-12-24 06:36:41,582 - backend.hybrid_agent - INFO - Processing query: 'So, the statements we choose as axioms require a lot of thought and insight. We
+must make sure they do not lead to inconsistencies or logical contradictions. Moreover,
+the choice of axioms themselves, sometimes leads us to new discoveries. From Chapter
+5, you are familiar with Euclid’s fifth postulate and the discoveries of non-Euclidean
+geometries. You saw that mathematicians believed that the fifth postulate need not be
+a postulate and is actually a theorem that can be proved using just the first four
+postulates. Amazingly these attempts led to the discovery of non-Euclidean geometries.'
+2025-12-24 06:36:41,583 - backend.hybrid_agent - INFO - Route decision: PDF only (textbook query)
+2025-12-24 06:36:41,583 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-24 06:36:41,659 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-24 06:36:41,659 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-24 06:36:42,381 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-24 06:36:42,411 - backend.hybrid_agent - INFO - PDF search: Found 4 relevant documents
+2025-12-24 06:36:42,411 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-24 06:36:42,411 - backend.hybrid_agent - INFO - pdf_context exists: True, web_context exists: False
+2025-12-24 06:36:42,411 - backend.hybrid_agent - INFO - Using PDF context only
+2025-12-24 06:36:42,411 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-24 06:36:42,411 - backend.hybrid_agent - INFO - Context length: 3068 chars
+2025-12-24 06:36:42,411 - backend.hybrid_agent - INFO - Context preview: TEXTBOOK CONTENT:
+must make sure they do not lead to inconsistencies or logical contradictions.  Moreover,
+the choice of axioms themselves, sometimes leads us to new discoveries. From Chapter
+5, you a...
+2025-12-24 06:36:52,609 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **The Importance of Axioms in Mathematics** 📚
+
+According to the textbook, "the choice of axioms themselves, sometimes leads us to new discoveries" and the exploration of Euclid's fifth postulate contributed to the development of non-Euclidean geometries.
+
+**Detailed Explanation:** 
+
+1. **Axioms as Foundations** - Axioms serve as the foundational building blocks of mathematical systems. They are statements assumed to be true without proof, allowing mathematicians to derive theorems and propositio
+2025-12-24 06:36:52,609 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-24 06:36:52,618 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **The Importance of Axioms in Mathematics** 📚
+
+According to the textbook, "the choice of axioms themselves, sometimes leads us to new discoveries" and the exploration of Euclid's fifth postulate contributed to the development of non-Euclidean geometries.
+
+**Detailed Explanation:** 
+
+1. **Axioms as Foundations** - Axioms serve as the foundational building blocks of mathematical systems. They are statements assumed to be true without proof, allowing mathematicians to derive theorems and propositio
+2025-12-24 06:36:52,618 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-24 06:36:52,618 - backend.hybrid_agent - INFO - Query completed: route=pdf_only, pdf_sources=4, web_sources=0
+2025-12-24 06:36:57,759 - backend.explanation_service - INFO - ✓ Explanation eligible: 2168 chars, 5 educational keywords
+2025-12-24 06:36:57,760 - backend.hybrid_chat_service - INFO - Generating animated explanation...
+2025-12-24 06:37:07,676 - backend.explanation_service - INFO - Generated animation with 6 steps
+2025-12-24 06:37:10,114 - backend.explanation_service - INFO - Generated audio: 104640 bytes
+2025-12-24 06:37:10,114 - backend.hybrid_chat_service - INFO - ✓ Animated explanation generated
+2025-12-24 06:40:47,592 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 06:40:52,139 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 06:40:52,140 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 06:40:52,140 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 06:40:52,140 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 06:40:52,198 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 06:40:52,271 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 06:40:52,402 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 06:40:52,428 - backend.explanation_service - INFO - ExplanationService initialized
+2025-12-24 06:40:52,429 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 06:40:52,429 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 06:40:52,442 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 06:40:52,442 - backend.main - INFO - StudioService initialized
+2025-12-24 06:40:52,442 - backend.main - INFO - Document Processing API initialized
+2025-12-24 06:40:52,447 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 06:42:23,378 - backend.main - INFO - Received streaming chat request: 'State whether the following statements are always ...'
+2025-12-24 06:42:23,390 - backend.hybrid_chat_service - INFO - Created new chat session: 1d87a638-c962-41ab-b921-ea165a2976d8
+2025-12-24 06:42:23,390 - backend.hybrid_agent - INFO - Processing query: 'State whether the following statements are always true, always false or ambiguous.
+Justify your answers.
+(i) There are 13 months in a year.
+(ii) Diwali falls on a Friday.
+(iii) The temperature in Magadi is 260 C.
+(iv) The earth has one moon.
+(v) Dogs can fly.
+(vi) February has only 28 days.'
+2025-12-24 06:42:23,390 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-24 06:42:23,391 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: 'State whether the following statements are always true, always false or ambiguous.
+Justify your answ...'
+2025-12-24 06:42:23,391 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-24 06:42:23,393 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: State whether the following statements are always true, always false or ambiguous.
+Justify your answers.
+(i) There are 13 months in a year.
+(ii) Diwali falls on a Friday.
+(iii) The temperature in Magadi is 260 C.
+(iv) The earth has one moon.
+(v) Dogs can fly.
+(vi) February has only 28 days.', num_results=3, type=neural, days_back=None
+2025-12-24 06:42:23,463 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-24 06:42:23,463 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-24 06:42:24,079 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-24 06:42:24,121 - backend.hybrid_agent - INFO - PDF search: Found 4 relevant documents
+2025-12-24 06:42:24,121 - backend.hybrid_agent - INFO - PDF results sufficient, skipping web search
+2025-12-24 06:42:25,569 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-24 06:42:25,569 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-24 06:42:25,569 - backend.hybrid_agent - INFO - ✅ PARALLEL search completed in 2.18s (PDF: 4 sources, Web: 3 sources)
+2025-12-24 06:42:25,570 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-24 06:42:25,570 - backend.hybrid_agent - INFO - pdf_context exists: True, web_context exists: True
+2025-12-24 06:42:25,570 - backend.hybrid_agent - INFO - Combined PDF and web context
+2025-12-24 06:42:25,570 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-24 06:42:25,570 - backend.hybrid_agent - INFO - Context length: 5971 chars
+2025-12-24 06:42:25,570 - backend.hybrid_agent - INFO - Context preview: TEXTBOOK CONTENT:
+216 MATHEMATICS
+EXERCISE A1.1
+1. (i) False. There are 12 months in a year.
+(ii) Ambiguous. In a given year, Diwali may or may not fall on a Friday.
+(iii) Ambiguous. At some time in t...
+2025-12-24 06:42:35,708 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **Evaluating Statements on Truth Values** 📚
+
+According to the textbook, we need to determine whether the statements are always true, always false, or ambiguous, along with justifications for each.
+
+**Detailed Explanation:**
+
+
+1. **Statement: There are 13 months in a year.**  
+   This statement is **always false**. There are 12 months in a standard Gregorian calendar year. No year has 13 months.
+
+  
+2. **Statement: Diwali falls on a Friday.**  
+   This statement is **ambiguous**. The date of Diwa
+2025-12-24 06:42:35,709 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-24 06:42:35,709 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **Evaluating Statements on Truth Values** 📚
+
+According to the textbook, we need to determine whether the statements are always true, always false, or ambiguous, along with justifications for each.
+
+**Detailed Explanation:**
+
+
+1. **Statement: There are 13 months in a year.**  
+   This statement is **always false**. There are 12 months in a standard Gregorian calendar year. No year has 13 months.
+
+  
+2. **Statement: Diwali falls on a Friday.**  
+   This statement is **ambiguous**. The date of Diwa
+2025-12-24 06:42:35,709 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-24 06:42:35,709 - backend.hybrid_agent - INFO - Query completed: route=both, pdf_sources=4, web_sources=3
+2025-12-24 06:42:42,180 - backend.explanation_service - INFO - ✓ Explanation eligible: 2016 chars, 3 educational keywords
+2025-12-24 06:42:42,180 - backend.hybrid_chat_service - INFO - Generating animated explanation...
+2025-12-24 06:42:51,537 - backend.explanation_service - INFO - Generated animation with 6 steps
+2025-12-24 06:42:55,173 - backend.explanation_service - INFO - Generated audio: 161760 bytes
+2025-12-24 06:42:55,173 - backend.hybrid_chat_service - INFO - ✓ Animated explanation generated
+2025-12-24 06:44:46,433 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 06:44:48,572 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 06:44:48,572 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 06:44:48,573 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 06:44:48,573 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 06:44:48,625 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 06:44:48,690 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 06:44:48,803 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 06:44:48,835 - backend.explanation_service - INFO - ExplanationService initialized
+2025-12-24 06:44:48,836 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 06:44:48,836 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 06:44:48,850 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 06:44:48,850 - backend.main - INFO - StudioService initialized
+2025-12-24 06:44:48,850 - backend.main - INFO - Document Processing API initialized
+2025-12-24 06:44:48,855 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 06:44:52,567 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 06:45:29,140 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 06:45:29,140 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 06:45:29,140 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 06:45:29,140 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 06:45:29,195 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 06:45:29,263 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 06:45:29,392 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 06:45:29,421 - backend.explanation_service - INFO - ExplanationService initialized
+2025-12-24 06:45:29,421 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 06:45:29,421 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 06:45:29,435 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 06:45:29,435 - backend.main - INFO - StudioService initialized
+2025-12-24 06:45:29,435 - backend.main - INFO - Document Processing API initialized
+2025-12-24 06:45:29,441 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 06:46:24,618 - backend.main - INFO - Received streaming chat request: 'What is a prime number?...'
+2025-12-24 06:46:24,621 - backend.hybrid_chat_service - INFO - Created new chat session: 4bd7b883-ee09-4e36-bae2-7ef7937cf113
+2025-12-24 06:46:24,621 - backend.hybrid_agent - INFO - Processing query: 'What is a prime number?'
+2025-12-24 06:46:24,621 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-24 06:46:24,622 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: 'What is a prime number?...'
+2025-12-24 06:46:24,622 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-24 06:46:24,624 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: What is a prime number?', num_results=3, type=neural, days_back=None
+2025-12-24 06:46:24,704 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-24 06:46:24,704 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-24 06:46:25,469 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-24 06:46:25,499 - backend.hybrid_agent - INFO - PDF search: Found 1 relevant documents
+2025-12-24 06:46:26,625 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-24 06:46:26,625 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-24 06:46:26,626 - backend.hybrid_agent - INFO - ✅ PARALLEL search completed in 2.00s (PDF: 1 sources, Web: 3 sources)
+2025-12-24 06:46:26,626 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-24 06:46:26,626 - backend.hybrid_agent - INFO - pdf_context exists: True, web_context exists: True
+2025-12-24 06:46:26,626 - backend.hybrid_agent - INFO - Combined PDF and web context
+2025-12-24 06:46:26,626 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-24 06:46:26,626 - backend.hybrid_agent - INFO - Context length: 3481 chars
+2025-12-24 06:46:26,627 - backend.hybrid_agent - INFO - Context preview: TEXTBOOK CONTENT:
+10 MATHEMATICS
+Although we have noticed this pattern using only the examples above, it is true for all
+rationals of the form p
+q  (q ≠ 0). On division of p by q, two main things happ...
+2025-12-24 06:46:32,834 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.** 📚
+
+According to the textbook/material, prime numbers are a fundamental concept in number theory and are defined as numbers that can only be divided evenly by 1 and the number itself.
+
+**Detailed Explanation:**
+
+1. **Definition of Prime Numbers** - A prime number is defined as a number that cannot be formed by multiplying two smaller natural numbers. For instance, 2, 3, 5, and 7 are all pr
+2025-12-24 06:46:32,835 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-24 06:46:32,835 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself.** 📚
+
+According to the textbook/material, prime numbers are a fundamental concept in number theory and are defined as numbers that can only be divided evenly by 1 and the number itself.
+
+**Detailed Explanation:**
+
+1. **Definition of Prime Numbers** - A prime number is defined as a number that cannot be formed by multiplying two smaller natural numbers. For instance, 2, 3, 5, and 7 are all pr
+2025-12-24 06:46:32,835 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-24 06:46:32,835 - backend.hybrid_agent - INFO - Query completed: route=both, pdf_sources=1, web_sources=3
+2025-12-24 06:46:38,249 - backend.explanation_service - INFO - ✓ Explanation eligible: 1512 chars, 7 educational keywords
+2025-12-24 06:46:38,249 - backend.hybrid_chat_service - INFO - Generating animated explanation...
+2025-12-24 06:46:48,646 - backend.explanation_service - INFO - Generated animation with 7 steps
+2025-12-24 06:46:50,523 - backend.explanation_service - INFO - Generated audio: 69600 bytes
+2025-12-24 06:46:50,523 - backend.hybrid_chat_service - INFO - ✓ Animated explanation generated
+2025-12-24 06:46:50,523 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web', 'explanation_animation', 'explanation_audio', 'explanation_duration']
+2025-12-24 06:46:50,523 - backend.main - INFO - 📡 Has explanation_animation: True, has explanation_audio: True
+2025-12-24 06:46:50,523 - backend.main - INFO - 📡 Animation has 7 steps
+2025-12-24 06:51:07,147 - backend.main - INFO - Received streaming chat request: 'What is a prime number?...'
+2025-12-24 06:51:07,147 - backend.hybrid_chat_service - INFO - Created new chat session: 78fc00c6-5e2b-40cd-9b69-f43390ec902b
+2025-12-24 06:51:07,147 - backend.hybrid_agent - INFO - Processing query: 'What is a prime number?'
+2025-12-24 06:51:07,148 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-24 06:51:07,148 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: 'What is a prime number?...'
+2025-12-24 06:51:07,148 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-24 06:51:07,148 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: What is a prime number?', num_results=3, type=neural, days_back=None
+2025-12-24 06:51:07,152 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-24 06:51:07,152 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-24 06:51:12,657 - backend.exa_search_tool - ERROR - Exa search failed: HTTPSConnectionPool(host='api.exa.ai', port=443): Max retries exceeded with url: /search (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7830e821a6f0>: Failed to resolve 'api.exa.ai' ([Errno -3] Temporary failure in name resolution)"))
+2025-12-24 06:51:12,657 - backend.hybrid_agent - INFO - Web search: No results found
+2025-12-24 06:51:22,352 - backoff - INFO - Backing off send_request(...) for 0.5s (requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Read timed out. (read timeout=15))
+2025-12-24 06:51:22,841 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7830e8243680>: Failed to resolve 'us.i.posthog.com' ([Errno -3] Temporary failure in name resolution)")': /batch/
+2025-12-24 06:51:22,863 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7830e82437a0>: Failed to resolve 'us.i.posthog.com' ([Errno -3] Temporary failure in name resolution)")': /batch/
+2025-12-24 06:51:22,892 - backoff - INFO - Backing off send_request(...) for 0.3s (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7830e8243950>: Failed to resolve 'us.i.posthog.com' ([Errno -3] Temporary failure in name resolution)")))
+2025-12-24 06:51:23,256 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7830e8243ce0>: Failed to resolve 'us.i.posthog.com' ([Errno -3] Temporary failure in name resolution)")': /batch/
+2025-12-24 06:51:23,273 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7830e8243f20>: Failed to resolve 'us.i.posthog.com' ([Errno -3] Temporary failure in name resolution)")': /batch/
+2025-12-24 06:51:23,287 - backoff - INFO - Backing off send_request(...) for 1.4s (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7830e8104170>: Failed to resolve 'us.i.posthog.com' ([Errno -3] Temporary failure in name resolution)")))
+2025-12-24 06:51:24,673 - urllib3.connectionpool - WARNING - Retrying (Retry(total=1, connect=1, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7830e8104500>: Failed to resolve 'us.i.posthog.com' ([Errno -3] Temporary failure in name resolution)")': /batch/
+2025-12-24 06:51:24,692 - urllib3.connectionpool - WARNING - Retrying (Retry(total=0, connect=0, read=2, redirect=None, status=None)) after connection broken by 'NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7830e8104740>: Failed to resolve 'us.i.posthog.com' ([Errno -3] Temporary failure in name resolution)")': /batch/
+2025-12-24 06:51:24,710 - backoff - ERROR - Giving up send_request(...) after 4 tries (requests.exceptions.ConnectionError: HTTPSConnectionPool(host='us.i.posthog.com', port=443): Max retries exceeded with url: /batch/ (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x7830e8104950>: Failed to resolve 'us.i.posthog.com' ([Errno -3] Temporary failure in name resolution)")))
+2025-12-24 06:51:43,619 - backend.vector_store - ERROR - OpenAI API Error: Connection error.
+2025-12-24 06:51:43,620 - backend.vector_store - ERROR - Model: text-embedding-3-small, Dimensions: 384
+2025-12-24 06:51:43,620 - backend.hybrid_agent - ERROR - PDF search failed: Connection error.
+2025-12-24 06:51:43,620 - backend.hybrid_agent - INFO - ✅ PARALLEL search completed in 36.47s (PDF: 0 sources, Web: 0 sources)
+2025-12-24 06:51:43,621 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-24 06:51:43,621 - backend.hybrid_agent - INFO - pdf_context exists: False, web_context exists: False
+2025-12-24 06:51:43,621 - backend.hybrid_agent - INFO - No context available
+2025-12-24 06:51:43,621 - backend.hybrid_agent - INFO - Generating answer with context present: False
+2025-12-24 06:51:45,052 - backend.hybrid_agent - ERROR - Answer generation failed: Connection error.
+2025-12-24 06:51:45,053 - backend.hybrid_agent - INFO - Query completed: route=both, pdf_sources=0, web_sources=0
+2025-12-24 06:51:45,314 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web']
+2025-12-24 06:51:45,314 - backend.main - INFO - 📡 Has explanation_animation: False, has explanation_audio: False
+2025-12-24 06:58:10,700 - backend.main - INFO - Received streaming chat request: 'what is prime number?...'
+2025-12-24 06:58:10,700 - backend.hybrid_chat_service - INFO - Created new chat session: a64199a6-8883-4810-8675-00cc22be03e9
+2025-12-24 06:58:10,700 - backend.hybrid_agent - INFO - Processing query: 'what is prime number?'
+2025-12-24 06:58:10,701 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-24 06:58:10,701 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: 'what is prime number?...'
+2025-12-24 06:58:10,701 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-24 06:58:10,702 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: what is prime number?', num_results=3, type=neural, days_back=None
+2025-12-24 06:58:10,707 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-24 06:58:10,707 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-24 06:58:11,790 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-24 06:58:11,792 - backend.hybrid_agent - INFO - PDF search: Found 4 relevant documents
+2025-12-24 06:58:19,997 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-24 06:58:19,997 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-24 06:58:19,998 - backend.hybrid_agent - INFO - ✅ PARALLEL search completed in 9.30s (PDF: 4 sources, Web: 3 sources)
+2025-12-24 06:58:19,998 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-24 06:58:19,998 - backend.hybrid_agent - INFO - pdf_context exists: True, web_context exists: True
+2025-12-24 06:58:19,998 - backend.hybrid_agent - INFO - Combined PDF and web context
+2025-12-24 06:58:19,998 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-24 06:58:19,998 - backend.hybrid_agent - INFO - Context length: 5842 chars
+2025-12-24 06:58:19,998 - backend.hybrid_agent - INFO - Context preview: TEXTBOOK CONTENT:
+206 MATHEMATICS
+EXERCISE 1.3
+1. (i) 0.36, terminating. (ii) 0.09 , non-terminating repeating.
+(iii) 4.125, terminating. (iv) 0.230769 , non-terminating repeating.
+(v) 0. 18 non-termi...
+2025-12-24 06:58:26,861 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **Understanding Prime Numbers** 📚
+
+According to the textbook, prime numbers are natural numbers greater than 1 that have no positive divisors other than 1 and themselves. This means they cannot be formed by multiplying two smaller natural numbers together.
+
+
+**Detailed Explanation:**
+
+
+1. **Definition of Prime Numbers** - A prime number is defined as a number that has exactly two distinct positive divisors: 1 and the number itself. For instance, 2, 3, 5, and 7 are prime numbers because they cann
+2025-12-24 06:58:26,861 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-24 06:58:26,861 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **Understanding Prime Numbers** 📚
+
+According to the textbook, prime numbers are natural numbers greater than 1 that have no positive divisors other than 1 and themselves. This means they cannot be formed by multiplying two smaller natural numbers together.
+
+
+**Detailed Explanation:**
+
+
+1. **Definition of Prime Numbers** - A prime number is defined as a number that has exactly two distinct positive divisors: 1 and the number itself. For instance, 2, 3, 5, and 7 are prime numbers because they cann
+2025-12-24 06:58:26,861 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-24 06:58:26,861 - backend.hybrid_agent - INFO - Query completed: route=both, pdf_sources=4, web_sources=3
+2025-12-24 06:58:32,647 - backend.explanation_service - INFO - ✓ Explanation eligible: 1657 chars, 8 educational keywords
+2025-12-24 06:58:32,647 - backend.hybrid_chat_service - INFO - Generating animated explanation...
+2025-12-24 06:58:45,935 - backend.explanation_service - INFO - Generated animation with 7 steps
+2025-12-24 06:58:50,546 - backend.explanation_service - INFO - Generated audio: 312480 bytes
+2025-12-24 06:58:50,546 - backend.hybrid_chat_service - INFO - ✓ Animated explanation generated
+2025-12-24 06:58:50,547 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web', 'explanation_animation', 'explanation_audio', 'explanation_duration']
+2025-12-24 06:58:50,547 - backend.main - INFO - 📡 Has explanation_animation: True, has explanation_audio: True
+2025-12-24 06:58:50,547 - backend.main - INFO - 📡 Animation has 7 steps
+2025-12-24 07:02:20,491 - backend.main - INFO - Received streaming chat request: 'what is prime number?...'
+2025-12-24 07:02:20,491 - backend.hybrid_chat_service - INFO - Created new chat session: 03e5f5ad-caa0-4cc8-9578-1a573e9e9313
+2025-12-24 07:02:20,491 - backend.hybrid_agent - INFO - Processing query: 'what is prime number?'
+2025-12-24 07:02:20,491 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-24 07:02:20,492 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: 'what is prime number?...'
+2025-12-24 07:02:20,492 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-24 07:02:20,496 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-24 07:02:20,496 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-24 07:02:20,497 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: what is prime number?', num_results=3, type=neural, days_back=None
+2025-12-24 07:02:21,492 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-24 07:02:21,493 - backend.hybrid_agent - INFO - PDF search: Found 4 relevant documents
+2025-12-24 07:02:22,430 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-24 07:02:22,431 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-24 07:02:22,431 - backend.hybrid_agent - INFO - ✅ PARALLEL search completed in 1.94s (PDF: 4 sources, Web: 3 sources)
+2025-12-24 07:02:22,431 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-24 07:02:22,431 - backend.hybrid_agent - INFO - pdf_context exists: True, web_context exists: True
+2025-12-24 07:02:22,431 - backend.hybrid_agent - INFO - Combined PDF and web context
+2025-12-24 07:02:22,431 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-24 07:02:22,431 - backend.hybrid_agent - INFO - Context length: 5842 chars
+2025-12-24 07:02:22,431 - backend.hybrid_agent - INFO - Context preview: TEXTBOOK CONTENT:
+206 MATHEMATICS
+EXERCISE 1.3
+1. (i) 0.36, terminating. (ii) 0.09 , non-terminating repeating.
+(iii) 4.125, terminating. (iv) 0.230769 , non-terminating repeating.
+(v) 0. 18 non-termi...
+2025-12-24 07:02:31,003 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **Prime Numbers** 📚
+
+According to the textbook, a prime number is defined as a natural number greater than 1 that has no positive divisors other than 1 and itself. This means that a prime number can only be divided evenly by 1 and the number itself, unlike composite numbers that have additional divisors.
+
+**Detailed Explanation:**
+
+
+1. **Definition of Prime Numbers** - A prime number is a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers. For example,
+2025-12-24 07:02:31,003 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-24 07:02:31,003 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **Prime Numbers** 📚
+
+According to the textbook, a prime number is defined as a natural number greater than 1 that has no positive divisors other than 1 and itself. This means that a prime number can only be divided evenly by 1 and the number itself, unlike composite numbers that have additional divisors.
+
+**Detailed Explanation:**
+
+
+1. **Definition of Prime Numbers** - A prime number is a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers. For example,
+2025-12-24 07:02:31,003 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-24 07:02:31,003 - backend.hybrid_agent - INFO - Query completed: route=both, pdf_sources=4, web_sources=3
+2025-12-24 07:02:36,382 - backend.explanation_service - INFO - ✓ Explanation eligible: 1519 chars, 6 educational keywords
+2025-12-24 07:02:36,382 - backend.hybrid_chat_service - INFO - Generating animated explanation...
+2025-12-24 07:02:47,643 - backend.explanation_service - INFO - Generated animation with 5 steps
+2025-12-24 07:02:50,648 - backend.explanation_service - INFO - Generated audio: 319680 bytes
+2025-12-24 07:02:50,648 - backend.hybrid_chat_service - INFO - ✓ Animated explanation generated
+2025-12-24 07:02:50,648 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web', 'explanation_animation', 'explanation_audio', 'explanation_duration']
+2025-12-24 07:02:50,648 - backend.main - INFO - 📡 Has explanation_animation: True, has explanation_audio: True
+2025-12-24 07:02:50,648 - backend.main - INFO - 📡 Animation has 5 steps
+2025-12-24 07:09:35,421 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 07:09:37,618 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 07:09:37,618 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 07:09:37,618 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 07:09:37,618 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 07:09:37,671 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 07:09:37,738 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 07:09:37,854 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 07:09:37,882 - backend.explanation_service - INFO - ExplanationService initialized
+2025-12-24 07:09:37,882 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 07:09:37,882 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 07:09:37,895 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 07:09:37,895 - backend.main - INFO - StudioService initialized
+2025-12-24 07:09:37,895 - backend.main - INFO - Document Processing API initialized
+2025-12-24 07:09:37,901 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 07:10:15,403 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 07:10:17,826 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 07:10:17,826 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 07:10:17,827 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 07:10:17,827 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 07:10:17,886 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 07:10:17,968 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 07:10:18,108 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 07:10:18,140 - backend.heygen_service - WARNING - HEYGEN_API_KEY not found in environment variables
+2025-12-24 07:10:18,140 - backend.explanation_service - INFO - ExplanationService initialized (HeyGen avatar: True)
+2025-12-24 07:10:18,140 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 07:10:18,140 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 07:10:18,156 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 07:10:18,156 - backend.main - INFO - StudioService initialized
+2025-12-24 07:10:18,156 - backend.main - INFO - Document Processing API initialized
+2025-12-24 07:10:18,162 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 07:18:21,786 - backend.main - INFO - Received streaming chat request: 'what is prime number?...'
+2025-12-24 07:18:21,788 - backend.hybrid_chat_service - INFO - Created new chat session: cd26f5ba-01a6-4011-b9ac-d66c55fef767
+2025-12-24 07:18:21,788 - backend.hybrid_agent - INFO - Processing query: 'what is prime number?'
+2025-12-24 07:18:21,788 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-24 07:18:21,789 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: 'what is prime number?...'
+2025-12-24 07:18:21,789 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-24 07:18:21,790 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: what is prime number?', num_results=3, type=neural, days_back=None
+2025-12-24 07:18:21,869 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-24 07:18:21,870 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-24 07:18:22,587 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-24 07:18:22,616 - backend.hybrid_agent - INFO - PDF search: Found 4 relevant documents
+2025-12-24 07:18:22,820 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-24 07:18:22,820 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-24 07:18:22,821 - backend.hybrid_agent - INFO - ✅ PARALLEL search completed in 1.03s (PDF: 4 sources, Web: 3 sources)
+2025-12-24 07:18:22,821 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-24 07:18:22,821 - backend.hybrid_agent - INFO - pdf_context exists: True, web_context exists: True
+2025-12-24 07:18:22,821 - backend.hybrid_agent - INFO - Combined PDF and web context
+2025-12-24 07:18:22,821 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-24 07:18:22,821 - backend.hybrid_agent - INFO - Context length: 5842 chars
+2025-12-24 07:18:22,821 - backend.hybrid_agent - INFO - Context preview: TEXTBOOK CONTENT:
+206 MATHEMATICS
+EXERCISE 1.3
+1. (i) 0.36, terminating. (ii) 0.09 , non-terminating repeating.
+(iii) 4.125, terminating. (iv) 0.230769 , non-terminating repeating.
+(v) 0. 18 non-termi...
+2025-12-24 07:18:30,731 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **Understanding Prime Numbers** 📚
+
+According to the textbook, a prime number is defined as a natural number greater than 1 that has no positive divisors other than 1 and itself. This means that prime numbers can only be divided evenly by 1 and the number itself, resulting in no other factors.
+
+**Detailed Explanation:**
+
+
+1. **Definition of Prime Numbers** - A prime number is a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers. Examples include 2, 3, 5
+2025-12-24 07:18:30,731 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-24 07:18:30,731 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **Understanding Prime Numbers** 📚
+
+According to the textbook, a prime number is defined as a natural number greater than 1 that has no positive divisors other than 1 and itself. This means that prime numbers can only be divided evenly by 1 and the number itself, resulting in no other factors.
+
+**Detailed Explanation:**
+
+
+1. **Definition of Prime Numbers** - A prime number is a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers. Examples include 2, 3, 5
+2025-12-24 07:18:30,731 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-24 07:18:30,732 - backend.hybrid_agent - INFO - Query completed: route=both, pdf_sources=4, web_sources=3
+2025-12-24 07:18:36,294 - backend.explanation_service - INFO - ✓ Explanation eligible: 1502 chars, 7 educational keywords
+2025-12-24 07:18:36,295 - backend.hybrid_chat_service - INFO - Generating animated explanation...
+2025-12-24 07:18:53,155 - backend.explanation_service - INFO - Generated animation with 7 steps
+2025-12-24 07:18:58,315 - backend.explanation_service - INFO - Generated audio: 340800 bytes
+2025-12-24 07:18:58,315 - backend.explanation_service - INFO - 🎬 Generating HeyGen avatar video...
+2025-12-24 07:18:58,315 - backend.heygen_service - ERROR - HeyGen API key not configured
+2025-12-24 07:18:58,315 - backend.explanation_service - WARNING - ⚠️ Failed to generate avatar video, continuing without it
+2025-12-24 07:18:58,316 - backend.hybrid_chat_service - INFO - ✓ Animated explanation generated
+2025-12-24 07:18:58,316 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web', 'explanation_animation', 'explanation_audio', 'explanation_duration']
+2025-12-24 07:18:58,316 - backend.main - INFO - 📡 Has explanation_animation: True, has explanation_audio: True
+2025-12-24 07:18:58,316 - backend.main - INFO - 📡 Animation has 7 steps
+2025-12-24 07:48:44,229 - backend.main - INFO - Generating analyzemap for session cd26f5ba-01a6-4011-b9ac-d66c55fef767
+2025-12-24 07:48:44,229 - backend.studio_service - INFO - Generating analyze map for session cd26f5ba-01a6-4011-b9ac-d66c55fef767
+2025-12-24 07:48:52,797 - backend.main - INFO - Successfully generated analyzemap for session cd26f5ba-01a6-4011-b9ac-d66c55fef767
+2025-12-24 07:50:59,617 - backend.main - INFO - Generating summary for session cd26f5ba-01a6-4011-b9ac-d66c55fef767
+2025-12-24 07:50:59,617 - backend.studio_service - INFO - Generating summary for session cd26f5ba-01a6-4011-b9ac-d66c55fef767
+2025-12-24 07:51:04,998 - backend.main - INFO - Successfully generated summary for session cd26f5ba-01a6-4011-b9ac-d66c55fef767
+2025-12-24 08:59:00,581 - backend.main - INFO - Received streaming chat request: 'what is prime number?...'
+2025-12-24 08:59:00,581 - backend.hybrid_chat_service - INFO - Created new chat session: 22852a32-37f7-40ab-ba26-68ceb6667d13
+2025-12-24 08:59:00,581 - backend.hybrid_agent - INFO - Processing query: 'what is prime number?'
+2025-12-24 08:59:00,582 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-24 08:59:00,582 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: 'what is prime number?...'
+2025-12-24 08:59:00,582 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-24 08:59:00,582 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: what is prime number?', num_results=3, type=neural, days_back=None
+2025-12-24 08:59:00,588 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-24 08:59:00,588 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-24 08:59:01,650 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-24 08:59:01,651 - backend.hybrid_agent - INFO - PDF search: Found 4 relevant documents
+2025-12-24 08:59:03,721 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-24 08:59:03,721 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-24 08:59:03,722 - backend.hybrid_agent - INFO - ✅ PARALLEL search completed in 3.14s (PDF: 4 sources, Web: 3 sources)
+2025-12-24 08:59:03,722 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-24 08:59:03,722 - backend.hybrid_agent - INFO - pdf_context exists: True, web_context exists: True
+2025-12-24 08:59:03,722 - backend.hybrid_agent - INFO - Combined PDF and web context
+2025-12-24 08:59:03,722 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-24 08:59:03,722 - backend.hybrid_agent - INFO - Context length: 5842 chars
+2025-12-24 08:59:03,722 - backend.hybrid_agent - INFO - Context preview: TEXTBOOK CONTENT:
+206 MATHEMATICS
+EXERCISE 1.3
+1. (i) 0.36, terminating. (ii) 0.09 , non-terminating repeating.
+(iii) 4.125, terminating. (iv) 0.230769 , non-terminating repeating.
+(v) 0. 18 non-termi...
+2025-12-24 08:59:10,537 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **Understanding Prime Numbers** 📚
+
+According to the textbook, a prime number is defined as a natural number greater than 1 that has no positive divisors other than 1 and itself.
+
+
+**Detailed Explanation:**
+
+
+1. **Definition of Prime Numbers** - A prime number is an integer greater than 1 that cannot be formed by multiplying two smaller natural numbers. For example, the number 5 is prime because its only divisors are 1 and 5.
+
+2. **Examples of Prime Numbers** - The smallest prime numbers include 
+2025-12-24 08:59:10,537 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-24 08:59:10,537 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **Understanding Prime Numbers** 📚
+
+According to the textbook, a prime number is defined as a natural number greater than 1 that has no positive divisors other than 1 and itself.
+
+
+**Detailed Explanation:**
+
+
+1. **Definition of Prime Numbers** - A prime number is an integer greater than 1 that cannot be formed by multiplying two smaller natural numbers. For example, the number 5 is prime because its only divisors are 1 and 5.
+
+2. **Examples of Prime Numbers** - The smallest prime numbers include 
+2025-12-24 08:59:10,537 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-24 08:59:10,538 - backend.hybrid_agent - INFO - Query completed: route=both, pdf_sources=4, web_sources=3
+2025-12-24 08:59:15,498 - backend.explanation_service - INFO - ✓ Explanation eligible: 1420 chars, 4 educational keywords
+2025-12-24 08:59:15,498 - backend.hybrid_chat_service - INFO - Generating animated explanation...
+2025-12-24 08:59:27,723 - backend.explanation_service - INFO - Generated animation with 5 steps
+2025-12-24 08:59:29,484 - backend.explanation_service - INFO - Generated audio: 65760 bytes
+2025-12-24 08:59:29,485 - backend.explanation_service - INFO - 🎬 Generating HeyGen avatar video...
+2025-12-24 08:59:29,485 - backend.heygen_service - ERROR - HeyGen API key not configured
+2025-12-24 08:59:29,485 - backend.explanation_service - WARNING - ⚠️ Failed to generate avatar video, continuing without it
+2025-12-24 08:59:29,485 - backend.hybrid_chat_service - INFO - ✓ Animated explanation generated
+2025-12-24 08:59:29,485 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web', 'explanation_animation', 'explanation_audio', 'explanation_duration']
+2025-12-24 08:59:29,485 - backend.main - INFO - 📡 Has explanation_animation: True, has explanation_audio: True
+2025-12-24 08:59:29,485 - backend.main - INFO - 📡 Animation has 5 steps
+2025-12-24 09:02:31,796 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 09:02:34,180 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 09:02:34,181 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 09:02:34,183 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 09:02:34,183 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 09:02:34,305 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 09:02:34,442 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 09:02:34,579 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 09:02:34,606 - backend.heygen_service - WARNING - HEYGEN_API_KEY not found in environment variables
+2025-12-24 09:02:34,607 - backend.explanation_service - INFO - ExplanationService initialized (HeyGen avatar: False)
+2025-12-24 09:02:34,607 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 09:02:34,607 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 09:02:34,620 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 09:02:34,620 - backend.main - INFO - StudioService initialized
+2025-12-24 09:02:34,620 - backend.main - INFO - Document Processing API initialized
+2025-12-24 09:02:34,626 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 09:02:40,440 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 09:02:42,890 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 09:02:42,890 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 09:02:42,891 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 09:02:42,891 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 09:02:42,946 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 09:02:43,130 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 09:02:43,297 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 09:02:43,324 - backend.heygen_service - WARNING - HEYGEN_API_KEY not found in environment variables
+2025-12-24 09:02:43,324 - backend.explanation_service - INFO - ExplanationService initialized (HeyGen avatar: False)
+2025-12-24 09:02:43,324 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 09:02:43,324 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 09:02:43,338 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 09:02:43,338 - backend.main - INFO - StudioService initialized
+2025-12-24 09:02:43,338 - backend.main - INFO - Document Processing API initialized
+2025-12-24 09:02:43,343 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 09:03:13,721 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 09:03:16,140 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 09:03:16,140 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 09:03:16,140 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 09:03:16,140 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 09:03:16,189 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 09:03:16,260 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 09:03:16,376 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 09:03:16,404 - backend.heygen_service - WARNING - HEYGEN_API_KEY not found in environment variables
+2025-12-24 09:03:16,404 - backend.explanation_service - INFO - ExplanationService initialized (HeyGen avatar: False)
+2025-12-24 09:03:16,404 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 09:03:16,404 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 09:03:16,419 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 09:03:16,419 - backend.main - INFO - StudioService initialized
+2025-12-24 09:03:16,419 - backend.main - INFO - Document Processing API initialized
+2025-12-24 09:03:16,425 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 09:03:25,348 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 09:03:28,227 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 09:03:28,227 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 09:03:28,227 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 09:03:28,227 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 09:03:28,283 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 09:03:28,358 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 09:03:28,483 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 09:03:28,511 - backend.heygen_service - WARNING - HEYGEN_API_KEY not found in environment variables
+2025-12-24 09:03:28,511 - backend.explanation_service - INFO - ExplanationService initialized (HeyGen avatar: False)
+2025-12-24 09:03:28,511 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 09:03:28,511 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 09:03:28,525 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 09:03:28,525 - backend.main - INFO - StudioService initialized
+2025-12-24 09:03:28,525 - backend.main - INFO - Document Processing API initialized
+2025-12-24 09:03:28,531 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 09:03:43,669 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 09:03:46,955 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 09:03:46,955 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 09:03:46,955 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 09:03:46,955 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 09:03:47,008 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 09:03:47,080 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 09:03:47,217 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 09:03:47,246 - backend.heygen_service - WARNING - HEYGEN_API_KEY not found in environment variables
+2025-12-24 09:03:47,246 - backend.explanation_service - INFO - ExplanationService initialized (HeyGen avatar: False)
+2025-12-24 09:03:47,246 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 09:03:47,246 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 09:03:47,299 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 09:03:47,300 - backend.main - INFO - StudioService initialized
+2025-12-24 09:03:47,300 - backend.main - INFO - Document Processing API initialized
+2025-12-24 09:03:47,342 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 09:05:18,590 - backend.main - INFO - Received streaming chat request: 'what is prime number?...'
+2025-12-24 09:05:18,593 - backend.hybrid_chat_service - INFO - Created new chat session: a2899c41-a35d-48e1-91f1-90644f50c1d4
+2025-12-24 09:05:18,593 - backend.hybrid_agent - INFO - Processing query: 'what is prime number?'
+2025-12-24 09:05:18,594 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-24 09:05:18,595 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: 'what is prime number?...'
+2025-12-24 09:05:18,595 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-24 09:05:18,595 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: what is prime number?', num_results=3, type=neural, days_back=None
+2025-12-24 09:05:18,669 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-24 09:05:18,669 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-24 09:05:19,190 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-24 09:05:19,244 - backend.hybrid_agent - INFO - PDF search: Found 4 relevant documents
+2025-12-24 09:05:19,594 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-24 09:05:19,594 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-24 09:05:19,594 - backend.hybrid_agent - INFO - ✅ PARALLEL search completed in 1.00s (PDF: 4 sources, Web: 3 sources)
+2025-12-24 09:05:19,595 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-24 09:05:19,595 - backend.hybrid_agent - INFO - pdf_context exists: True, web_context exists: True
+2025-12-24 09:05:19,595 - backend.hybrid_agent - INFO - Combined PDF and web context
+2025-12-24 09:05:19,595 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-24 09:05:19,595 - backend.hybrid_agent - INFO - Context length: 5842 chars
+2025-12-24 09:05:19,596 - backend.hybrid_agent - INFO - Context preview: TEXTBOOK CONTENT:
+206 MATHEMATICS
+EXERCISE 1.3
+1. (i) 0.36, terminating. (ii) 0.09 , non-terminating repeating.
+(iii) 4.125, terminating. (iv) 0.230769 , non-terminating repeating.
+(v) 0. 18 non-termi...
+2025-12-24 09:05:29,987 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **Understanding Prime Numbers** 📚
+
+According to the textbook, a prime number is a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers. In simpler terms, a prime number has exactly two distinct positive divisors: 1 and itself.
+
+
+**Detailed Explanation:**
+
+
+1. **Definition of a Prime Number** - A prime number is defined as a number that has no divisors other than 1 and itself. For example, the number 5 is prime because the only numbers that divide it even
+2025-12-24 09:05:29,987 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-24 09:05:29,987 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **Understanding Prime Numbers** 📚
+
+According to the textbook, a prime number is a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers. In simpler terms, a prime number has exactly two distinct positive divisors: 1 and itself.
+
+
+**Detailed Explanation:**
+
+
+1. **Definition of a Prime Number** - A prime number is defined as a number that has no divisors other than 1 and itself. For example, the number 5 is prime because the only numbers that divide it even
+2025-12-24 09:05:29,987 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-24 09:05:29,987 - backend.hybrid_agent - INFO - Query completed: route=both, pdf_sources=4, web_sources=3
+2025-12-24 09:05:35,097 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web']
+2025-12-24 09:05:35,098 - backend.main - INFO - 📡 Has explanation_animation: False, has explanation_audio: False
+2025-12-24 09:05:39,066 - backend.main - INFO - Generating explanation for question: 'what is prime number?...'
+2025-12-24 09:05:39,067 - backend.explanation_service - INFO - ✓ Explanation eligible: 1432 chars, 5 educational keywords
+2025-12-24 09:05:39,067 - backend.hybrid_chat_service - INFO - Generating on-demand explanation...
+2025-12-24 09:05:59,673 - backend.explanation_service - INFO - Generated animation with 5 steps
+2025-12-24 09:06:02,124 - backend.explanation_service - INFO - Generated audio: 228960 bytes
+2025-12-24 09:06:02,124 - backend.hybrid_chat_service - INFO - ✓ On-demand explanation generated
+2025-12-24 09:06:02,124 - backend.main - INFO - ✓ Explanation generated successfully
+2025-12-24 09:06:57,613 - backend.main - INFO - Received streaming chat request: 'State whether the following statements are always ...'
+2025-12-24 09:06:57,613 - backend.hybrid_agent - INFO - Processing query: 'State whether the following statements are always true, always false or ambiguous.
+Justify your answers.
+(i) There are 13 months in a year.
+(ii) Diwali falls on a Friday.
+(iii) The temperature in Magadi is 260 C.
+(iv) The earth has one moon.
+(v) Dogs can fly.
+(vi) February has only 28 days.'
+2025-12-24 09:06:57,614 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-24 09:06:57,614 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: 'State whether the following statements are always true, always false or ambiguous.
+Justify your answ...'
+2025-12-24 09:06:57,614 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-24 09:06:57,614 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: State whether the following statements are always true, always false or ambiguous.
+Justify your answers.
+(i) There are 13 months in a year.
+(ii) Diwali falls on a Friday.
+(iii) The temperature in Magadi is 260 C.
+(iv) The earth has one moon.
+(v) Dogs can fly.
+(vi) February has only 28 days.', num_results=3, type=neural, days_back=None
+2025-12-24 09:06:57,619 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-24 09:06:57,619 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-24 09:06:59,141 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-24 09:06:59,141 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-24 09:06:59,814 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-24 09:06:59,816 - backend.hybrid_agent - INFO - PDF search: Found 4 relevant documents
+2025-12-24 09:06:59,816 - backend.hybrid_agent - INFO - PDF results sufficient, skipping web search
+2025-12-24 09:06:59,816 - backend.hybrid_agent - INFO - ✅ PARALLEL search completed in 2.20s (PDF: 4 sources, Web: 3 sources)
+2025-12-24 09:06:59,816 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-24 09:06:59,816 - backend.hybrid_agent - INFO - pdf_context exists: True, web_context exists: True
+2025-12-24 09:06:59,816 - backend.hybrid_agent - INFO - Combined PDF and web context
+2025-12-24 09:06:59,817 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-24 09:06:59,817 - backend.hybrid_agent - INFO - Context length: 5971 chars
+2025-12-24 09:06:59,817 - backend.hybrid_agent - INFO - Context preview: TEXTBOOK CONTENT:
+216 MATHEMATICS
+EXERCISE A1.1
+1. (i) False. There are 12 months in a year.
+(ii) Ambiguous. In a given year, Diwali may or may not fall on a Friday.
+(iii) Ambiguous. At some time in t...
+2025-12-24 09:07:12,560 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **Assessing the Truth Value of Statements** 📚
+
+According to the textbook, we must evaluate whether the statements are always true, always false, or ambiguous, providing justification for each. 
+
+**Detailed Explanation:**
+
+
+1. **Statement: There are 13 months in a year.**  
+   This statement is **always false**. A standard calendar year consists of 12 months, so claiming there are 13 months in a year contradicts the conventional understanding of the Gregorian calendar.
+
+  
+2. **Statement: Diwali 
+2025-12-24 09:07:12,560 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-24 09:07:12,561 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **Assessing the Truth Value of Statements** 📚
+
+According to the textbook, we must evaluate whether the statements are always true, always false, or ambiguous, providing justification for each. 
+
+**Detailed Explanation:**
+
+
+1. **Statement: There are 13 months in a year.**  
+   This statement is **always false**. A standard calendar year consists of 12 months, so claiming there are 13 months in a year contradicts the conventional understanding of the Gregorian calendar.
+
+  
+2. **Statement: Diwali 
+2025-12-24 09:07:12,561 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-24 09:07:12,561 - backend.hybrid_agent - INFO - Query completed: route=both, pdf_sources=4, web_sources=3
+2025-12-24 09:07:19,966 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web']
+2025-12-24 09:07:19,967 - backend.main - INFO - 📡 Has explanation_animation: False, has explanation_audio: False
+2025-12-24 09:07:22,848 - backend.main - INFO - Generating explanation for question: 'State whether the following statements are always ...'
+2025-12-24 09:07:22,848 - backend.explanation_service - INFO - ✓ Explanation eligible: 2362 chars, 6 educational keywords
+2025-12-24 09:07:22,848 - backend.hybrid_chat_service - INFO - Generating on-demand explanation...
+2025-12-24 09:07:38,692 - backend.explanation_service - INFO - Generated animation with 6 steps
+2025-12-24 09:07:41,051 - backend.explanation_service - INFO - Generated audio: 81600 bytes
+2025-12-24 09:07:41,051 - backend.hybrid_chat_service - INFO - ✓ On-demand explanation generated
+2025-12-24 09:07:41,051 - backend.main - INFO - ✓ Explanation generated successfully
+2025-12-24 09:14:14,703 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 09:14:17,202 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 09:14:17,202 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 09:14:17,202 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 09:14:17,202 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 09:14:17,258 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 09:14:17,334 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 09:14:17,454 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 09:14:17,482 - backend.heygen_service - WARNING - HEYGEN_API_KEY not found in environment variables
+2025-12-24 09:14:17,482 - backend.explanation_service - INFO - ExplanationService initialized (HeyGen avatar: False)
+2025-12-24 09:14:17,482 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 09:14:17,482 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 09:14:17,497 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 09:14:17,497 - backend.main - INFO - StudioService initialized
+2025-12-24 09:14:17,497 - backend.main - INFO - Document Processing API initialized
+2025-12-24 09:14:17,503 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 09:14:21,613 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 09:14:23,942 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 09:14:23,942 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 09:14:23,943 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 09:14:23,943 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 09:14:23,999 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 09:14:24,071 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 09:14:24,194 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 09:14:24,223 - backend.heygen_service - WARNING - HEYGEN_API_KEY not found in environment variables
+2025-12-24 09:14:24,223 - backend.explanation_service - INFO - ExplanationService initialized (HeyGen avatar: False)
+2025-12-24 09:14:24,223 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 09:14:24,223 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 09:14:24,237 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 09:14:24,237 - backend.main - INFO - StudioService initialized
+2025-12-24 09:14:24,237 - backend.main - INFO - Document Processing API initialized
+2025-12-24 09:14:24,244 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 09:14:27,352 - backend.main - INFO - FastAPI application shutting down
+2025-12-24 09:14:46,489 - backend.main - INFO - OpenAI API key loaded
+2025-12-24 09:14:46,489 - backend.main - INFO - Using OpenAI embeddings
+2025-12-24 09:14:46,489 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-24 09:14:46,489 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-24 09:14:46,546 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-24 09:14:46,620 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-24 09:14:46,744 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-24 09:14:46,772 - backend.heygen_service - WARNING - HEYGEN_API_KEY not found in environment variables
+2025-12-24 09:14:46,772 - backend.explanation_service - INFO - ExplanationService initialized (HeyGen avatar: False)
+2025-12-24 09:14:46,772 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-24 09:14:46,772 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-24 09:14:46,787 - backend.studio_service - INFO - StudioService initialized
+2025-12-24 09:14:46,787 - backend.main - INFO - StudioService initialized
+2025-12-24 09:14:46,787 - backend.main - INFO - Document Processing API initialized
+2025-12-24 09:14:46,793 - backend.main - INFO - FastAPI application startup complete
+2025-12-24 09:15:22,367 - backend.main - INFO - Received streaming chat request: 'what is prime number?...'
+2025-12-24 09:15:22,370 - backend.hybrid_chat_service - INFO - Created new chat session: 3c75e8b8-b3df-436c-9cdd-c90caf2aab46
+2025-12-24 09:15:22,370 - backend.hybrid_agent - INFO - Processing query: 'what is prime number?'
+2025-12-24 09:15:22,371 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-24 09:15:22,372 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: 'what is prime number?...'
+2025-12-24 09:15:22,372 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-24 09:15:22,373 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: what is prime number?', num_results=3, type=neural, days_back=None
+2025-12-24 09:15:22,463 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-24 09:15:22,463 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-24 09:15:23,011 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-24 09:15:23,011 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-24 09:15:24,202 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-24 09:15:24,254 - backend.hybrid_agent - INFO - PDF search: Found 4 relevant documents
+2025-12-24 09:15:24,254 - backend.hybrid_agent - INFO - ✅ PARALLEL search completed in 1.88s (PDF: 4 sources, Web: 3 sources)
+2025-12-24 09:15:24,255 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-24 09:15:24,255 - backend.hybrid_agent - INFO - pdf_context exists: True, web_context exists: True
+2025-12-24 09:15:24,255 - backend.hybrid_agent - INFO - Combined PDF and web context
+2025-12-24 09:15:24,255 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-24 09:15:24,255 - backend.hybrid_agent - INFO - Context length: 5842 chars
+2025-12-24 09:15:24,255 - backend.hybrid_agent - INFO - Context preview: TEXTBOOK CONTENT:
+206 MATHEMATICS
+EXERCISE 1.3
+1. (i) 0.36, terminating. (ii) 0.09 , non-terminating repeating.
+(iii) 4.125, terminating. (iv) 0.230769 , non-terminating repeating.
+(v) 0. 18 non-termi...
+2025-12-24 09:15:30,965 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **Understanding Prime Numbers** 📚
+
+According to the textbook, a prime number is defined as a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers. In other words, a prime number has exactly two distinct positive divisors: 1 and itself.
+
+
+**Detailed Explanation:**
+
+
+1. **Definition of Prime Numbers** - A prime number is a number that can only be divided evenly (without leaving a remainder) by 1 and itself. For instance, the number 5 is prime because its o
+2025-12-24 09:15:30,965 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-24 09:15:30,965 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **Understanding Prime Numbers** 📚
+
+According to the textbook, a prime number is defined as a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers. In other words, a prime number has exactly two distinct positive divisors: 1 and itself.
+
+
+**Detailed Explanation:**
+
+
+1. **Definition of Prime Numbers** - A prime number is a number that can only be divided evenly (without leaving a remainder) by 1 and itself. For instance, the number 5 is prime because its o
+2025-12-24 09:15:30,965 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-24 09:15:30,966 - backend.hybrid_agent - INFO - Query completed: route=both, pdf_sources=4, web_sources=3
+2025-12-24 09:15:35,975 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web']
+2025-12-24 09:15:35,975 - backend.main - INFO - 📡 Has explanation_animation: False, has explanation_audio: False
+2025-12-24 09:15:38,798 - backend.main - INFO - Generating explanation for question: 'what is prime number?...'
+2025-12-24 09:15:38,798 - backend.explanation_service - INFO - ✓ Explanation eligible: 1393 chars, 4 educational keywords
+2025-12-24 09:15:38,798 - backend.hybrid_chat_service - INFO - Generating on-demand explanation...
+2025-12-24 09:16:07,518 - backend.explanation_service - INFO - Generated animation with 7 steps
+2025-12-24 09:16:17,989 - backend.explanation_service - INFO - Generated audio: 1521600 bytes
+2025-12-24 09:16:17,989 - backend.hybrid_chat_service - INFO - ✓ On-demand explanation generated
+2025-12-24 09:16:17,989 - backend.main - INFO - ✓ Explanation generated successfully
+2025-12-24 09:17:46,822 - backend.main - INFO - Generating analyzemap for session 3c75e8b8-b3df-436c-9cdd-c90caf2aab46
+2025-12-24 09:17:46,822 - backend.studio_service - INFO - Generating analyze map for session 3c75e8b8-b3df-436c-9cdd-c90caf2aab46
+2025-12-24 09:17:51,420 - backend.main - INFO - Successfully generated analyzemap for session 3c75e8b8-b3df-436c-9cdd-c90caf2aab46
+2025-12-24 17:31:27,687 - backend.main - INFO - Received streaming chat request: 'what is prime nr?...'
+2025-12-24 17:31:27,687 - backend.hybrid_chat_service - INFO - Created new chat session: bb4bca92-5e09-4648-9817-079c42b1f16b
+2025-12-24 17:31:27,688 - backend.hybrid_agent - INFO - Processing query: 'what is prime nr?'
+2025-12-24 17:31:27,689 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-24 17:31:27,690 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: 'what is prime nr?...'
+2025-12-24 17:31:27,691 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-24 17:31:27,691 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: what is prime nr?', num_results=3, type=neural, days_back=None
+2025-12-24 17:31:27,704 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-24 17:31:27,704 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-24 17:31:29,492 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-24 17:31:29,496 - backend.hybrid_agent - INFO - PDF search: No relevant documents found
+2025-12-24 17:31:30,074 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-24 17:31:30,074 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-24 17:31:30,074 - backend.hybrid_agent - INFO - ✅ PARALLEL search completed in 2.38s (PDF: 0 sources, Web: 3 sources)
+2025-12-24 17:31:30,075 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-24 17:31:30,075 - backend.hybrid_agent - INFO - pdf_context exists: False, web_context exists: True
+2025-12-24 17:31:30,075 - backend.hybrid_agent - INFO - Using web context only
+2025-12-24 17:31:30,075 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-24 17:31:30,075 - backend.hybrid_agent - INFO - Context length: 2379 chars
+2025-12-24 17:31:30,075 - backend.hybrid_agent - INFO - Context preview: WEB SEARCH RESULTS:
+
+[1] Prime numbers (video) | Khan Academy
+URL: https://www.khanacademy.org/math/pre-algebra/pre-algebra-factors-multiples/pre-algebra-prime-numbers/v/prime-numbers
+Published: 2024-...
+2025-12-24 17:31:39,010 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **Prime Numbers** 📚
+
+According to the textbook material, prime numbers are defined as natural numbers greater than 1 that have no positive divisors other than 1 and themselves. This means they cannot be formed by multiplying two smaller natural numbers. 
+
+**Detailed Explanation:**
+
+
+1. **Definition of Prime Numbers** - A prime number is a whole number greater than 1 that cannot be exactly divided by any other numbers except for 1 and itself. For example, the number 5 is prime because its only di
+2025-12-24 17:31:39,010 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-24 17:31:39,010 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **Prime Numbers** 📚
+
+According to the textbook material, prime numbers are defined as natural numbers greater than 1 that have no positive divisors other than 1 and themselves. This means they cannot be formed by multiplying two smaller natural numbers. 
+
+**Detailed Explanation:**
+
+
+1. **Definition of Prime Numbers** - A prime number is a whole number greater than 1 that cannot be exactly divided by any other numbers except for 1 and itself. For example, the number 5 is prime because its only di
+2025-12-24 17:31:39,010 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-24 17:31:39,011 - backend.hybrid_agent - INFO - Query completed: route=both, pdf_sources=0, web_sources=3
+2025-12-24 17:31:44,686 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web']
+2025-12-24 17:31:44,686 - backend.main - INFO - 📡 Has explanation_animation: False, has explanation_audio: False
+2025-12-24 17:31:47,882 - backend.main - INFO - Generating explanation for question: 'what is prime nr?...'
+2025-12-24 17:31:47,882 - backend.explanation_service - INFO - ✓ Explanation eligible: 1543 chars, 6 educational keywords
+2025-12-24 17:31:47,882 - backend.hybrid_chat_service - INFO - Generating on-demand explanation...
+2025-12-24 17:32:05,563 - backend.explanation_service - INFO - Generated animation with 8 steps
+2025-12-24 17:32:23,403 - backend.explanation_service - INFO - Generated audio: 1575840 bytes
+2025-12-24 17:32:23,403 - backend.hybrid_chat_service - INFO - ✓ On-demand explanation generated
+2025-12-24 17:32:23,403 - backend.main - INFO - ✓ Explanation generated successfully
+2025-12-25 02:46:26,007 - backend.main - INFO - OpenAI API key loaded
+2025-12-25 02:46:26,007 - backend.main - INFO - Using OpenAI embeddings
+2025-12-25 02:46:26,007 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-25 02:46:26,007 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-25 02:46:26,040 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-25 02:46:26,040 - backend.main - WARNING - Failed to initialize HybridChatService: exa-py not installed. Install with: pip install exa-py
+2025-12-25 02:46:26,040 - backend.main - INFO - Falling back to SimpleChatService (PDF only)
+2025-12-25 02:46:26,040 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-25 02:46:26,040 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-25 02:46:26,055 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-25 02:46:26,070 - backend.simple_chat_service - INFO - SimpleChatService initialized
+2025-12-25 02:46:26,086 - backend.studio_service - INFO - StudioService initialized
+2025-12-25 02:46:26,086 - backend.main - INFO - StudioService initialized
+2025-12-25 02:46:26,086 - backend.main - INFO - Document Processing API initialized
+2025-12-25 02:46:26,091 - backend.main - INFO - FastAPI application startup complete
+2025-12-25 02:46:54,961 - backend.main - INFO - Received streaming chat request: 'what is prime number?...'
+2025-12-25 02:46:54,973 - backend.simple_chat_service - INFO - Created new chat session: 5e3b4ba0-5ddc-40c7-b42c-ce8a029b2060
+2025-12-25 02:46:54,973 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-25 02:48:17,423 - backend.main - INFO - Received streaming chat request: 'what is primed number?...'
+2025-12-25 02:48:17,423 - backend.simple_chat_service - INFO - Created new chat session: bcde5fd9-0e79-4f0e-b191-dc49bc9b415a
+2025-12-25 02:48:17,423 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-25 02:48:17,426 - backend.vector_store - ERROR - Error loading vector store: Could not connect to tenant default_tenant. Are you sure it exists?
+2025-12-25 02:48:17,426 - backend.simple_chat_service - WARNING - RAG retrieval failed: Could not connect to tenant default_tenant. Are you sure it exists?, treating as no documents available
+2025-12-25 02:48:35,076 - backend.main - INFO - Received streaming chat request: 'what is prime number?...'
+2025-12-25 02:48:35,077 - backend.simple_chat_service - INFO - Created new chat session: 803509f8-014e-456f-b563-b9b9e3283a03
+2025-12-25 02:48:35,077 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-25 02:48:35,079 - backend.vector_store - ERROR - Error loading vector store: Could not connect to tenant default_tenant. Are you sure it exists?
+2025-12-25 02:48:35,080 - backend.simple_chat_service - WARNING - RAG retrieval failed: Could not connect to tenant default_tenant. Are you sure it exists?, treating as no documents available
+2025-12-25 02:52:38,120 - backend.main - INFO - FastAPI application shutting down
+2025-12-25 02:52:39,239 - backend.main - INFO - OpenAI API key loaded
+2025-12-25 02:52:39,239 - backend.main - INFO - Using OpenAI embeddings
+2025-12-25 02:52:39,240 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-25 02:52:39,240 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-25 02:52:39,268 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-25 02:52:39,382 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-25 02:52:39,426 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-25 02:52:39,456 - backend.heygen_service - WARNING - HEYGEN_API_KEY not found in environment variables
+2025-12-25 02:52:39,456 - backend.explanation_service - INFO - ExplanationService initialized (HeyGen avatar: False)
+2025-12-25 02:52:39,456 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-25 02:52:39,456 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-25 02:52:39,472 - backend.studio_service - INFO - StudioService initialized
+2025-12-25 02:52:39,473 - backend.main - INFO - StudioService initialized
+2025-12-25 02:52:39,473 - backend.main - INFO - Document Processing API initialized
+2025-12-25 02:52:39,478 - backend.main - INFO - FastAPI application startup complete
+2025-12-25 02:52:57,059 - backend.main - INFO - Received streaming chat request: 'what is prime number?...'
+2025-12-25 02:52:57,062 - backend.hybrid_chat_service - INFO - Created new chat session: ab4e4199-cd0e-458a-b3df-bf3a8b5c77fc
+2025-12-25 02:52:57,062 - backend.hybrid_agent - INFO - Processing query: 'what is prime number?'
+2025-12-25 02:52:57,064 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-25 02:52:57,064 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: 'what is prime number?...'
+2025-12-25 02:52:57,064 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-25 02:52:57,064 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: what is prime number?', num_results=3, type=neural, days_back=None
+2025-12-25 02:52:58,100 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-25 02:52:58,100 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-25 02:53:24,964 - backend.main - INFO - OpenAI API key loaded
+2025-12-25 02:53:24,964 - backend.main - INFO - Using OpenAI embeddings
+2025-12-25 02:53:24,965 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-25 02:53:24,965 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-25 02:53:24,994 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-25 02:53:25,111 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-25 02:53:25,150 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-25 02:53:25,181 - backend.heygen_service - WARNING - HEYGEN_API_KEY not found in environment variables
+2025-12-25 02:53:25,181 - backend.explanation_service - INFO - ExplanationService initialized (HeyGen avatar: False)
+2025-12-25 02:53:25,181 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-25 02:53:25,181 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-25 02:53:25,197 - backend.studio_service - INFO - StudioService initialized
+2025-12-25 02:53:25,197 - backend.main - INFO - StudioService initialized
+2025-12-25 02:53:25,197 - backend.main - INFO - Document Processing API initialized
+2025-12-25 02:53:25,204 - backend.main - INFO - FastAPI application startup complete
+2025-12-25 02:53:50,533 - backend.main - INFO - Received streaming chat request: 'what is prime number?...'
+2025-12-25 02:53:50,536 - backend.hybrid_chat_service - INFO - Created new chat session: 32aa84df-4216-4e94-92db-1da343263b19
+2025-12-25 02:53:50,536 - backend.hybrid_agent - INFO - Processing query: 'what is prime number?'
+2025-12-25 02:53:50,537 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-25 02:53:50,538 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: 'what is prime number?...'
+2025-12-25 02:53:50,538 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-25 02:53:50,538 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: what is prime number?', num_results=3, type=neural, days_back=None
+2025-12-25 02:53:50,632 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-25 02:53:50,632 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-25 02:53:51,141 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-25 02:53:51,141 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-25 02:53:51,963 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-25 02:53:51,976 - backend.hybrid_agent - INFO - PDF search: No relevant documents found
+2025-12-25 02:53:51,976 - backend.hybrid_agent - INFO - ✅ PARALLEL search completed in 1.44s (PDF: 0 sources, Web: 3 sources)
+2025-12-25 02:53:51,976 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-25 02:53:51,976 - backend.hybrid_agent - INFO - pdf_context exists: False, web_context exists: True
+2025-12-25 02:53:51,976 - backend.hybrid_agent - INFO - Using web context only
+2025-12-25 02:53:51,977 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-25 02:53:51,977 - backend.hybrid_agent - INFO - Context length: 2360 chars
+2025-12-25 02:53:51,977 - backend.hybrid_agent - INFO - Context preview: WEB SEARCH RESULTS:
+
+[1] Khan Academy
+URL: https://www.khanacademy.org/math/class-6-ncf/x04ca845a9a148c80:prime-time/x04ca845a9a148c80:prime-numbers/v/prime-numbers
+
+Content:
+## Use of cookies
+
+Cookie...
+2025-12-25 02:54:01,187 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **Prime numbers** 📚
+
+According to the textbook/material, prime numbers are defined as natural numbers greater than 1 that have no positive divisors other than 1 and themselves. This means they cannot be formed by multiplying two smaller natural numbers.
+
+**Detailed Explanation:**
+
+
+1. **Definition of Prime Numbers** - A prime number is any number that has exactly two distinct positive divisors. This means the only numbers that can divide a prime number evenly are 1 and the number itself.
+
+
+2. **
+2025-12-25 02:54:01,188 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-25 02:54:01,195 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **Prime numbers** 📚
+
+According to the textbook/material, prime numbers are defined as natural numbers greater than 1 that have no positive divisors other than 1 and themselves. This means they cannot be formed by multiplying two smaller natural numbers.
+
+**Detailed Explanation:**
+
+
+1. **Definition of Prime Numbers** - A prime number is any number that has exactly two distinct positive divisors. This means the only numbers that can divide a prime number evenly are 1 and the number itself.
+
+
+2. **
+2025-12-25 02:54:01,196 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-25 02:54:01,196 - backend.hybrid_agent - INFO - Query completed: route=both, pdf_sources=0, web_sources=3
+2025-12-25 02:55:43,196 - backend.main - INFO - Received streaming chat request: 'what is primed number?...'
+2025-12-25 02:55:43,196 - backend.hybrid_chat_service - INFO - Created new chat session: f3fdf06b-3579-4328-a77f-ae52ffef6f83
+2025-12-25 02:55:43,196 - backend.hybrid_agent - INFO - Processing query: 'what is primed number?'
+2025-12-25 02:55:43,197 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-25 02:55:43,197 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: 'what is primed number?...'
+2025-12-25 02:55:43,197 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-25 02:55:43,198 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: what is primed number?', num_results=3, type=neural, days_back=None
+2025-12-25 02:55:43,202 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-25 02:55:43,202 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-25 02:55:43,987 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-25 02:55:43,987 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-25 02:55:45,457 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-25 02:55:45,458 - backend.hybrid_agent - INFO - PDF search: No relevant documents found
+2025-12-25 02:55:45,459 - backend.hybrid_agent - INFO - ✅ PARALLEL search completed in 2.26s (PDF: 0 sources, Web: 3 sources)
+2025-12-25 02:55:45,459 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-25 02:55:45,459 - backend.hybrid_agent - INFO - pdf_context exists: False, web_context exists: True
+2025-12-25 02:55:45,459 - backend.hybrid_agent - INFO - Using web context only
+2025-12-25 02:55:45,459 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-25 02:55:45,459 - backend.hybrid_agent - INFO - Context length: 2288 chars
+2025-12-25 02:55:45,459 - backend.hybrid_agent - INFO - Context preview: WEB SEARCH RESULTS:
+
+[1] Khan Academy
+URL: https://www.khanacademy.org/math/class-6-ncf/x04ca845a9a148c80:prime-time/x04ca845a9a148c80:prime-numbers/v/prime-numbers
+
+Content:
+## Use of cookies
+
+Cookie...
+2025-12-25 02:55:52,736 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **Prime Numbers** 📚
+
+According to the textbook/material, a prime number is defined as a whole number greater than 1 that cannot be formed by multiplying two smaller natural numbers. For example, the numbers 2, 3, 5, and 7 are all prime numbers, while 4, 6, and 8 are not because they can be divided evenly by other numbers.
+
+**Detailed Explanation:**
+
+
+1. **Definition of Prime Numbers** - A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. This 
+2025-12-25 02:55:52,736 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-25 02:55:52,736 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **Prime Numbers** 📚
+
+According to the textbook/material, a prime number is defined as a whole number greater than 1 that cannot be formed by multiplying two smaller natural numbers. For example, the numbers 2, 3, 5, and 7 are all prime numbers, while 4, 6, and 8 are not because they can be divided evenly by other numbers.
+
+**Detailed Explanation:**
+
+
+1. **Definition of Prime Numbers** - A prime number is a natural number greater than 1 that has no positive divisors other than 1 and itself. This 
+2025-12-25 02:55:52,736 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-25 02:55:52,736 - backend.hybrid_agent - INFO - Query completed: route=both, pdf_sources=0, web_sources=3
+2025-12-25 02:55:57,983 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web']
+2025-12-25 02:55:57,983 - backend.main - INFO - 📡 Has explanation_animation: False, has explanation_audio: False
+2025-12-25 02:55:59,029 - backend.main - INFO - Generating explanation for question: 'what is primed number?...'
+2025-12-25 02:55:59,029 - backend.explanation_service - INFO - ✓ Explanation eligible: 1466 chars, 5 educational keywords
+2025-12-25 02:55:59,029 - backend.hybrid_chat_service - INFO - Generating on-demand explanation...
+2025-12-25 02:56:20,337 - backend.explanation_service - INFO - Generated animation with 7 steps
+2025-12-25 02:56:29,252 - backend.explanation_service - INFO - Generated audio: 1460160 bytes
+2025-12-25 02:56:29,252 - backend.hybrid_chat_service - INFO - ✓ On-demand explanation generated
+2025-12-25 02:56:29,252 - backend.main - INFO - ✓ Explanation generated successfully
+2025-12-25 03:51:26,936 - backend.main - INFO - Generating analyzemap for session f3fdf06b-3579-4328-a77f-ae52ffef6f83
+2025-12-25 03:51:26,936 - backend.studio_service - INFO - Generating analyze map for session f3fdf06b-3579-4328-a77f-ae52ffef6f83
+2025-12-25 03:51:36,546 - backend.main - INFO - Successfully generated analyzemap for session f3fdf06b-3579-4328-a77f-ae52ffef6f83
+2025-12-25 03:52:03,446 - backend.main - INFO - Received streaming chat request: 'how can I order pizza?...'
+2025-12-25 03:52:03,446 - backend.hybrid_agent - INFO - Processing query: 'how can I order pizza?'
+2025-12-25 03:52:03,447 - backend.hybrid_agent - INFO - Route decision: none (non-educational query: 'how can I order pizza?')
+2025-12-25 03:52:03,447 - backend.hybrid_agent - INFO - Generating answer with context present: False
+2025-12-25 03:52:06,463 - backend.hybrid_agent - INFO - LaTeX processing - input preview: I apologize, but I can only answer questions related to educational content. 📚
+
+I'm specialized in:
+• Class 9 Mathematics and English textbooks
+• Educational topics and learning methods
+• Academic concepts and problem-solving
+
+Please ask me about topics from your textbooks or educational subjects! 🎓
+2025-12-25 03:52:06,463 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-25 03:52:06,463 - backend.hybrid_agent - INFO - LaTeX processing - output preview: I apologize, but I can only answer questions related to educational content. 📚
+
+I'm specialized in:
+• Class 9 Mathematics and English textbooks
+• Educational topics and learning methods
+• Academic concepts and problem-solving
+
+Please ask me about topics from your textbooks or educational subjects! 🎓
+2025-12-25 03:52:06,463 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-25 03:52:06,464 - backend.hybrid_agent - INFO - Query completed: route=none, pdf_sources=0, web_sources=0
+2025-12-25 03:52:07,391 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web']
+2025-12-25 03:52:07,391 - backend.main - INFO - 📡 Has explanation_animation: False, has explanation_audio: False
+2025-12-25 03:52:39,755 - backend.main - INFO - Received streaming chat request: 'State whether the following statements are always ...'
+2025-12-25 03:52:39,755 - backend.hybrid_agent - INFO - Processing query: 'State whether the following statements are always true, always false or ambiguous.
+Justify your answers.
+(i) There are 13 months in a year.
+(ii) Diwali falls on a Friday.
+(iii) The temperature in Magadi is 260 C.
+(iv) The earth has one moon.
+(v) Dogs can fly.
+(vi) February has only 28 days.'
+2025-12-25 03:52:39,756 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-25 03:52:39,756 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: 'State whether the following statements are always true, always false or ambiguous.
+Justify your answ...'
+2025-12-25 03:52:39,756 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-25 03:52:39,756 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: State whether the following statements are always true, always false or ambiguous.
+Justify your answers.
+(i) There are 13 months in a year.
+(ii) Diwali falls on a Friday.
+(iii) The temperature in Magadi is 260 C.
+(iv) The earth has one moon.
+(v) Dogs can fly.
+(vi) February has only 28 days.', num_results=3, type=neural, days_back=None
+2025-12-25 03:52:39,762 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-25 03:52:39,762 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-25 03:52:40,981 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-25 03:52:40,981 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-25 03:52:41,084 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-25 03:52:41,085 - backend.hybrid_agent - INFO - PDF search: No relevant documents found
+2025-12-25 03:52:41,085 - backend.hybrid_agent - INFO - ✅ PARALLEL search completed in 1.33s (PDF: 0 sources, Web: 3 sources)
+2025-12-25 03:52:41,086 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-25 03:52:41,086 - backend.hybrid_agent - INFO - pdf_context exists: False, web_context exists: True
+2025-12-25 03:52:41,086 - backend.hybrid_agent - INFO - Using web context only
+2025-12-25 03:52:41,086 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-25 03:52:41,086 - backend.hybrid_agent - INFO - Context length: 2406 chars
+2025-12-25 03:52:41,086 - backend.hybrid_agent - INFO - Context preview: WEB SEARCH RESULTS:
+
+[1] State whether the following statements are always true, | KnowledgeBoat
+URL: https://www.knowledgeboat.com/question/state-whether-the-following-statements-are-always-true--928...
+2025-12-25 03:52:56,831 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **Evaluating Truthfulness of Statements** 📚
+
+According to the textbook, we can analyze each statement to determine whether they are always true, always false, or ambiguous based on factual knowledge and definitions.
+
+**Detailed Explanation:**
+
+
+1. **Statement: There are 13 months in a year.**  
+   This statement is **always false**. In the Gregorian calendar, which is the most widely used calendar, there are 12 months in a year. There are no universally recognized calendars that have 13 months a
+2025-12-25 03:52:56,832 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-25 03:52:56,832 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **Evaluating Truthfulness of Statements** 📚
+
+According to the textbook, we can analyze each statement to determine whether they are always true, always false, or ambiguous based on factual knowledge and definitions.
+
+**Detailed Explanation:**
+
+
+1. **Statement: There are 13 months in a year.**  
+   This statement is **always false**. In the Gregorian calendar, which is the most widely used calendar, there are 12 months in a year. There are no universally recognized calendars that have 13 months a
+2025-12-25 03:52:56,832 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-25 03:52:56,832 - backend.hybrid_agent - INFO - Query completed: route=both, pdf_sources=0, web_sources=3
+2025-12-25 03:53:04,158 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web']
+2025-12-25 03:53:04,159 - backend.main - INFO - 📡 Has explanation_animation: False, has explanation_audio: False
+2025-12-25 03:53:09,296 - backend.main - INFO - Generating explanation for question: 'State whether the following statements are always ...'
+2025-12-25 03:53:09,296 - backend.explanation_service - INFO - ✓ Explanation eligible: 2349 chars, 5 educational keywords
+2025-12-25 03:53:09,296 - backend.hybrid_chat_service - INFO - Generating on-demand explanation...
+2025-12-25 03:53:26,960 - backend.explanation_service - INFO - Generated animation with 8 steps
+2025-12-25 03:53:40,790 - backend.explanation_service - INFO - Generated audio: 1658400 bytes
+2025-12-25 03:53:40,791 - backend.hybrid_chat_service - INFO - ✓ On-demand explanation generated
+2025-12-25 03:53:40,791 - backend.main - INFO - ✓ Explanation generated successfully
+2025-12-26 08:16:13,233 - backend.main - INFO - OpenAI API key loaded
+2025-12-26 08:16:13,233 - backend.main - INFO - Using OpenAI embeddings
+2025-12-26 08:16:13,234 - backend.vector_store - INFO - Using Direct OpenAI embeddings: text-embedding-3-small
+2025-12-26 08:16:13,234 - backend.vector_store - INFO - Using OpenAI embeddings with dimensions: 384
+2025-12-26 08:16:13,308 - backend.vector_store - INFO - Initialized VectorStoreManager with persist_directory=./chroma_db
+2025-12-26 08:16:13,381 - backend.exa_search_tool - INFO - Exa search tool initialized successfully
+2025-12-26 08:16:13,525 - backend.hybrid_agent - INFO - HybridRAGAgent initialized with LangGraph
+2025-12-26 08:16:13,552 - backend.heygen_service - WARNING - HEYGEN_API_KEY not found in environment variables
+2025-12-26 08:16:13,552 - backend.explanation_service - INFO - ExplanationService initialized (HeyGen avatar: False)
+2025-12-26 08:16:13,552 - backend.hybrid_chat_service - INFO - HybridChatService initialized with LangGraph agent and ExplanationService
+2025-12-26 08:16:13,552 - backend.main - INFO - ✅ Using HybridChatService (PDF + Web Search with LangGraph)
+2025-12-26 08:16:13,565 - backend.studio_service - INFO - StudioService initialized
+2025-12-26 08:16:13,565 - backend.main - INFO - StudioService initialized
+2025-12-26 08:16:13,565 - backend.main - INFO - Document Processing API initialized
+2025-12-26 08:16:13,571 - backend.main - INFO - FastAPI application startup complete
+2025-12-26 08:16:49,523 - backend.main - INFO - Received streaming chat request: 'what is prime number...'
+2025-12-26 08:16:49,539 - backend.hybrid_chat_service - INFO - Created new chat session: c4eddfa5-6cc5-412f-845f-fb1e7109b058
+2025-12-26 08:16:49,539 - backend.hybrid_agent - INFO - Processing query: 'what is prime number'
+2025-12-26 08:16:49,541 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-26 08:16:49,542 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: 'what is prime number...'
+2025-12-26 08:16:49,542 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-26 08:16:49,547 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: what is prime number', num_results=3, type=neural, days_back=None
+2025-12-26 08:16:49,707 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-26 08:16:49,707 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-26 08:16:51,236 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-26 08:16:51,236 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-26 08:16:51,424 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-26 08:16:51,434 - backend.hybrid_agent - INFO - PDF search: No relevant documents found
+2025-12-26 08:16:51,434 - backend.hybrid_agent - INFO - ✅ PARALLEL search completed in 1.89s (PDF: 0 sources, Web: 3 sources)
+2025-12-26 08:16:51,435 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-26 08:16:51,435 - backend.hybrid_agent - INFO - pdf_context exists: False, web_context exists: True
+2025-12-26 08:16:51,435 - backend.hybrid_agent - INFO - Using web context only
+2025-12-26 08:16:51,436 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-26 08:16:51,436 - backend.hybrid_agent - INFO - Context length: 2360 chars
+2025-12-26 08:16:51,436 - backend.hybrid_agent - INFO - Context preview: WEB SEARCH RESULTS:
+
+[1] Khan Academy
+URL: https://www.khanacademy.org/math/class-6-ncf/x04ca845a9a148c80:prime-time/x04ca845a9a148c80:prime-numbers/v/prime-numbers
+
+Content:
+## Use of cookies
+
+Cookie...
+2025-12-26 08:17:00,566 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **Prime numbers** 📚
+
+According to the textbook material from Khan Academy, a prime number is defined as a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers. It has exactly two distinct positive divisors: 1 and itself.
+
+**Detailed Explanation:**
+
+1. **Definition of Prime Numbers** - A prime number is a whole number greater than 1 that is only divisible by 1 and itself. This means that it cannot be divided evenly by any other numbers.
+
+2. **Examples of 
+2025-12-26 08:17:00,567 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-26 08:17:00,567 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **Prime numbers** 📚
+
+According to the textbook material from Khan Academy, a prime number is defined as a natural number greater than 1 that cannot be formed by multiplying two smaller natural numbers. It has exactly two distinct positive divisors: 1 and itself.
+
+**Detailed Explanation:**
+
+1. **Definition of Prime Numbers** - A prime number is a whole number greater than 1 that is only divisible by 1 and itself. This means that it cannot be divided evenly by any other numbers.
+
+2. **Examples of 
+2025-12-26 08:17:00,567 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-26 08:17:00,567 - backend.hybrid_agent - INFO - Query completed: route=both, pdf_sources=0, web_sources=3
+2025-12-26 08:17:05,225 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web']
+2025-12-26 08:17:05,225 - backend.main - INFO - 📡 Has explanation_animation: False, has explanation_audio: False
+2025-12-26 08:17:11,944 - backend.main - INFO - Generating explanation for question: 'what is prime number...'
+2025-12-26 08:17:11,945 - backend.explanation_service - INFO - ✓ Explanation eligible: 1334 chars, 5 educational keywords
+2025-12-26 08:17:11,945 - backend.hybrid_chat_service - INFO - Generating on-demand explanation...
+2025-12-26 08:17:28,241 - backend.explanation_service - INFO - Generated animation with 8 steps
+2025-12-26 08:17:37,530 - backend.explanation_service - INFO - Generated audio: 1333440 bytes
+2025-12-26 08:17:37,530 - backend.hybrid_chat_service - INFO - ✓ On-demand explanation generated
+2025-12-26 08:17:37,530 - backend.main - INFO - ✓ Explanation generated successfully
+2025-12-26 08:19:03,426 - backend.main - INFO - Generating analyzemap for session c4eddfa5-6cc5-412f-845f-fb1e7109b058
+2025-12-26 08:19:03,426 - backend.studio_service - INFO - Generating analyze map for session c4eddfa5-6cc5-412f-845f-fb1e7109b058
+2025-12-26 08:19:11,912 - backend.main - INFO - Successfully generated analyzemap for session c4eddfa5-6cc5-412f-845f-fb1e7109b058
+2025-12-26 08:19:40,040 - backend.main - INFO - Received streaming chat request: '1.
+State whether the following statements are alwa...'
+2025-12-26 08:19:40,041 - backend.hybrid_agent - INFO - Processing query: '1.
+State whether the following statements are always true, always false or ambiguous.
+Justify your answers.
+(i) There are 13 months in a year.
+(ii) Diwali falls on a Friday.
+(iii) The temperature in Magadi is 260 C.
+(iv) The earth has one moon.
+(v) Dogs can fly.
+(vi) February has only 28 days.'
+2025-12-26 08:19:40,042 - backend.hybrid_agent - INFO - Route decision: Both (comprehensive query)
+2025-12-26 08:19:40,043 - backend.hybrid_agent - INFO - 🚀 Starting PARALLEL search for: '1.
+State whether the following statements are always true, always false or ambiguous.
+Justify your a...'
+2025-12-26 08:19:40,044 - backend.vector_store - INFO - Loading existing vector store...
+2025-12-26 08:19:40,044 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: 1.
+State whether the following statements are always true, always false or ambiguous.
+Justify your answers.
+(i) There are 13 months in a year.
+(ii) Diwali falls on a Friday.
+(iii) The temperature in Magadi is 260 C.
+(iv) The earth has one moon.
+(v) Dogs can fly.
+(vi) February has only 28 days.', num_results=3, type=neural, days_back=None
+2025-12-26 08:19:40,051 - backend.vector_store - INFO - Vector store loaded successfully
+2025-12-26 08:19:40,051 - backend.vector_store - INFO - Calling OpenAI with model=text-embedding-3-small, dimensions=384, num_texts=1
+2025-12-26 08:19:40,995 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-26 08:19:40,995 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-26 08:19:41,199 - backend.vector_store - INFO - OpenAI call successful, got 1 embeddings
+2025-12-26 08:19:41,201 - backend.hybrid_agent - INFO - PDF search: No relevant documents found
+2025-12-26 08:19:41,201 - backend.hybrid_agent - INFO - ✅ PARALLEL search completed in 1.16s (PDF: 0 sources, Web: 3 sources)
+2025-12-26 08:19:41,202 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-26 08:19:41,202 - backend.hybrid_agent - INFO - pdf_context exists: False, web_context exists: True
+2025-12-26 08:19:41,202 - backend.hybrid_agent - INFO - Using web context only
+2025-12-26 08:19:41,203 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-26 08:19:41,203 - backend.hybrid_agent - INFO - Context length: 2406 chars
+2025-12-26 08:19:41,203 - backend.hybrid_agent - INFO - Context preview: WEB SEARCH RESULTS:
+
+[1] State whether the following statements are always true, | KnowledgeBoat
+URL: https://www.knowledgeboat.com/question/state-whether-the-following-statements-are-always-true--928...
+2025-12-26 08:19:52,318 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **Determining the Truth Value of Statements** 📚
+
+According to the textbook material, we need to analyze the provided statements to determine whether they are always true, always false, or ambiguous.
+
+**Detailed Explanation:**
+
+
+1. **There are 13 months in a year.**  
+   This statement is **always false**. A standard calendar year consists of 12 months, regardless of the context or cultural interpretations. 
+
+   
+2. **Diwali falls on a Friday.**  
+   This statement is **ambiguous**. Diwali, being
+2025-12-26 08:19:52,318 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-26 08:19:52,318 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **Determining the Truth Value of Statements** 📚
+
+According to the textbook material, we need to analyze the provided statements to determine whether they are always true, always false, or ambiguous.
+
+**Detailed Explanation:**
+
+
+1. **There are 13 months in a year.**  
+   This statement is **always false**. A standard calendar year consists of 12 months, regardless of the context or cultural interpretations. 
+
+   
+2. **Diwali falls on a Friday.**  
+   This statement is **ambiguous**. Diwali, being
+2025-12-26 08:19:52,318 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-26 08:19:52,318 - backend.hybrid_agent - INFO - Query completed: route=both, pdf_sources=0, web_sources=3
+2025-12-26 08:19:59,199 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web']
+2025-12-26 08:19:59,199 - backend.main - INFO - 📡 Has explanation_animation: False, has explanation_audio: False
+2025-12-26 08:20:01,457 - backend.main - INFO - Generating explanation for question: '1.
+State whether the following statements are alwa...'
+2025-12-26 08:20:01,457 - backend.explanation_service - INFO - ✓ Explanation eligible: 2171 chars, 3 educational keywords
+2025-12-26 08:20:01,457 - backend.hybrid_chat_service - INFO - Generating on-demand explanation...
+2025-12-26 08:20:22,173 - backend.explanation_service - INFO - Generated animation with 10 steps
+2025-12-26 08:20:37,396 - backend.explanation_service - INFO - Generated audio: 1395360 bytes
+2025-12-26 08:20:37,396 - backend.hybrid_chat_service - INFO - ✓ On-demand explanation generated
+2025-12-26 08:20:37,396 - backend.main - INFO - ✓ Explanation generated successfully
+2025-12-26 08:22:06,329 - backend.main - INFO - Received streaming chat request: 'i want to order pizza...'
+2025-12-26 08:22:06,330 - backend.hybrid_agent - INFO - Processing query: 'i want to order pizza'
+2025-12-26 08:22:06,331 - backend.hybrid_agent - INFO - Route decision: none (non-educational query: 'i want to order pizza')
+2025-12-26 08:22:06,331 - backend.hybrid_agent - INFO - Generating answer with context present: False
+2025-12-26 08:22:08,299 - backend.hybrid_agent - INFO - LaTeX processing - input preview: I apologize, but I can only answer questions related to educational content. 📚
+
+I'm specialized in:
+• Class 9 Mathematics and English textbooks
+• Educational topics and learning methods
+• Academic concepts and problem-solving
+
+Please ask me about topics from your textbooks or educational subjects! 🎓
+2025-12-26 08:22:08,299 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-26 08:22:08,299 - backend.hybrid_agent - INFO - LaTeX processing - output preview: I apologize, but I can only answer questions related to educational content. 📚
+
+I'm specialized in:
+• Class 9 Mathematics and English textbooks
+• Educational topics and learning methods
+• Academic concepts and problem-solving
+
+Please ask me about topics from your textbooks or educational subjects! 🎓
+2025-12-26 08:22:08,300 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-26 08:22:08,300 - backend.hybrid_agent - INFO - Query completed: route=none, pdf_sources=0, web_sources=0
+2025-12-26 08:22:09,232 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web']
+2025-12-26 08:22:09,232 - backend.main - INFO - 📡 Has explanation_animation: False, has explanation_audio: False
+2025-12-26 08:26:09,638 - backend.main - INFO - Generating summary for session c4eddfa5-6cc5-412f-845f-fb1e7109b058
+2025-12-26 08:26:09,638 - backend.studio_service - INFO - Generating summary for session c4eddfa5-6cc5-412f-845f-fb1e7109b058
+2025-12-26 08:26:14,568 - backend.main - INFO - Successfully generated summary for session c4eddfa5-6cc5-412f-845f-fb1e7109b058
+2025-12-26 08:26:24,389 - backend.main - INFO - Generating quiz for session c4eddfa5-6cc5-412f-845f-fb1e7109b058
+2025-12-26 08:26:24,389 - backend.studio_service - INFO - Generating quiz for session c4eddfa5-6cc5-412f-845f-fb1e7109b058
+2025-12-26 08:26:38,737 - backend.main - INFO - Successfully generated quiz for session c4eddfa5-6cc5-412f-845f-fb1e7109b058
+2025-12-26 08:27:17,993 - backend.main - INFO - Generating flashcards for session c4eddfa5-6cc5-412f-845f-fb1e7109b058
+2025-12-26 08:27:17,993 - backend.studio_service - INFO - Generating flashcards for session c4eddfa5-6cc5-412f-845f-fb1e7109b058
+2025-12-26 08:27:31,987 - backend.main - INFO - Successfully generated flashcards for session c4eddfa5-6cc5-412f-845f-fb1e7109b058
+2025-12-26 08:28:00,323 - backend.main - INFO - Generating report for session c4eddfa5-6cc5-412f-845f-fb1e7109b058
+2025-12-26 08:28:00,324 - backend.studio_service - INFO - Generating report for session c4eddfa5-6cc5-412f-845f-fb1e7109b058
+2025-12-26 08:28:12,541 - backend.main - INFO - Successfully generated report for session c4eddfa5-6cc5-412f-845f-fb1e7109b058
+2025-12-26 08:28:53,739 - backend.main - INFO - Generating explanation for question: 'i want to order pizza...'
+2025-12-26 08:28:53,739 - backend.explanation_service - INFO - ✓ Explanation eligible: 302 chars, 2 educational keywords
+2025-12-26 08:28:53,739 - backend.hybrid_chat_service - INFO - Generating on-demand explanation...
+2025-12-26 08:29:04,763 - backend.explanation_service - INFO - Generated animation with 3 steps
+2025-12-26 08:29:12,409 - backend.explanation_service - INFO - Generated audio: 533760 bytes
+2025-12-26 08:29:12,409 - backend.hybrid_chat_service - INFO - ✓ On-demand explanation generated
+2025-12-26 08:29:12,409 - backend.main - INFO - ✓ Explanation generated successfully
+2025-12-26 08:30:19,946 - backend.main - INFO - Received streaming chat request: 'only V and 6.
+Deductive reasoning also helps us to...'
+2025-12-26 08:30:19,946 - backend.hybrid_agent - INFO - Processing query: 'only V and 6.
+Deductive reasoning also helps us to conclude that a particular statement is true,
+because it is a special case of a more general statement that is known to be true. For
+example, once we prove that the product of two odd numbers is always odd, we can
+immediately conclude (without computation) that 70001 × 134563 is odd simply because
+70001 and 134563 are odd'
+2025-12-26 08:30:19,947 - backend.hybrid_agent - INFO - Route decision: Web only (recent information query)
+2025-12-26 08:30:19,948 - backend.exa_search_tool - INFO - Searching Exa: query='educational explanation tutorial: only V and 6.
+Deductive reasoning also helps us to conclude that a particular statement is true,
+because it is a special case of a more general statement that is known to be true. For
+example, once we prove that the product of two odd numbers is always odd, we can
+immediately conclude (without computation) that 70001 × 134563 is odd simply because
+70001 and 134563 are odd', num_results=3, type=neural, days_back=None
+2025-12-26 08:30:26,674 - backend.exa_search_tool - INFO - Exa search returned 3 results
+2025-12-26 08:30:26,674 - backend.hybrid_agent - INFO - Web search: Found 3 results
+2025-12-26 08:30:26,674 - backend.hybrid_agent - INFO - === COMBINE_CONTEXT CALLED ===
+2025-12-26 08:30:26,674 - backend.hybrid_agent - INFO - pdf_context exists: False, web_context exists: True
+2025-12-26 08:30:26,674 - backend.hybrid_agent - INFO - Using web context only
+2025-12-26 08:30:26,675 - backend.hybrid_agent - INFO - Generating answer with context present: True
+2025-12-26 08:30:26,675 - backend.hybrid_agent - INFO - Context length: 2175 chars
+2025-12-26 08:30:26,675 - backend.hybrid_agent - INFO - Context preview: WEB SEARCH RESULTS:
+
+[1] Khan Academy | Khan Academy
+URL: https://www.khanacademy.org/v/deductive-reasoning-2
+
+Content:
+If you're seeing this message, it means we're having trouble loading external re...
+2025-12-26 08:30:35,889 - backend.hybrid_agent - INFO - LaTeX processing - input preview: **Deductive reasoning** 📚
+
+According to the textbook, deductive reasoning allows us to conclude that a specific statement is true based on a more general statement that is already established as true.
+
+
+**Detailed Explanation:**
+
+
+1. **General Principle** - Deductive reasoning operates from general premises to specific conclusions. For example, knowing that the product of two odd numbers is always odd serves as a general rule that can be applied to specific cases.
+
+  
+2. **Application of Deducti
+2025-12-26 08:30:35,889 - backend.hybrid_agent - INFO - LaTeX conversion: no changes made
+2025-12-26 08:30:35,889 - backend.hybrid_agent - INFO - LaTeX processing - output preview: **Deductive reasoning** 📚
+
+According to the textbook, deductive reasoning allows us to conclude that a specific statement is true based on a more general statement that is already established as true.
+
+
+**Detailed Explanation:**
+
+
+1. **General Principle** - Deductive reasoning operates from general premises to specific conclusions. For example, knowing that the product of two odd numbers is always odd serves as a general rule that can be applied to specific cases.
+
+  
+2. **Application of Deducti
+2025-12-26 08:30:35,889 - backend.hybrid_agent - INFO - Generated and formatted final answer
+2025-12-26 08:30:35,889 - backend.hybrid_agent - INFO - Query completed: route=web_only, pdf_sources=0, web_sources=3
+2025-12-26 08:30:40,862 - backend.main - INFO - 📡 Sending sources to frontend - keys: ['route_used', 'pdf_sources', 'web_sources', 'sources', 'total_sources', 'has_pdf', 'has_web']
+2025-12-26 08:30:40,862 - backend.main - INFO - 📡 Has explanation_animation: False, has explanation_audio: False
+2025-12-26 08:30:51,024 - backend.main - INFO - Generating explanation for question: 'only V and 6.
+Deductive reasoning also helps us to...'
+2025-12-26 08:30:51,024 - backend.explanation_service - INFO - ✓ Explanation eligible: 1525 chars, 3 educational keywords
+2025-12-26 08:30:51,024 - backend.hybrid_chat_service - INFO - Generating on-demand explanation...
+2025-12-26 08:31:10,804 - backend.explanation_service - INFO - Generated animation with 7 steps
+2025-12-26 08:31:31,650 - backend.explanation_service - INFO - Generated audio: 1535040 bytes
+2025-12-26 08:31:31,651 - backend.hybrid_chat_service - INFO - ✓ On-demand explanation generated
+2025-12-26 08:31:31,651 - backend.main - INFO - ✓ Explanation generated successfully

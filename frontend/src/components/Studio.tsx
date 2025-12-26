@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import ReactMarkdown from 'react-markdown';
 import { LocationMap } from './LocationMap';
+import { AnimatedExplanation } from './AnimatedExplanation';
 import { chatApi } from '../services/api';
 import type { Message } from '../types/chat';
 import './Studio.css';
@@ -11,7 +12,7 @@ interface StudioProps {
   isCollapsed?: boolean;
 }
 
-type StudioView = 'menu' | 'mindmap' | 'quiz' | 'flashcards' | 'summary' | 'report' | 'analyzemap';
+type StudioView = 'menu' | 'mindmap' | 'quiz' | 'flashcards' | 'summary' | 'report' | 'analyzemap' | 'explanation';
 
 interface StudioOption {
   id: StudioView;
@@ -65,6 +66,13 @@ const studioOptions: StudioOption[] = [
     description: 'Detailed analysis and insights',
     color: '#fef3c7',
   },
+  {
+    id: 'explanation',
+    title: 'Video Explanation',
+    icon: '🎬',
+    description: 'Animated explanation with audio narration',
+    color: '#e9d5ff',
+  },
 ];
 
 export const Studio: React.FC<StudioProps> = ({ messages, sessionId, isCollapsed = false }) => {
@@ -76,6 +84,59 @@ export const Studio: React.FC<StudioProps> = ({ messages, sessionId, isCollapsed
   const handleOptionClick = async (optionId: StudioView) => {
     if (optionId === 'mindmap') {
       setCurrentView('mindmap');
+      return;
+    }
+
+    // Explanation view: generate on-demand if needed
+    if (optionId === 'explanation') {
+      setCurrentView('explanation');
+      setIsGenerating(true);
+      setError(null);
+
+      try {
+        // Find the most recent message pair (user + assistant)
+        const assistantMessages = messages.filter(m => m.role === 'assistant');
+        const lastAssistantMsg = assistantMessages[assistantMessages.length - 1];
+
+        // Find the user message that came before this assistant message
+        const lastAssistantIndex = messages.findIndex(m => m.id === lastAssistantMsg?.id);
+        const lastUserMsg = lastAssistantIndex > 0 ? messages[lastAssistantIndex - 1] : null;
+
+        if (!lastUserMsg || !lastAssistantMsg) {
+          setError('No conversation found to generate explanation.');
+          setIsGenerating(false);
+          return;
+        }
+
+        // Check if explanation already exists
+        if (lastAssistantMsg.explanationAnimation && lastAssistantMsg.explanationAudio) {
+          console.log('Explanation already exists, using cached version');
+          setIsGenerating(false);
+          return;
+        }
+
+        // Generate explanation on-demand
+        console.log('Generating explanation on-demand...');
+        const response = await chatApi.generateExplanation(
+          lastUserMsg.content,
+          lastAssistantMsg.content
+        );
+
+        if (response.success && response.animation && response.audio) {
+          // Update the message with explanation data
+          lastAssistantMsg.explanationAnimation = response.animation;
+          lastAssistantMsg.explanationAudio = response.audio;
+          lastAssistantMsg.explanationDuration = response.duration;
+          console.log('✓ Explanation generated and cached in message');
+        } else {
+          setError(response.message || 'Failed to generate explanation. This message may not be suitable for video explanation.');
+        }
+      } catch (err: any) {
+        console.error('Error generating explanation:', err);
+        setError(err.response?.data?.detail || 'Failed to generate explanation. Please try again.');
+      } finally {
+        setIsGenerating(false);
+      }
       return;
     }
 
@@ -162,6 +223,11 @@ export const Studio: React.FC<StudioProps> = ({ messages, sessionId, isCollapsed
                 Try Again
               </button>
             </div>
+          ) : currentView === 'explanation' ? (
+            // Explanation view doesn't need backend content - render directly
+            <div className="content-display">
+              <ExplanationStudioView messages={messages} />
+            </div>
           ) : content ? (
             <div className="content-display">
               {currentView === 'summary' && <SummaryView data={content} />}
@@ -227,6 +293,58 @@ const SummaryView: React.FC<{ data: any }> = ({ data }) => (
     </div>
   </div>
 );
+
+// Explanation Studio View Component
+const ExplanationStudioView: React.FC<{ messages: Message[] }> = ({ messages }) => {
+  console.log('ExplanationStudioView - Total messages:', messages.length);
+
+  // Find the most recent message with explanation data
+  const messageWithExplanation = [...messages]
+    .reverse()
+    .find(msg => {
+      const hasExplanation = !!(msg.explanationAnimation && msg.explanationAudio);
+      console.log('Checking message:', {
+        role: msg.role,
+        hasAnimation: !!msg.explanationAnimation,
+        hasAudio: !!msg.explanationAudio,
+        contentPreview: msg.content.substring(0, 50)
+      });
+      return hasExplanation;
+    });
+
+  console.log('Found message with explanation:', !!messageWithExplanation);
+
+  if (!messageWithExplanation || !messageWithExplanation.explanationAnimation || !messageWithExplanation.explanationAudio) {
+    return (
+      <div className="explanation-studio-view">
+        <div className="no-explanation">
+          <p>🎬 No animated explanations available yet.</p>
+          <p>Ask an educational question in the chat to generate an explanation!</p>
+          <p style={{ fontSize: '0.8em', color: '#666' }}>
+            Debug: Found {messages.length} messages
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="explanation-studio-view">
+      <h3>Latest Explanation</h3>
+      <div className="explanation-content">
+        <p className="explanation-question">
+          <strong>Original Message:</strong> {messageWithExplanation.content.substring(0, 200)}
+          {messageWithExplanation.content.length > 200 && '...'}
+        </p>
+        <AnimatedExplanation
+          animation={messageWithExplanation.explanationAnimation}
+          audioBase64={messageWithExplanation.explanationAudio}
+          avatarVideoUrl={messageWithExplanation.avatarVideoUrl}
+        />
+      </div>
+    </div>
+  );
+};
 
 // Quiz View Component
 const QuizView: React.FC<{ data: any }> = ({ data }) => {

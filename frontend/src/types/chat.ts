@@ -5,6 +5,25 @@ export interface Message {
   timestamp: Date;
   sources?: Source[];
   imageData?: string; // Base64 image data for display in chat
+  explanationAnimation?: AnimationData; // Animation steps for explanation
+  explanationAudio?: string; // Base64 encoded audio
+  explanationDuration?: number; // Duration in seconds
+  avatarVideoUrl?: string; // HeyGen avatar video URL
+  avatarVideoId?: string; // HeyGen video ID
+}
+
+export interface AnimationData {
+  narration: string;
+  steps: AnimationStep[];
+  duration?: number;
+}
+
+export interface AnimationStep {
+  id: string;
+  content: string;
+  startTime: number; // Seconds
+  duration: number; // Seconds
+  animation: 'fadeIn' | 'slideIn' | 'highlight' | 'scale' | 'pulse';
 }
 
 export interface Source {
