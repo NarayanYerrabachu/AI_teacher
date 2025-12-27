@@ -257,6 +257,11 @@ class HybridRAGAgent:
                 ]
 
                 logger.info(f"PDF search: Found {len(relevant_docs)} relevant documents")
+                # Log first source structure for debugging
+                if state["pdf_sources"]:
+                    logger.info(f"📍 First PDF source structure: {state['pdf_sources'][0]}")
+                    logger.info(f"📍 Metadata keys: {list(state['pdf_sources'][0]['metadata'].keys())}")
+                    logger.info(f"📍 Page number: {state['pdf_sources'][0]['metadata'].get('page')}")
 
                 # If we got good PDF results and don't need recent info, skip web
                 if state.get("route_decision") == "both" and relevant_docs[0][1] > 0.35:

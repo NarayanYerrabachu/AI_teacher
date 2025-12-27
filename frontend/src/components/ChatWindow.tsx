@@ -86,6 +86,19 @@ export const ChatWindow: React.FC<ChatWindowProps> = ({ messages, onMessagesChan
           audioLength: explanationData?.audio?.length
         });
 
+        console.log('📍 ChatWindow - Received sources:', sources);
+        console.log('📍 ChatWindow - Number of sources:', sources?.length);
+        if (sources && sources.length > 0) {
+          console.log('📍 ChatWindow - First source structure:', {
+            hasMetadata: !!sources[0].metadata,
+            metadataKeys: sources[0].metadata ? Object.keys(sources[0].metadata) : [],
+            metadataSource: sources[0].metadata?.source,
+            metadataPage: sources[0].metadata?.page,
+            sourceType: sources[0].source,
+            rootKeys: Object.keys(sources[0])
+          });
+        }
+
         setSessionId(newSessionId);
         onSessionIdChange?.(newSessionId);
         // Create assistant message with accumulated content from ref

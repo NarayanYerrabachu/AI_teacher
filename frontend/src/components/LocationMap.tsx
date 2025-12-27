@@ -127,9 +127,22 @@ export const LocationMap: React.FC<LocationMapProps> = ({ messages, isCollapsed 
       // Collect sources for the current topic
       if (message.role === 'assistant' && currentTopic && message.sources && message.sources.length > 0) {
         const topicSources = topicsWithSources.get(currentTopic)!;
-        message.sources.forEach(source => {
+
+        console.log('📍 LocationMap - Processing sources for topic:', currentTopic);
+        console.log('📍 LocationMap - Number of sources:', message.sources.length);
+
+        message.sources.forEach((source, idx) => {
+          console.log(`📍 LocationMap - Source ${idx}:`, {
+            hasMetadata: !!source.metadata,
+            metadataSource: source.metadata?.source,
+            metadataPage: source.metadata?.page,
+            sourceType: source.source,
+            fullSource: source
+          });
+
           // Skip sources without metadata
           if (!source.metadata || !source.metadata.source) {
+            console.log(`📍 LocationMap - Skipping source ${idx}: no metadata or source path`);
             return;
           }
 
@@ -141,7 +154,10 @@ export const LocationMap: React.FC<LocationMapProps> = ({ messages, isCollapsed 
             });
           }
           if (source.metadata.page) {
+            console.log(`📍 LocationMap - Adding page ${source.metadata.page} to source ${sourceKey}`);
             topicSources.get(sourceKey)!.pages.add(source.metadata.page);
+          } else {
+            console.log(`📍 LocationMap - Source ${sourceKey} has no page number`);
           }
         });
       }

@@ -29,9 +29,17 @@ export interface AnimationStep {
 export interface Source {
   content: string;
   metadata: {
-    source: string;
-    page?: number;
+    source: string; // File path
+    page?: number; // Page number in PDF
+    total_pages?: number; // Total pages in PDF
   };
+  relevance_score?: string; // For PDF sources
+  source?: string; // Source type: "pdf" or "web"
+  // For web sources
+  title?: string;
+  url?: string;
+  published_date?: string;
+  score?: number;
 }
 
 export interface ChatRequest {
