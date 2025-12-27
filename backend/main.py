@@ -208,7 +208,7 @@ async def upload_pdf(files: List[UploadFile] = File(...)):
     logger.info(f"Received request to upload {len(files)} PDF files")
     try:
         from langchain_community.document_loaders import PyPDFLoader
-        from langchain.text_splitter import RecursiveCharacterTextSplitter
+        from langchain_text_splitters import RecursiveCharacterTextSplitter
         from .vector_store import VectorStoreManager
 
         pdf_paths = []

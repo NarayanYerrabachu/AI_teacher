@@ -57,13 +57,25 @@ class Config:
 
 def setup_logging():
     """Configure logging for the application"""
+    # In Docker, only log to stdout/stderr. Otherwise use file handler.
+    handlers = [logging.StreamHandler()]
+
+    # Only use file handler if not in Docker (check if we're running as root or have write access)
+    try:
+        log_dir = Path("/app/logs") if Path("/app").exists() else Path(".")
+        log_dir.mkdir(exist_ok=True)
+        log_file = log_dir / "app.log"
+        # Test if we can write
+        log_file.touch()
+        handlers.append(logging.FileHandler(str(log_file)))
+    except (PermissionError, OSError):
+        # In Docker or no write permission, just use StreamHandler
+        pass
+
     logging.basicConfig(
         level=getattr(logging, Config.LOG_LEVEL),
         format=Config.LOG_FORMAT,
-        handlers=[
-            logging.StreamHandler(),
-            logging.FileHandler("app.log")
-        ]
+        handlers=handlers
     )
 
     # Reduce noise from third-party libraries

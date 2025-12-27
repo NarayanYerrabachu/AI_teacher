@@ -6,7 +6,7 @@ sys.path.insert(0, '/home/evocenta/PycharmProjects/AI_teacher')
 
 from pathlib import Path
 from langchain_community.document_loaders import PyPDFLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 from backend.vector_store import VectorStoreManager
 from backend.config import Config
 import logging

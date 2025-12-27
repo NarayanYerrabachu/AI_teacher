@@ -261,22 +261,82 @@ LOG_LEVEL=INFO  # DEBUG, INFO, WARNING, ERROR, CRITICAL
 
 ## Startup Scripts
 
-### Full Stack
+### Local Development (Without Docker)
+
+#### Full Stack
 ```bash
 ./start-all.sh
 # Starts backend (port 8000) + frontend (port 4200)
 ```
 
-### Backend Only
+#### Backend Only
 ```bash
 ./start-backend.sh
 # OR
 cd backend && uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
 
-### Frontend Only
+#### Frontend Only
 ```bash
 cd frontend && npm run dev
+```
+
+### Docker Deployment (Recommended for Production)
+
+#### Quick Start
+```bash
+# Initial setup
+make setup
+
+# Start services
+make up
+
+# View logs
+make logs
+
+# Stop services
+make down
+```
+
+#### Docker Architecture
+```
+Host System
+├── Frontend Container (nginx:alpine)
+│   ├── Port: 4200
+│   ├── Built assets from Vite
+│   └── API proxy to backend
+├── Backend Container (python:3.12-slim)
+│   ├── Port: 8000
+│   ├── FastAPI + LangGraph
+│   └── Vector DB + Uploads
+└── Docker Volumes
+    ├── chroma_data (ChromaDB persistence)
+    ├── uploads_data (PDF files)
+    └── logs (Application logs)
+```
+
+#### Key Docker Files
+- `docker-compose.yml` - Orchestration configuration
+- `backend/Dockerfile` - Backend container definition
+- `frontend/Dockerfile` - Frontend container with nginx
+- `frontend/nginx.conf` - Nginx reverse proxy config
+- `Makefile` - Convenient management commands
+- `DOCKER_DEPLOYMENT.md` - Complete Docker guide
+- `DOCKER_QUICKSTART.md` - Quick start guide
+
+#### Docker Commands
+```bash
+make help          # Show all available commands
+make setup         # Initial setup (copy .env, build, start)
+make up            # Start all services
+make down          # Stop all services
+make logs          # View logs (all services)
+make logs-backend  # View backend logs only
+make restart       # Restart services
+make backup        # Backup data volumes
+make clean         # Remove containers
+make rebuild       # Rebuild from scratch
+make shell-backend # Access backend container shell
 ```
 
 ## Core Services Explained

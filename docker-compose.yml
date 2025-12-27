@@ -1,0 +1,83 @@
+
+services:
+  # Backend Service
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: ai-teacher-backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      # Load from .env file
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_API_BASE=${OPENAI_API_BASE:-https://api.openai.com/v1}
+      - USE_OPENAI_EMBEDDINGS=${USE_OPENAI_EMBEDDINGS:-true}
+      - EMBEDDING_MODEL=${EMBEDDING_MODEL:-text-embedding-3-small}
+      - EMBEDDING_DIMENSIONS=${EMBEDDING_DIMENSIONS:-384}
+      - LLM_MODEL=${LLM_MODEL:-gpt-4o-mini}
+      - LLM_TEMPERATURE=${LLM_TEMPERATURE:-0.7}
+      - MAX_HISTORY_MESSAGES=${MAX_HISTORY_MESSAGES:-10}
+      - CHROMA_PERSIST_DIR=${CHROMA_PERSIST_DIR:-./chroma_db}
+      - CHUNK_SIZE=${CHUNK_SIZE:-1000}
+      - CHUNK_OVERLAP=${CHUNK_OVERLAP:-200}
+      - DEFAULT_SEARCH_K=${DEFAULT_SEARCH_K:-4}
+      - EXA_API_KEY=${EXA_API_KEY}
+      - WEB_SEARCH_RESULTS_LIMIT=${WEB_SEARCH_RESULTS_LIMIT:-3}
+      - WEB_SEARCH_DAYS_BACK=${WEB_SEARCH_DAYS_BACK:-90}
+      - USE_HYBRID_AGENT=${USE_HYBRID_AGENT:-true}
+      - ENABLE_HEYGEN_AVATAR=${ENABLE_HEYGEN_AVATAR:-false}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      # Email config (optional)
+      - EMAIL_SENDER=${EMAIL_SENDER:-}
+      - EMAIL_PASSWORD=${EMAIL_PASSWORD:-}
+      - SMTP_SERVER=${SMTP_SERVER:-smtp.gmail.com}
+      - SMTP_PORT=${SMTP_PORT:-587}
+    volumes:
+      # Persistent storage for ChromaDB
+      - chroma_data:/app/chroma_db
+      # Persistent storage for uploads
+      - uploads_data:/app/uploads
+      # Application logs
+      - ./logs:/app/logs
+    networks:
+      - ai-teacher-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Frontend Service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ai-teacher-frontend
+    restart: unless-stopped
+    ports:
+      - "4200:4200"
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - ai-teacher-network
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:4200/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+networks:
+  ai-teacher-network:
+    driver: bridge
+
+volumes:
+  # Named volumes for persistence
+  chroma_data:
+    driver: local
+  uploads_data:
+    driver: local
